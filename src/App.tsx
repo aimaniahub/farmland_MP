@@ -1,65 +1,71 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import LandingPage from './pages/LandingPage';
-import FarmerDashboard from './pages/FarmerDashboard';
-import FieldManagement from './pages/FieldManagement';
-import TaskManager from './pages/TaskManager';
-import InventoryManagement from './pages/InventoryManagement';
-import WeatherPage from './pages/WeatherPage';
-import ProductShowcase from './pages/ProductShowcase';
-import FarmerProfile from './pages/FarmerProfile';
-import AdminPanel from './pages/AdminPanel';
-import LoginModal from './components/LoginModal';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import AboutUs from './pages/AboutUs';
+import FarmsPage from './pages/FarmsPage';
+import FarmDetails from './pages/FarmDetails';
+import ServicesPage from './pages/ServicesPage';
+import MediaPage from './pages/MediaPage';
+import GalleryPage from './pages/GalleryPage';
+import ContactPage from './pages/ContactPage';
+import FAQPage from './pages/FAQPage';
+import CareersPage from './pages/CareersPage';
+import EnquiryModal from './components/EnquiryModal';
 
-export type UserRole = 'farmer' | 'admin' | 'public';
-
-export interface User {
+export interface Farm {
   id: string;
   name: string;
-  email: string;
-  role: UserRole;
-  farmName?: string;
+  location: string;
+  proximity: string;
+  startingPrice: number;
+  plotSizes: string[];
+  availableUnits: number;
+  totalUnits: number;
+  status: 'ongoing' | 'upcoming' | 'sold-out';
+  description: string;
+  images: string[];
+  features: string[];
+  amenities: string[];
+  cropTypes: string[];
+  area: string;
+  paymentPlans: string[];
 }
 
 function App() {
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isEnquiryModalOpen, setIsEnquiryModalOpen] = useState(false);
+  const [selectedFarm, setSelectedFarm] = useState<Farm | null>(null);
 
-  const handleLogin = (userData: User) => {
-    setUser(userData);
-    setIsLoginModalOpen(false);
-  };
-
-  const handleLogout = () => {
-    setUser(null);
+  const handleEnquiry = (farm?: Farm) => {
+    setSelectedFarm(farm || null);
+    setIsEnquiryModalOpen(true);
   };
 
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-yellow-50">
-        <Navbar 
-          user={user} 
-          onLogin={() => setIsLoginModalOpen(true)}
-          onLogout={handleLogout}
-        />
+      <div className="min-h-screen bg-white">
+        <Navbar onEnquiry={() => handleEnquiry()} />
         
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/dashboard" element={<FarmerDashboard user={user} />} />
-          <Route path="/fields" element={<FieldManagement user={user} />} />
-          <Route path="/tasks" element={<TaskManager user={user} />} />
-          <Route path="/inventory" element={<InventoryManagement user={user} />} />
-          <Route path="/weather" element={<WeatherPage />} />
-          <Route path="/products" element={<ProductShowcase />} />
-          <Route path="/profile" element={<FarmerProfile user={user} />} />
-          <Route path="/admin" element={<AdminPanel user={user} />} />
+          <Route path="/" element={<HomePage onEnquiry={handleEnquiry} />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/farms" element={<FarmsPage onEnquiry={handleEnquiry} />} />
+          <Route path="/farms/:id" element={<FarmDetails onEnquiry={handleEnquiry} />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/media" element={<MediaPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/faq" element={<FAQPage />} />
+          <Route path="/careers" element={<CareersPage />} />
         </Routes>
 
-        <LoginModal
-          isOpen={isLoginModalOpen}
-          onClose={() => setIsLoginModalOpen(false)}
-          onLogin={handleLogin}
+        <Footer />
+
+        <EnquiryModal
+          isOpen={isEnquiryModalOpen}
+          onClose={() => setIsEnquiryModalOpen(false)}
+          farm={selectedFarm}
         />
       </div>
     </Router>
