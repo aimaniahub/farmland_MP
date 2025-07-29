@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -6,12 +6,14 @@ import HomePage from './pages/HomePage';
 import AboutUs from './pages/AboutUs';
 import FarmsPage from './pages/FarmsPage';
 import FarmDetails from './pages/FarmDetails';
-import ServicesPage from './pages/ServicesPage';
-import MediaPage from './pages/MediaPage';
-import GalleryPage from './pages/GalleryPage';
-import ContactPage from './pages/ContactPage';
-import FAQPage from './pages/FAQPage';
-import CareersPage from './pages/CareersPage';
+import ServicesPage from './pages/ServicesPage.tsx';
+import MediaPage from './pages/MediaPage.tsx';
+import GalleryPage from './pages/GalleryPage.tsx';
+import ContactPage from './pages/ContactPage.tsx';
+import FAQPage from './pages/FAQPage.tsx';
+import CareersPage from './pages/CareersPage.tsx';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 import EnquiryModal from './components/EnquiryModal';
 
 export interface Farm {
@@ -58,6 +60,8 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/careers" element={<CareersPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:id" element={<BlogPostPage />} />
         </Routes>
 
         <Footer />

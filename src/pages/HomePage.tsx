@@ -14,6 +14,7 @@ import {
   Phone
 } from 'lucide-react';
 import { Farm } from '../App';
+import BlogFeatured from '../components/BlogFeatured';
 
 interface HomePageProps {
   onEnquiry: (farm?: Farm) => void;
@@ -420,6 +421,49 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Featured Blog Posts */}
+      <section className="py-16 bg-white">
+        <BlogFeatured 
+          posts={[
+            {
+              id: '1',
+              title: 'Top 10 Crops for Profitable Farming in 2023',
+              excerpt: 'Discover the most profitable crops to grow this year based on market trends and climate conditions.',
+              author: 'Rajesh Kumar',
+              date: 'June 15, 2023',
+              category: 'farming-tips',
+              tags: ['crops', 'profitability', 'market-trends'],
+              image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFybXxlbnwwfHwwfHw%3D&w=1000&q=80',
+              readTime: '5 min read',
+            },
+            {
+              id: '2',
+              title: 'How Farm Plot Investment Changed My Retirement Plans',
+              excerpt: 'A personal story of how investing in farmland provided financial security and peace of mind.',
+              author: 'Priya Sharma',
+              date: 'May 22, 2023',
+              category: 'success-stories',
+              tags: ['investment', 'retirement', 'personal-story'],
+              image: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZmFybXxlbnwwfHwwfHw%3D&w=1000&q=80',
+              readTime: '7 min read',
+            },
+            {
+              id: '3',
+              title: 'Sustainable Farming Practices for Small Plot Owners',
+              excerpt: 'Learn how to implement eco-friendly farming techniques that improve soil health and crop yield.',
+              author: 'Arun Patel',
+              date: 'April 10, 2023',
+              category: 'sustainability',
+              tags: ['sustainable', 'eco-friendly', 'soil-health'],
+              image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8ZmFybXxlbnwwfHwwfHw%3D&w=1000&q=80',
+              readTime: '6 min read',
+            },
+          ]}
+          title="From Our Blog"
+          subtitle="Latest insights, tips, and success stories from our farming community"
+        />
       </section>
 
       {/* CTA Section */}

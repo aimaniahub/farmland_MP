@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
             <div className="lg:col-span-1">
               <Link to="/" className="flex items-center space-x-2 mb-4">
                 <Sprout className="h-8 w-8 text-green-500" />
-                <span className="text-2xl font-bold">GreenFarmlands</span>
+                <span className="text-2xl font-bold">Earth-Foundation</span>
               </Link>
               <p className="text-gray-300 mb-6">
                 Transforming agriculture through managed farmland investments. 

@@ -21,6 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({ onEnquiry }) => {
     { to: '/about', label: 'About Us' },
     { to: '/farms', label: 'Farms' },
     { to: '/services', label: 'Services' },
+    { to: '/blog', label: 'Blog' },
     { to: '/media', label: 'Media' },
     { to: '/gallery', label: 'Gallery' },
     { to: '/contact', label: 'Contact' },
@@ -34,11 +35,11 @@ const Navbar: React.FC<NavbarProps> = ({ onEnquiry }) => {
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <Phone className="h-4 w-4" />
-              <span>+91 98765 43210</span>
+              <span>+91 999999999</span>
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="h-4 w-4" />
-              <span>info@greenfarmlands.com</span>
+              <span>info@earthfoundation.com</span>
             </div>
           </div>
           <div className="hidden md:block">
@@ -53,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = ({ onEnquiry }) => {
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex items-center space-x-2">
               <Sprout className="h-8 w-8 text-green-600" />
-              <span className="text-2xl font-bold text-gray-800">GreenFarmlands</span>
+              <span className="text-2xl font-bold text-gray-800">Earth-Foundation</span>
             </Link>
 
             {/* Desktop Navigation */}
