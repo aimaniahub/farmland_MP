@@ -109,85 +109,109 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background with overlay */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{
             backgroundImage: 'url("https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg")'
           }}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
+          <div className="absolute inset-0 bg-primary-900/20"></div>
         </div>
         
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        {/* Floating elements */}
+        <div className="absolute top-20 left-10 w-4 h-4 bg-primary-400/30 rounded-full animate-float"></div>
+        <div className="absolute top-40 right-20 w-6 h-6 bg-secondary-400/20 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-40 left-20 w-3 h-3 bg-primary-300/40 rounded-full animate-float" style={{animationDelay: '4s'}}></div>
+        
+        <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
+          <div className="animate-fade-in">
+            <div className="inline-block px-4 py-2 bg-primary-600/20 backdrop-blur-sm rounded-full border border-primary-400/30 mb-6">
+              <span className="text-primary-200 text-sm font-medium">🌱 Premium Managed Farmlands</span>
+            </div>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-8 leading-tight animate-slide-up">
             Own Your
-            <span className="block text-green-400">Dream Farm</span>
+            <span className="block text-primary-400 bg-gradient-to-r from-primary-400 to-primary-300 bg-clip-text text-transparent">Dream Farm</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200">
-            Invest in managed farmlands with guaranteed returns, sustainable practices, 
-            and hassle-free ownership. Your gateway to agricultural prosperity.
+          
+          <p className="text-xl md:text-2xl lg:text-3xl mb-12 text-gray-200 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{animationDelay: '0.2s'}}>
+            Invest in <span className="text-primary-300 font-semibold">managed farmlands</span> with guaranteed returns, 
+            sustainable practices, and hassle-free ownership. Your gateway to agricultural prosperity.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up" style={{animationDelay: '0.4s'}}>
             <Link
               to="/farms"
-              className="inline-flex items-center px-8 py-4 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors font-semibold text-lg"
+              className="inline-flex items-center px-10 py-4 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-all duration-300 font-semibold text-lg shadow-2xl hover:shadow-primary-500/25 transform hover:-translate-y-1 hover:scale-105"
             >
               Explore Farms
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
             <button
               onClick={() => onEnquiry()}
-              className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white rounded-full hover:bg-white hover:text-gray-900 transition-colors font-semibold text-lg"
+              className="inline-flex items-center px-10 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
             >
               <Calendar className="mr-2 h-5 w-5" />
               Book Free Site Tour
             </button>
           </div>
+          
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Introduction to Managed Farmlands */}
-      <section className="py-20 bg-white">
+      <section className="py-24 bg-gradient-to-b from-white to-cream-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">
+          <div className="text-center mb-20">
+            <div className="inline-block px-4 py-2 bg-primary-100 rounded-full mb-6">
+              <span className="text-primary-700 text-sm font-semibold">WHAT ARE MANAGED FARMLANDS?</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-800 mb-8 leading-tight">
               What are Managed Farmlands?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Managed farmlands offer you the opportunity to own agricultural land without the hassle of farming. 
-              We handle everything from cultivation to harvest while you enjoy the returns and benefits.
+              We handle everything from <span className="text-primary-600 font-semibold">cultivation to harvest</span> while you enjoy the returns and benefits.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-green-600" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="text-center p-8 group hover:transform hover:-translate-y-2 transition-all duration-300">
+              <div className="bg-gradient-to-br from-primary-100 to-primary-200 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-xl group-hover:shadow-primary-200/50 transition-all duration-300">
+                <Shield className="h-10 w-10 text-primary-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Hassle-Free Ownership</h3>
-              <p className="text-gray-600">
+              <h3 className="text-2xl font-heading font-bold text-gray-800 mb-4">Hassle-Free Ownership</h3>
+              <p className="text-gray-600 leading-relaxed">
                 Own farmland without worrying about daily operations. We manage everything for you.
               </p>
             </div>
             
-            <div className="text-center p-6">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Leaf className="h-8 w-8 text-green-600" />
+            <div className="text-center p-8 group hover:transform hover:-translate-y-2 transition-all duration-300">
+              <div className="bg-gradient-to-br from-sage-100 to-sage-200 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-xl group-hover:shadow-sage-200/50 transition-all duration-300">
+                <Leaf className="h-10 w-10 text-sage-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Sustainable Practices</h3>
-              <p className="text-gray-600">
+              <h3 className="text-2xl font-heading font-bold text-gray-800 mb-4">Sustainable Practices</h3>
+              <p className="text-gray-600 leading-relaxed">
                 Organic farming methods that protect the environment and ensure healthy produce.
               </p>
             </div>
             
-            <div className="text-center p-6">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="h-8 w-8 text-green-600" />
+            <div className="text-center p-8 group hover:transform hover:-translate-y-2 transition-all duration-300">
+              <div className="bg-gradient-to-br from-secondary-100 to-secondary-200 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-xl group-hover:shadow-secondary-200/50 transition-all duration-300">
+                <TrendingUp className="h-10 w-10 text-secondary-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Investment Potential</h3>
-              <p className="text-gray-600">
+              <h3 className="text-2xl font-heading font-bold text-gray-800 mb-4">Investment Potential</h3>
+              <p className="text-gray-600 leading-relaxed">
                 Enjoy steady returns from agricultural produce and land appreciation over time.
               </p>
             </div>
@@ -196,21 +220,29 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
       </section>
 
       {/* Featured Farms */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-24 bg-gradient-to-b from-cream-50 to-white relative overflow-hidden">
+        {/* Background pattern */}
+        <div className="absolute inset-0 bg-farm-pattern opacity-5"></div>
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">Featured Farms</h2>
-            <p className="text-xl text-gray-600">
+          <div className="text-center mb-20">
+            <div className="inline-block px-4 py-2 bg-primary-100 rounded-full mb-6">
+              <span className="text-primary-700 text-sm font-semibold">OUR PREMIUM PROJECTS</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-800 mb-8">Featured Farms</h2>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
               Discover our premium managed farmland projects
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-16">
             {featuredFarms.map((farm) => (
-              <div key={farm.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${farm.images[0]})` }}>
-                  <div className="h-full bg-black bg-opacity-20 flex items-end p-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+              <div key={farm.id} className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group">
+                <div className="relative h-64 bg-cover bg-center overflow-hidden" style={{ backgroundImage: `url(${farm.images[0]})` }}>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-primary-900/10 group-hover:bg-primary-900/20 transition-colors duration-300"></div>
+                  <div className="absolute top-4 left-4">
+                    <span className={`px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm ${
                       farm.status === 'ongoing' ? 'bg-green-500 text-white' :
                       farm.status === 'upcoming' ? 'bg-blue-500 text-white' :
                       'bg-red-500 text-white'
@@ -219,46 +251,67 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
                        farm.status === 'upcoming' ? 'Coming Soon' : 'Sold Out'}
                     </span>
                   </div>
+                  {farm.availableUnits > 0 && farm.availableUnits < 20 && (
+                    <div className="absolute top-4 right-4">
+                      <span className="bg-secondary-500 text-white px-3 py-1 rounded-full text-sm font-semibold backdrop-blur-sm">
+                        Limited Units!
+                      </span>
+                    </div>
+                  )}
                 </div>
                 
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2">{farm.name}</h3>
-                  <p className="text-gray-600 flex items-center mb-3">
-                    <MapPin className="h-4 w-4 mr-1" />
+                <div className="p-8">
+                  <h3 className="text-2xl font-heading font-bold text-gray-800 mb-3 group-hover:text-primary-600 transition-colors">{farm.name}</h3>
+                  <p className="text-gray-600 flex items-center mb-4">
+                    <MapPin className="h-5 w-5 mr-2 text-primary-500" />
                     {farm.proximity}
                   </p>
-                  <p className="text-gray-600 mb-4">{farm.description}</p>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{farm.description}</p>
                   
-                  <div className="flex justify-between items-center mb-4">
+                  <div className="flex justify-between items-center mb-6">
                     <div>
-                      <p className="text-2xl font-bold text-green-600">
+                      <p className="text-3xl font-bold text-primary-600">
                         ₹{(farm.startingPrice / 100000).toFixed(1)}L
                       </p>
-                      <p className="text-sm text-gray-500">Starting from</p>
+                      <p className="text-sm text-gray-500 font-medium">Starting from</p>
                     </div>
-                    <div className="text-right">
-                      <p className="text-sm text-orange-600 font-medium">
-                        Only {farm.availableUnits} units left!
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        of {farm.totalUnits} total units
-                      </p>
+                    {farm.status !== 'sold-out' && (
+                      <div className="text-right">
+                        <p className="text-sm text-secondary-600 font-semibold">
+                          {farm.availableUnits} units left
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          of {farm.totalUnits} total
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  
+                  <div className="mb-6">
+                    <div className="flex flex-wrap gap-2">
+                      {farm.features.slice(0, 3).map((feature, index) => (
+                        <span key={index} className="px-3 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium">
+                          {feature}
+                        </span>
+                      ))}
                     </div>
                   </div>
                   
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-3">
                     <Link
                       to={`/farms/${farm.id}`}
-                      className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors text-center font-medium"
+                      className="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-xl hover:bg-gray-200 transition-all duration-300 text-center font-semibold group-hover:bg-primary-50 group-hover:text-primary-700"
                     >
                       View Details
                     </Link>
-                    <button
-                      onClick={() => onEnquiry(farm)}
-                      className="flex-1 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors font-medium"
-                    >
-                      Enquire Now
-                    </button>
+                    {farm.status !== 'sold-out' && (
+                      <button
+                        onClick={() => onEnquiry(farm)}
+                        className="flex-1 bg-primary-600 text-white py-3 px-4 rounded-xl hover:bg-primary-700 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                      >
+                        Enquire Now
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -268,7 +321,7 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
           <div className="text-center">
             <Link
               to="/farms"
-              className="inline-flex items-center px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium"
+              className="inline-flex items-center px-8 py-4 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-all duration-300 font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
             >
               View All Farms
               <ArrowRight className="ml-2 h-4 w-4" />
