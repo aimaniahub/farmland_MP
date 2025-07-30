@@ -63,7 +63,8 @@ const NewsletterSubscribe: React.FC<NewsletterSubscribeProps> = ({
       setTimeout(() => {
         setSuccess(false);
       }, 5000);
-    } catch (err) {
+    } catch (error) {
+      console.error('Error subscribing:', error);
       setError('Failed to subscribe. Please try again.');
     } finally {
       setLoading(false);

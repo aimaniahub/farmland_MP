@@ -1,91 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, ArrowRight } from 'lucide-react';
+import { MapPin, ChevronLeft, ChevronRight, Leaf, Maximize, TrendingUp } from 'lucide-react';
 import { Farm } from '../App';
 
 interface FarmCardProps {
   farm: Farm;
-  onEnquiry: (farm: Farm) => void;
 }
 
-const FarmCard: React.FC<FarmCardProps> = ({ farm, onEnquiry }) => {
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'ongoing': return 'bg-primary-500 text-white';
-      case 'upcoming': return 'bg-blue-500 text-white';
-      case 'sold-out': return 'bg-red-500 text-white';
-      default: return 'bg-gray-500 text-white';
-    }
+const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % farm.images.length);
   };
 
-  const getStatusText = (status: string) => {
-    switch (status) {
-      case 'ongoing': return 'Available Now';
-      case 'upcoming': return 'Coming Soon';
-      case 'sold-out': return 'Sold Out';
-      default: return status;
-    }
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + farm.images.length) % farm.images.length);
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-      <div className="relative overflow-hidden h-56">
+    <div className="bg-white-background rounded-2xl shadow-lg overflow-hidden group transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2 transform flex flex-col">
+      <div className="relative h-64">
         <img
-          src={farm.images[0]}
-          alt={farm.name}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          src={farm.images[currentImage]}
+          alt={`${farm.name} - image ${currentImage + 1}`}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute top-4 left-4">
-          <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(farm.status)}`}>
-            {getStatusText(farm.status)}
+        {farm.images.length > 1 && (
+          <>
+            <button onClick={prevImage} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 p-1 rounded-full text-dark-text hover:bg-white transition">
+              <ChevronLeft size={20} />
+            </button>
+            <button onClick={nextImage} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 p-1 rounded-full text-dark-text hover:bg-white transition">
+              <ChevronRight size={20} />
+            </button>
+          </>
+        )}
+        <div className="absolute top-4 right-4">
+          <span className="bg-accent text-white px-3 py-1 rounded-full text-sm font-semibold shadow-md">
+            {farm.status}
           </span>
         </div>
       </div>
       
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-primary-600 transition-colors">
+      <div className="p-6 flex-grow flex flex-col">
+        <h3 className="text-2xl font-heading font-bold text-dark-text mb-2">
           {farm.name}
         </h3>
         
-        <div className="flex items-center text-gray-600 mb-4">
-          <MapPin className="h-4 w-4 mr-1 text-primary-500" />
+        <div className="flex items-center text-subtle-text mb-4">
+          <MapPin className="h-5 w-5 mr-2 text-primary" />
           <span>{farm.proximity}</span>
         </div>
-        
-        <div className="mb-4">
-          <p className="text-sm text-gray-500 mb-1">Starting from</p>
-          <p className="text-2xl font-bold text-primary-600">
-            ₹{(farm.startingPrice / 100000).toFixed(1)}L
-          </p>
+
+        <div className="space-y-3 text-subtle-text flex-grow">
+          <div className="flex items-center">
+            <Leaf size={18} className="mr-3 text-primary"/>
+            <span>Crops: {farm.cropTypes.join(', ')}</span>
+          </div>
+          <div className="flex items-center">
+            <Maximize size={18} className="mr-3 text-primary"/>
+            <span>Area: {farm.area}</span>
+          </div>
+          <div className="flex items-center">
+            <TrendingUp size={18} className="mr-3 text-primary"/>
+            <span>{farm.availableUnits} of {farm.totalUnits} units available</span>
+          </div>
         </div>
         
-        <div className="flex flex-wrap gap-2 mb-4">
-          {farm.cropTypes.slice(0, 3).map((crop, index) => (
-            <span key={index} className="px-2 py-1 bg-primary-50 text-primary-700 text-xs rounded-full">
-              {crop}
-            </span>
-          ))}
-          {farm.cropTypes.length > 3 && (
-            <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
-              +{farm.cropTypes.length - 3} more
-            </span>
-          )}
-        </div>
-        
-        <div className="flex gap-2">
+        <div className="flex justify-between items-center mt-6 pt-4 border-t border-gray-200">
+          <div>
+            <p className="text-sm text-subtle-text">Starting from</p>
+            <p className="text-2xl font-heading font-bold text-primary">
+              ₹{(farm.startingPrice / 100000).toFixed(1)}L
+            </p>
+          </div>
           <Link
             to={`/farms/${farm.id}`}
-            className="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-200 transition-colors text-center font-medium group-hover:bg-primary-50 flex items-center justify-center"
+            className="bg-primary text-white font-bold py-2 px-5 rounded-lg transition-all duration-300 ease-in-out transform hover:-translate-y-0.5 hover:shadow-lg"
           >
-            View Details
-            <ArrowRight className="ml-1 h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+            View Project
           </Link>
-          <button
-            onClick={() => onEnquiry(farm)}
-            className="flex-1 bg-primary-600 text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors font-medium"
-          >
-            Enquire Now
-          </button>
         </div>
       </div>
     </div>

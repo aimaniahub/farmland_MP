@@ -51,7 +51,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ className = '', onSubmit }) =
     }
     
     // Phone validation (optional but must be valid if provided)
-    if (formData.phone && !/^[\d\+\-\(\)\s]{10,15}$/.test(formData.phone)) {
+        if (formData.phone && !/^[\d+\-()\s]{10,15}$/.test(formData.phone)) {
       newErrors.phone = 'Please enter a valid phone number';
     }
     
