@@ -47,7 +47,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white">
-        <Navbar onEnquiry={() => handleEnquiry()} />
+        <Navbar onEnquiry={handleEnquiry} />
         
         <Routes>
           <Route path="/" element={<HomePage onEnquiry={handleEnquiry} />} />

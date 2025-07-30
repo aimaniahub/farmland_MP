@@ -183,18 +183,20 @@ const ServicesPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-green-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold mb-6">Our Farm Management Services</h1>
-            <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
-              Professional farm management solutions to maximize your agricultural investment
-            </p>
-            <button className="inline-flex items-center px-6 py-3 bg-white text-green-600 rounded-lg hover:bg-gray-100 transition-colors font-medium">
-              Schedule a Consultation
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </button>
+      <section className="relative py-24 bg-gradient-to-r from-primary-700 to-primary-900 text-white">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+            <span className="text-primary-200 text-sm font-medium">🌱 OUR SERVICES</span>
           </div>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">Farm Management Services</h1>
+          <p className="text-xl md:text-2xl text-primary-100 max-w-3xl mx-auto mb-12">
+            Professional farm management solutions to maximize your agricultural investment
+          </p>
+          <button className="inline-flex items-center px-8 py-4 bg-white text-primary-600 rounded-full hover:bg-gray-100 transition-all duration-300 font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+            Schedule a Consultation
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </button>
         </div>
       </section>
 

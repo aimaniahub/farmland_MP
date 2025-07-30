@@ -12,7 +12,7 @@ import {
 import { Farm } from '../App';
 
 interface FarmsPageProps {
-  onEnquiry: (farm: Farm) => void;
+  onEnquiry: (farm?: Farm) => void;
 }
 
 const FarmsPage: React.FC<FarmsPageProps> = ({ onEnquiry }) => {
@@ -166,14 +166,17 @@ const FarmsPage: React.FC<FarmsPageProps> = ({ onEnquiry }) => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-green-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4">Our Farm Projects</h1>
-            <p className="text-xl text-green-100">
-              Discover premium managed farmland opportunities across Karnataka
-            </p>
+      <section className="relative py-24 bg-gradient-to-r from-primary-700 to-primary-900 text-white">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+            <span className="text-primary-200 text-sm font-medium">🌱 OUR FARMS</span>
           </div>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">Premium Farm Projects</h1>
+          <p className="text-xl md:text-2xl text-primary-100 max-w-3xl mx-auto">
+            Discover our curated collection of premium managed farmlands across Karnataka, 
+            each offering unique investment opportunities with sustainable practices.
+          </p>
         </div>
       </section>
 
@@ -381,17 +384,17 @@ const FarmsPage: React.FC<FarmsPageProps> = ({ onEnquiry }) => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-green-600 text-white">
+      <section className="py-16 bg-primary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Can't Find What You're Looking For?
           </h2>
-          <p className="text-xl mb-8 text-green-100">
+          <p className="text-xl mb-8 text-primary-100">
             Let us help you find the perfect farmland investment opportunity
           </p>
           <button
-            onClick={() => onEnquiry()}
-            className="inline-flex items-center px-8 py-4 bg-white text-green-600 rounded-full hover:bg-gray-100 transition-colors font-semibold text-lg"
+            onClick={() => onEnquiry(undefined)}
+            className="inline-flex items-center px-8 py-4 bg-white text-primary rounded-full hover:bg-gray-100 transition-colors font-semibold text-lg"
           >
             Contact Our Experts
             <ArrowRight className="ml-2 h-5 w-5" />

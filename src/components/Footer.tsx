@@ -27,28 +27,31 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-white">
       {/* Newsletter Section */}
-      <div className="bg-primary-600 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h3 className="text-2xl font-heading font-bold mb-4">Stay Updated with Our Latest Projects</h3>
-            <p className="text-primary-100 mb-6">Get exclusive updates on new farm launches, investment opportunities, and farming insights.</p>
-            <form onSubmit={handleNewsletterSubmit} className="max-w-md mx-auto flex">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email address"
-                className="flex-1 px-4 py-3 rounded-l-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-300 border-0"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-primary-800 hover:bg-primary-900 px-6 py-3 rounded-r-lg transition-colors"
-              >
-                <Send className="h-5 w-5" />
-              </button>
-            </form>
+      <div className="bg-primary-700 text-white py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+            <span className="text-primary-200 text-sm font-medium">📧 STAY UPDATED</span>
           </div>
+          <h3 className="text-3xl font-heading font-bold mb-6">Get Exclusive Farm Updates</h3>
+          <p className="text-primary-100 mb-8 max-w-2xl mx-auto">
+            Subscribe to our newsletter for the latest farmland projects, investment opportunities, and sustainable farming insights delivered to your inbox.
+          </p>
+          <form onSubmit={handleNewsletterSubmit} className="max-w-md mx-auto flex">
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email address"
+              className="flex-1 px-6 py-4 rounded-l-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 border-0"
+              required
+            />
+            <button
+              type="submit"
+              className="bg-primary-600 hover:bg-primary-700 px-6 py-4 rounded-r-lg transition-all duration-300 font-medium shadow-lg hover:shadow-primary-500/25 transform hover:-translate-y-0.5"
+            >
+              <Send className="h-5 w-5" />
+            </button>
+          </form>
         </div>
       </div>
 

@@ -4,17 +4,39 @@
 
 @layer base {
   :root {
+    /* Primary Green Color Palette */
     --primary-green: #2A6F2D;
+    --primary-green-light: #3A8F3E;
+    --primary-green-dark: #1F4F1F;
+    --primary-green-lightest: #F0F9F0;
+    
+    /* Accent Orange Color Palette */
     --accent-orange: #F39C12;
+    --accent-orange-light: #F5B041;
+    --accent-orange-dark: #D68910;
+    --accent-orange-lightest: #FEF9E7;
+    
+    /* Neutral Colors */
     --dark-text: #212529;
     --light-text: #555555;
     --section-bg: #F8F9FA;
     --white: #FFFFFF;
     --border-color: #DEE2E6;
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Lato', sans-serif;
+    
+    /* Earth Tones */
+    --earth-brown: #8B6F47;
+    --earth-light: #D4C5B9;
+    --earth-dark: #5D4E37;
+    
+    /* Fonts */
+    --font-heading: 'Montserrat', 'Inter', sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    
+    /* Shadows */
     --shadow-subtle: 0 4px 20px rgba(0,0,0,0.06);
     --shadow-lifted: 0 8px 30px rgba(0,0,0,0.12);
+    --shadow-green: 0 4px 15px rgba(42, 111, 45, 0.15);
+    --shadow-orange: 0 4px 15px rgba(243, 156, 18, 0.15);
   }
 
   body {
@@ -33,4 +55,136 @@
     background-color: var(--white);
     box-shadow: var(--shadow-subtle);
   }
+}
+
+@layer components {
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-primary-green text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary-green-light hover:shadow-lg hover:shadow-primary-green/25 transform hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-primary-green border-2 border-primary-green px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary-green hover:text-white hover:shadow-lg hover:shadow-primary-green/25 transform hover:-translate-y-0.5;
+  }
+  
+  .btn-accent {
+    @apply bg-accent-orange text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-accent-orange-light hover:shadow-lg hover:shadow-accent-orange/25 transform hover:-translate-y-0.5;
+  }
+  
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+  }
+  
+  .card-green {
+    @apply bg-primary-green-lightest border border-primary-green-light/20;
+  }
+  
+  .card-orange {
+    @apply bg-accent-orange-lightest border border-accent-orange-light/20;
+  }
+  
+  /* Text Styles */
+  .text-gradient-green {
+    @apply bg-gradient-to-r from-primary-green to-primary-green-light bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-orange {
+    @apply bg-gradient-to-r from-accent-orange to-accent-orange-light bg-clip-text text-transparent;
+  }
+  
+  /* Animation Classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .animate-slide-down {
+    animation: slideDown 0.5s ease-out;
+  }
+  
+  .animate-zoom-in {
+    animation: zoomIn 0.5s ease-out;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from { 
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from { 
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from { 
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from { 
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }

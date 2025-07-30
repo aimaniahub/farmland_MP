@@ -80,14 +80,16 @@ const ContactPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-green-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-            <p className="text-xl text-green-100">
-              We're here to help with any questions about our farmland projects
-            </p>
+      <section className="relative py-24 bg-gradient-to-r from-primary-700 to-primary-900 text-white">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+            <span className="text-primary-200 text-sm font-medium">📞 GET IN TOUCH</span>
           </div>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">Contact Us</h1>
+          <p className="text-xl md:text-2xl text-primary-100 max-w-3xl mx-auto">
+            We're here to help with any questions about our farmland projects
+          </p>
         </div>
       </section>
 
