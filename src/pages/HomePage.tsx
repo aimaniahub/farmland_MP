@@ -1,7 +1,7 @@
 import React from 'react';
 import { Farm } from '../App';
 import TestimonialCarousel from '../components/TestimonialCarousel';
-import { Search, Handshake, Tractor, Shield, Leaf, TrendingUp, Award, Users, CheckCircle, Phone, ArrowRight, MapPin, Calendar } from 'lucide-react';
+import { Shield, Leaf, TrendingUp, Award, Users, CheckCircle, Phone, ArrowRight, MapPin, Calendar } from 'lucide-react';
 import BlogFeatured from '../components/BlogFeatured';
 import { Link } from 'react-router-dom';
 
@@ -107,68 +107,56 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background with overlay */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: 'url("https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg")'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70"></div>
-          <div className="absolute inset-0 bg-primary-900/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
         </div>
         
-        {/* Floating elements */}
-        <div className="absolute top-20 left-10 w-4 h-4 bg-primary-400/30 rounded-full animate-float"></div>
-        <div className="absolute top-40 right-20 w-6 h-6 bg-secondary-400/20 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-40 left-20 w-3 h-3 bg-primary-300/40 rounded-full animate-float" style={{animationDelay: '4s'}}></div>
+        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+          <div className="animate-fade-in-up">
+            <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 leading-tight">
+              Invest in Your Future
+              <span className="block text-primary-400">Own a Piece of Nature</span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 leading-relaxed">
+              Discover the benefits of managed farmlands, where sustainable agriculture meets profitable investment.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/farms"
+                className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                Explore Farms
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+              <button
+                onClick={() => onEnquiry()}
+                className="inline-flex items-center justify-center px-8 py-4 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-lg hover:bg-white/30 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                <Calendar className="mr-2 h-5 w-5" />
+                Book a Site Visit
+              </button>
+            </div>
+          </div>
+        </div>
         
-        <div className="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
-          <div className="animate-fade-in">
-            <div className="inline-block px-4 py-2 bg-primary-600/20 backdrop-blur-sm rounded-full border border-primary-400/30 mb-6">
-              <span className="text-primary-200 text-sm font-medium">🌱 PREMIUM MANAGED FARMLANDS</span>
-            </div>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold mb-8 leading-tight animate-slide-up">
-            Own Your
-            <span className="block text-primary-400 bg-gradient-to-r from-primary-400 to-primary-300 bg-clip-text text-transparent">Dream Farm</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl lg:text-3xl mb-12 text-gray-200 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{animationDelay: '0.2s'}}>
-            Invest in <span className="text-primary-300 font-semibold">managed farmlands</span> with guaranteed returns, 
-            sustainable practices, and hassle-free ownership. Your gateway to agricultural prosperity.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up" style={{animationDelay: '0.4s'}}>
-            <Link
-              to="/farms"
-              className="inline-flex items-center px-10 py-4 bg-primary-600 text-white rounded-full hover:bg-primary-700 transition-all duration-300 font-semibold text-lg shadow-2xl hover:shadow-primary-500/25 transform hover:-translate-y-1 hover:scale-105"
-            >
-              Explore Farms
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-            <button
-              onClick={() => onEnquiry()}
-              className="inline-flex items-center px-10 py-4 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
-            >
-              <Calendar className="mr-2 h-5 w-5" />
-              Book Free Site Tour
-            </button>
-          </div>
-          
-          {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
-            </div>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-8 h-12 border-2 border-white/50 rounded-full flex justify-center items-center">
+            <div className="w-1 h-3 bg-white/80 rounded-full mt-1 animate-pulse"></div>
           </div>
         </div>
       </section>
 
       {/* Introduction to Managed Farmlands */}
-      <section className="py-24 bg-gradient-to-b from-white to-cream-50">
+      <section className="py-24 bg-gradient-to-b from-white to-cream-50 relative">
+        <div className="absolute top-0 left-0 w-full h-full bg-farm-pattern opacity-5"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <div className="inline-block px-4 py-2 bg-primary-100 rounded-full mb-6">
@@ -184,7 +172,7 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center p-8 group hover:transform hover:-translate-y-2 transition-all duration-300">
+            <div className="text-center p-8 group hover:transform hover:-translate-y-2 transition-all duration-300 bg-white/50 backdrop-blur-lg rounded-2xl shadow-lg">
               <div className="bg-gradient-to-br from-primary-100 to-primary-200 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-xl group-hover:shadow-primary-200/50 transition-all duration-300">
                 <Shield className="h-10 w-10 text-primary-600" />
               </div>
@@ -194,7 +182,7 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
               </p>
             </div>
             
-            <div className="text-center p-8 group hover:transform hover:-translate-y-2 transition-all duration-300">
+            <div className="text-center p-8 group hover:transform hover:-translate-y-2 transition-all duration-300 bg-white/50 backdrop-blur-lg rounded-2xl shadow-lg">
               <div className="bg-gradient-to-br from-sage-100 to-sage-200 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-xl group-hover:shadow-sage-200/50 transition-all duration-300">
                 <Leaf className="h-10 w-10 text-sage-600" />
               </div>
@@ -204,7 +192,7 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
               </p>
             </div>
             
-            <div className="text-center p-8 group hover:transform hover:-translate-y-2 transition-all duration-300">
+            <div className="text-center p-8 group hover:transform hover:-translate-y-2 transition-all duration-300 bg-white/50 backdrop-blur-lg rounded-2xl shadow-lg">
               <div className="bg-gradient-to-br from-secondary-100 to-secondary-200 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:shadow-xl group-hover:shadow-secondary-200/50 transition-all duration-300">
                 <TrendingUp className="h-10 w-10 text-secondary-600" />
               </div>
