@@ -320,7 +320,7 @@ const BlogPostPage: React.FC = () => {
             </div>
 
             {/* Newsletter Signup */}
-            <div className="bg-green-50 rounded-lg overflow-hidden">
+            <div className="bg-green-50 rounded-lg overflow-hidden shadow-md p-6 mb-8 mx-4">
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">Subscribe to Our Newsletter</h3>
                 <p className="text-gray-600 text-sm mb-4">Get the latest farming tips and investment advice delivered to your inbox.</p>

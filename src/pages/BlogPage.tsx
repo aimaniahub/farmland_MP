@@ -254,7 +254,7 @@ const BlogPage: React.FC = () => {
         </AnimatedSection>
 
         {/* Social Sharing */}
-        <div className="mt-12 text-center">
+        <div className="mt-12 text-center bg-white rounded-xl shadow-md p-6 mb-8 mx-4">
           <p className="text-gray-700 mb-4">Share this page:</p>
           <SocialShare 
             url={window.location.href} 

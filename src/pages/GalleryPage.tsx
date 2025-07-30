@@ -255,7 +255,7 @@ const GalleryPage: React.FC = () => {
 
       {/* Submit Photos CTA */}
       <section className="py-16 bg-green-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-green-600 rounded-xl shadow-md p-6 mb-8 mx-4">
           <h2 className="text-3xl font-bold mb-4">Share Your Farm Experience</h2>
           <p className="text-xl text-green-100 mb-8">
             Are you a farm owner or visitor? Submit your photos to be featured in our gallery

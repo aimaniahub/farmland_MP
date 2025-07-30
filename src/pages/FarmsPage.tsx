@@ -276,7 +276,7 @@ const FarmsPage: React.FC<FarmsPageProps> = ({ onEnquiry }) => {
           </div>
 
           {/* Results Count */}
-          <div className="mb-8">
+          <div className="mb-8 bg-white rounded-xl shadow-md p-6 mb-8 mx-4">
             <p className="text-gray-600">
               Showing {filteredFarms.length} of {farms.length} farm projects
             </p>

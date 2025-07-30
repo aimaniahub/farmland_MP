@@ -60,20 +60,36 @@
 @layer components {
   /* Button Styles */
   .btn-primary {
-    @apply bg-primary-green text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary-green-light hover:shadow-lg hover:shadow-primary-green/25 transform hover:-translate-y-0.5;
+    @apply bg-primary-green text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary-green-light hover:shadow-lg hover:shadow-primary-green/25 transform hover:-translate-y-0.5 relative overflow-hidden;
+  }
+  
+  .btn-primary::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-white opacity-0 transition-opacity duration-300;
+  }
+  
+  .btn-primary:hover::before {
+    @apply opacity-10;
   }
   
   .btn-secondary {
-    @apply bg-white text-primary-green border-2 border-primary-green px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary-green hover:text-white hover:shadow-lg hover:shadow-primary-green/25 transform hover:-translate-y-0.5;
+    @apply bg-white text-primary-green border-2 border-primary-green px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary-green hover:text-white hover:shadow-lg hover:shadow-primary-green/25 transform hover:-translate-y-0.5 relative overflow-hidden;
   }
   
   .btn-accent {
-    @apply bg-accent-orange text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-accent-orange-light hover:shadow-lg hover:shadow-accent-orange/25 transform hover:-translate-y-0.5;
+    @apply bg-accent-orange text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-medium transition-all duration-300 hover:bg-accent-orange-light hover:shadow-lg hover:shadow-accent-orange/25 transform hover:-translate-y-0.5 relative overflow-hidden;
+  }
+  
+  .btn-accent::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-white opacity-0 transition-opacity duration-300;
+  }
+  
+  .btn-accent:hover::before {
+    @apply opacity-10;
   }
   
   /* Card Styles */
   .card {
-    @apply bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+    @apply bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-gray-100;
   }
   
   .card-green {
@@ -91,6 +107,106 @@
   
   .text-gradient-orange {
     @apply bg-gradient-to-r from-accent-orange to-accent-orange-light bg-clip-text text-transparent;
+  }
+  
+  /* Section Styles with Rounded Corners */
+  .section-rounded {
+    @apply rounded-2xl overflow-hidden;
+  }
+  
+  .section-rounded-lg {
+    @apply rounded-3xl overflow-hidden;
+  }
+  
+  .section-rounded-xl {
+    @apply rounded-[2rem] overflow-hidden;
+  }
+  
+  /* Card with Decorative Elements */
+  .card-decorated {
+    @apply relative rounded-xl overflow-hidden;
+  }
+  
+  .card-decorated::before {
+    @apply content-[''] absolute w-16 h-16 -top-8 -right-8 bg-primary-100 rounded-full opacity-50;
+  }
+  
+  .card-decorated::after {
+    @apply content-[''] absolute w-12 h-12 -bottom-6 -left-6 bg-secondary-100 rounded-full opacity-50;
+  }
+  
+  /* Nav Tab Styles */
+  .nav-tab {
+    @apply relative px-4 py-2 font-medium transition-all duration-300 rounded-lg;
+  }
+  
+  .nav-tab-active {
+    @apply bg-primary-50 text-primary-600;
+  }
+  
+  .nav-tab::after {
+    @apply content-[''] absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary-500 transition-all duration-300 -translate-x-1/2;
+  }
+  
+  .nav-tab:hover::after {
+    @apply w-1/2;
+  }
+  
+  .nav-tab-active::after {
+    @apply w-2/3;
+  }
+  
+  /* Responsive Layout Utilities */
+  .container-mobile {
+    @apply px-4 w-full mx-auto;
+  }
+  
+  .container-responsive {
+    @apply px-4 sm:px-6 lg:px-8 w-full mx-auto max-w-7xl;
+  }
+  
+  .flex-responsive {
+    @apply flex flex-col sm:flex-row;
+  }
+  
+  .grid-responsive-1 {
+    @apply grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6;
+  }
+  
+  .grid-responsive-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6;
+  }
+  
+  .grid-responsive-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
+  }
+  
+  .text-responsive-base {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-responsive-lg {
+    @apply text-base sm:text-lg;
+  }
+  
+  .text-responsive-xl {
+    @apply text-lg sm:text-xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-xl sm:text-2xl;
+  }
+  
+  .text-responsive-3xl {
+    @apply text-2xl sm:text-3xl;
+  }
+  
+  .text-responsive-4xl {
+    @apply text-3xl sm:text-4xl;
+  }
+  
+  .text-responsive-5xl {
+    @apply text-4xl sm:text-5xl;
   }
   
   /* Animation Classes */

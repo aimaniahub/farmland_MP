@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Logo from '/logo.svg';
 import { 
-  Sprout, 
   Phone, 
   Mail, 
   MapPin, 
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
             {/* Company Info */}
             <div className="lg:col-span-1">
               <Link to="/" className="flex items-center space-x-2 mb-4">
-                <Sprout className="h-8 w-8 text-primary-500" />
+                <img src={Logo} alt="Earth Foundation Logo" className="h-12 w-auto" />
                 <span className="text-2xl font-heading font-bold text-white">Earth Foundation</span>
               </Link>
               <p className="text-gray-400 mb-6">

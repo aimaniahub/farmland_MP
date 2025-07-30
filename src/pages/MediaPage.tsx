@@ -360,7 +360,7 @@ const MediaPage: React.FC = () => {
 
       {/* Media Contact */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl shadow-md p-6 mb-8 mx-4">
           <div className="bg-gray-50 rounded-xl p-8 max-w-3xl mx-auto">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">Media Contact</h2>

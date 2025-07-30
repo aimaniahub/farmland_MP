@@ -1008,7 +1008,7 @@ const CareersPage: React.FC = () => {
 
       {/* No Openings CTA */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-white rounded-xl shadow-md p-6 mb-8 mx-4">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">Don't See a Suitable Position?</h2>
           <p className="text-gray-600 text-xl mb-8">
             We're always looking for talented individuals to join our team. Send us your resume and we'll keep it on file for future opportunities.
