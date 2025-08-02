@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { 
   Filter, 
@@ -8,108 +9,30 @@ import {
   ChevronRight
 } from 'lucide-react';
 
+interface GalleryItem {
+  id: string;
+  title: string;
+  description: string;
+  src: string;
+  type: 'image' | 'video';
+  category: 'farms' | 'events' | 'produce';
+}
+
+interface GalleryData {
+  title: string;
+  description: string;
+  galleryItems: GalleryItem[];
+}
+
+import galleryData from '../content/gallery.json';
+
+const gallery = galleryData as GalleryData;
+
 const GalleryPage: React.FC = () => {
   const [filter, setFilter] = useState<'all' | 'farms' | 'events' | 'produce'>('all');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   
-  const galleryItems = [
-    {
-      id: 1,
-      type: 'image',
-      category: 'farms',
-      src: 'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg',
-      title: 'Maamara Farms Aerial View',
-      description: 'Aerial view of our flagship farm project in Doddaballapur'
-    },
-    {
-      id: 2,
-      type: 'image',
-      category: 'farms',
-      src: 'https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg',
-      title: 'Eco Habitat Farms',
-      description: 'Sustainable farming practices at Eco Habitat Farms'
-    },
-    {
-      id: 3,
-      type: 'image',
-      category: 'farms',
-      src: 'https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg',
-      title: 'Green Valley Estates',
-      description: 'Lush green landscapes at our premium farm project'
-    },
-    {
-      id: 4,
-      type: 'image',
-      category: 'produce',
-      src: 'https://images.pexels.com/photos/1268101/pexels-photo-1268101.jpeg',
-      title: 'Organic Vegetables',
-      description: 'Fresh organic vegetables harvested from our farms'
-    },
-    {
-      id: 5,
-      type: 'image',
-      category: 'produce',
-      src: 'https://images.pexels.com/photos/1153655/pexels-photo-1153655.jpeg',
-      title: 'Mango Harvest',
-      description: 'Premium mango varieties grown at Maamara Farms'
-    },
-    {
-      id: 6,
-      type: 'image',
-      category: 'events',
-      src: 'https://images.pexels.com/photos/7096/people-woman-coffee-meeting.jpg',
-      title: 'Investor Meet 2023',
-      description: 'Annual investor meeting at our Bangalore headquarters'
-    },
-    {
-      id: 7,
-      type: 'video',
-      category: 'farms',
-      src: 'https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg', // Thumbnail image
-      title: 'Farm Tour: Maamara Farms',
-      description: 'Virtual tour of our flagship farm project'
-    },
-    {
-      id: 8,
-      type: 'image',
-      category: 'events',
-      src: 'https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg',
-      title: 'Organic Farming Workshop',
-      description: 'Educational workshop on organic farming techniques'
-    },
-    {
-      id: 9,
-      type: 'image',
-      category: 'produce',
-      src: 'https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg',
-      title: 'Coconut Plantation',
-      description: 'Coconut trees at our Eco Habitat Farms'
-    },
-    {
-      id: 10,
-      type: 'image',
-      category: 'farms',
-      src: 'https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg',
-      title: 'Irrigation Systems',
-      description: 'Modern drip irrigation systems at Green Valley Estates'
-    },
-    {
-      id: 11,
-      type: 'video',
-      category: 'events',
-      src: 'https://images.pexels.com/photos/7096/people-woman-coffee-meeting.jpg', // Thumbnail image
-      title: 'Farm Investment Webinar',
-      description: 'Recorded webinar on farmland investment opportunities'
-    },
-    {
-      id: 12,
-      type: 'image',
-      category: 'produce',
-      src: 'https://images.pexels.com/photos/175728/pexels-photo-175728.jpeg',
-      title: 'Organic Spices',
-      description: 'Variety of organic spices grown at our farms'
-    }
-  ];
+  const galleryItems = gallery.galleryItems;
 
   const filteredItems = filter === 'all' 
     ? galleryItems 
@@ -131,9 +54,9 @@ const GalleryPage: React.FC = () => {
       <section className="bg-green-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4">Our Gallery</h1>
+            <h1 className="text-4xl font-bold mb-4">{gallery.title}</h1>
             <p className="text-xl text-green-100">
-              Explore our farms, events, and produce through our visual gallery
+              {gallery.description}
             </p>
           </div>
         </div>

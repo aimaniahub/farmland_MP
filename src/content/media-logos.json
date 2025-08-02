@@ -1,0 +1,24 @@
+{
+  "logos": [
+    {
+      "name": "Times of India",
+      "image": "/uploads/media-times-of-india.png",
+      "url": "https://timesofindia.indiatimes.com"
+    },
+    {
+      "name": "Economic Times",
+      "image": "/uploads/media-economic-times.png",
+      "url": "https://economictimes.indiatimes.com"
+    },
+    {
+      "name": "Business Standard",
+      "image": "/uploads/media-business-standard.png",
+      "url": "https://business-standard.com"
+    },
+    {
+      "name": "Hindu Business Line",
+      "image": "/uploads/media-hindu-business-line.png",
+      "url": "https://thehindubusinessline.com"
+    }
+  ]
+}

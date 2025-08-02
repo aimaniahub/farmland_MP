@@ -1,0 +1,132 @@
+{
+  "title": "Frequently Asked Questions",
+  "description": "Find answers to common questions about our farmland investment opportunities, returns, management practices, and legal procedures.",
+  "categories": [
+    {
+      "name": "Investment Basics",
+      "questions": [
+        {
+          "question": "What is farmland investment?",
+          "answer": "Farmland investment involves purchasing agricultural land for the purpose of generating returns through crop production, land appreciation, and rental income. Our platform makes this accessible to urban investors by handling all farming operations professionally."
+        },
+        {
+          "question": "What is the minimum investment amount?",
+          "answer": "The minimum investment varies by farm and package, typically starting from ₹2,50,000 for a 1-acre plot. We offer different packages ranging from ₹2.5 lakhs to ₹10+ lakhs depending on the farm size and amenities."
+        },
+        {
+          "question": "How do I get started with farmland investment?",
+          "answer": "Getting started is simple: 1) Browse available farms on our platform, 2) Schedule a farm visit or virtual tour, 3) Choose your investment package, 4) Complete the documentation and payment, 5) Start receiving regular updates about your farm."
+        },
+        {
+          "question": "What documents do I need to invest?",
+          "answer": "You'll need: Valid ID proof (Aadhaar/PAN), Address proof, Bank statements, Income proof, and passport-size photographs. Our team will guide you through the complete documentation process."
+        }
+      ]
+    },
+    {
+      "name": "Returns & Profitability",
+      "questions": [
+        {
+          "question": "What returns can I expect from farmland investment?",
+          "answer": "Our investors typically see annual returns between 20-25%, depending on the crop type, market conditions, and farm location. Returns come from crop sales, land appreciation, and value-added processing."
+        },
+        {
+          "question": "How are returns calculated and distributed?",
+          "answer": "Returns are calculated based on net income after deducting operational costs, management fees, and taxes. Distributions are made quarterly for crop income and annually for land appreciation. All calculations are transparent and audited."
+        },
+        {
+          "question": "Are the returns guaranteed?",
+          "answer": "While we cannot guarantee specific returns due to market variables, we have comprehensive risk management strategies including crop insurance, diversified cropping, and contingency funds to protect investor interests."
+        },
+        {
+          "question": "How does farmland investment compare to other investments?",
+          "answer": "Farmland has historically provided stable returns with low correlation to stock markets, acts as an inflation hedge, and offers tax benefits. It's considered a defensive asset class with potential for both income and capital appreciation."
+        }
+      ]
+    },
+    {
+      "name": "Farm Management",
+      "questions": [
+        {
+          "question": "Who manages the farming operations?",
+          "answer": "Our experienced team of agricultural scientists, farm managers, and local farmers handle all farming operations. You don't need any farming experience - we take care of everything from crop planning to harvesting and marketing."
+        },
+        {
+          "question": "What crops are grown on the farms?",
+          "answer": "We grow a variety of crops based on soil conditions, climate, and market demand including rice, wheat, sugarcane, vegetables, fruits, and cash crops like cotton and soybeans. Crop selection is optimized for maximum returns."
+        },
+        {
+          "question": "How often will I receive updates about my farm?",
+          "answer": "We provide regular updates through our digital platform including monthly progress reports with photos, quarterly financial statements, weather updates, and real-time monitoring data from IoT sensors installed on farms."
+        },
+        {
+          "question": "Can I visit my farm?",
+          "answer": "Absolutely! We encourage investors to visit their farms. We organize quarterly group farm visits and can arrange individual visits with 48-hour prior notice. Transportation and accommodation can be arranged if needed."
+        }
+      ]
+    },
+    {
+      "name": "Legal & Ownership",
+      "questions": [
+        {
+          "question": "How is the land ownership structured?",
+          "answer": "Investors receive clear title documents and legal ownership of their allocated farmland. All transactions are registered with local authorities and are fully compliant with state agricultural land laws."
+        },
+        {
+          "question": "What are the legal protections for investors?",
+          "answer": "All investments are protected by comprehensive legal agreements, clear title documents, registered sale deeds, and compliance with local land laws. We also provide legal support for any ownership-related matters."
+        },
+        {
+          "question": "Can I sell my farmland investment?",
+          "answer": "Yes, you can sell your farmland investment. We provide assistance with resale through our network and platform. The land can be sold to other investors or back to us based on current market valuations."
+        },
+        {
+          "question": "Are there any restrictions on farmland ownership?",
+          "answer": "Farmland ownership laws vary by state. We ensure all investments comply with local regulations. Some states have restrictions on non-agricultural background investors, which we navigate through legal structures."
+        }
+      ]
+    },
+    {
+      "name": "Technology & Sustainability",
+      "questions": [
+        {
+          "question": "What technology is used in farm management?",
+          "answer": "We use IoT sensors for soil and weather monitoring, GPS-guided equipment for precision farming, drone surveillance for crop health assessment, and data analytics for yield prediction and optimization."
+        },
+        {
+          "question": "Are the farms organic certified?",
+          "answer": "Yes, 100% of our managed farms are organic certified. We follow strict organic farming practices, use only natural fertilizers and pest control methods, and maintain certification compliance throughout the farming cycle."
+        },
+        {
+          "question": "How do you ensure sustainable farming practices?",
+          "answer": "We implement water conservation through drip irrigation, soil health improvement through organic amendments, biodiversity conservation, renewable energy usage, and carbon sequestration practices."
+        },
+        {
+          "question": "What is your approach to water management?",
+          "answer": "We use efficient irrigation systems like drip and sprinkler irrigation, rainwater harvesting, soil moisture monitoring, and drought-resistant crop varieties to optimize water usage and reduce wastage."
+        }
+      ]
+    },
+    {
+      "name": "Risks & Insurance",
+      "questions": [
+        {
+          "question": "What are the main risks in farmland investment?",
+          "answer": "Main risks include weather-related crop damage, market price fluctuations, pest attacks, and regulatory changes. We mitigate these through insurance, diversification, integrated pest management, and legal compliance."
+        },
+        {
+          "question": "Do you provide crop insurance?",
+          "answer": "Yes, all crops are covered under comprehensive crop insurance policies that protect against natural calamities, pest attacks, and yield losses. Insurance premiums are included in the management fees."
+        },
+        {
+          "question": "What happens during natural disasters?",
+          "answer": "We have comprehensive disaster management plans including crop insurance, emergency response teams, alternative cropping strategies, and financial reserves to handle natural disasters and minimize investor impact."
+        },
+        {
+          "question": "How do you handle market price volatility?",
+          "answer": "We use forward contracts, diversified marketing channels, value-added processing, and strategic timing of sales to minimize price volatility impact. We also maintain market intelligence for optimal selling decisions."
+        }
+      ]
+    }
+  ]
+}

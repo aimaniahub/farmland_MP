@@ -1,0 +1,113 @@
+{
+  "title": "Media Coverage",
+  "description": "Our farmland investment platform has been featured in leading media outlets for our innovative approach to sustainable agriculture and transparent investment practices.",
+  "newsArticles": [
+    {
+      "title": "Farmland Investment Platform Raises ₹50 Crores in Series A Funding",
+      "date": "2024-01-20",
+      "summary": "Leading farmland investment platform secures significant funding to expand operations across India and enhance technology infrastructure."
+    },
+    {
+      "title": "Sustainable Agriculture: The Future of Farmland Investment",
+      "date": "2024-01-15",
+      "summary": "How innovative farming practices are attracting urban investors to agricultural investments with guaranteed returns."
+    },
+    {
+      "title": "Tech-Enabled Farming Transforms Rural Livelihoods",
+      "date": "2024-01-10",
+      "summary": "Digital platform connects urban investors with rural farmers, creating win-win opportunities for sustainable agriculture."
+    },
+    {
+      "title": "Organic Farming Certification Reaches 100% Across Portfolio",
+      "date": "2023-12-28",
+      "summary": "Platform achieves milestone of 100% organic certification across all managed farmlands, setting new industry standards."
+    }
+  ],
+  "pressReleases": [
+    {
+      "title": "Partnership with Leading Agricultural Universities Announced",
+      "date": "2024-01-25",
+      "content": "Strategic partnerships with top agricultural universities to drive research and innovation in sustainable farming practices."
+    },
+    {
+      "title": "Expansion to 5 New States Completed",
+      "date": "2024-01-18",
+      "content": "Platform expands operations to Rajasthan, Gujarat, Madhya Pradesh, Odisha, and West Bengal, bringing total coverage to 15 states."
+    },
+    {
+      "title": "Launch of Mobile App for Real-Time Farm Monitoring",
+      "date": "2024-01-12",
+      "content": "New mobile application enables investors to monitor their farms in real-time with IoT sensors and satellite imagery."
+    }
+  ],
+  "events": [
+    {
+      "name": "AgTech Innovation Summit 2024",
+      "date": "2024-02-15",
+      "location": "Bangalore International Exhibition Centre"
+    },
+    {
+      "name": "Sustainable Agriculture Conference",
+      "date": "2024-03-10",
+      "location": "India Habitat Centre, New Delhi"
+    },
+    {
+      "name": "Farmland Investment Expo",
+      "date": "2024-04-20",
+      "location": "Bombay Exhibition Centre, Mumbai"
+    }
+  ],
+  "videos": [
+    {
+      "title": "Farm Visit: Green Valley Organic Farm",
+      "url": "https://youtube.com/watch?v=example1",
+      "thumbnail": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=300&fit=crop"
+    },
+    {
+      "title": "Investor Testimonials: Success Stories",
+      "url": "https://youtube.com/watch?v=example2",
+      "thumbnail": "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=400&h=300&fit=crop"
+    },
+    {
+      "title": "Technology in Agriculture: IoT and Smart Farming",
+      "url": "https://youtube.com/watch?v=example3",
+      "thumbnail": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=400&h=300&fit=crop"
+    }
+  ],
+  "mediaMentions": [
+    {
+      "publication": "Economic Times",
+      "logo": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=100&fit=crop"
+    },
+    {
+      "publication": "Business Standard",
+      "logo": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=100&fit=crop"
+    },
+    {
+      "publication": "Hindu Business Line",
+      "logo": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=100&fit=crop"
+    },
+    {
+      "publication": "Financial Express",
+      "logo": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=100&fit=crop"
+    }
+  ],
+  "awards": [
+    {
+      "name": "Best AgTech Startup 2023",
+      "organization": "India AgTech Awards"
+    },
+    {
+      "name": "Sustainable Agriculture Excellence Award",
+      "organization": "Green Business Council"
+    },
+    {
+      "name": "Innovation in Rural Development",
+      "organization": "National Rural Development Foundation"
+    },
+    {
+      "name": "Best Investment Platform",
+      "organization": "Alternative Investment Awards"
+    }
+  ]
+}

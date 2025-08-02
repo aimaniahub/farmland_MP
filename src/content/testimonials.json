@@ -1,0 +1,92 @@
+{
+  "testimonials": [
+    {
+      "id": "1",
+      "name": "Rajesh Kumar",
+      "location": "Bangalore",
+      "occupation": "Software Engineer",
+      "rating": 5,
+      "text": "Investing in farmland through this platform has been one of my best decisions. The returns are consistent and the team is very professional. I've been getting 22% annual returns for the past 3 years.",
+      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      "investment_amount": "₹5,00,000",
+      "investment_duration": "3 years"
+    },
+    {
+      "id": "2",
+      "name": "Priya Sharma",
+      "location": "Mumbai",
+      "occupation": "Business Owner",
+      "rating": 5,
+      "text": "The transparency and regular updates about my farm investment give me complete peace of mind. I love visiting my farm and seeing the crops grow. The team handles everything professionally.",
+      "image": "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+      "investment_amount": "₹8,00,000",
+      "investment_duration": "2 years"
+    },
+    {
+      "id": "3",
+      "name": "Amit Patel",
+      "location": "Pune",
+      "occupation": "Doctor",
+      "rating": 5,
+      "text": "Great platform for farmland investment. The team handles everything professionally and the returns are as promised. I've diversified my portfolio with multiple farms now.",
+      "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      "investment_amount": "₹12,00,000",
+      "investment_duration": "4 years"
+    },
+    {
+      "id": "4",
+      "name": "Sunita Reddy",
+      "location": "Hyderabad",
+      "occupation": "Chartered Accountant",
+      "rating": 5,
+      "text": "As a CA, I was initially skeptical about farmland investments. But the detailed financial reports and transparent operations convinced me. The returns beat traditional investments by far.",
+      "image": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      "investment_amount": "₹6,50,000",
+      "investment_duration": "2.5 years"
+    },
+    {
+      "id": "5",
+      "name": "Vikram Singh",
+      "location": "Delhi",
+      "occupation": "Marketing Manager",
+      "rating": 5,
+      "text": "The best part is the passive income. I don't have to worry about farming operations - the team handles everything. I just receive my quarterly returns and annual reports.",
+      "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+      "investment_amount": "₹4,00,000",
+      "investment_duration": "1.5 years"
+    },
+    {
+      "id": "6",
+      "name": "Meera Nair",
+      "location": "Kochi",
+      "occupation": "Teacher",
+      "rating": 5,
+      "text": "I started with a small investment to test the waters. The experience has been so positive that I've increased my investment. The team is very supportive and knowledgeable.",
+      "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+      "investment_amount": "₹3,50,000",
+      "investment_duration": "2 years"
+    },
+    {
+      "id": "7",
+      "name": "Arjun Gupta",
+      "location": "Chennai",
+      "occupation": "Entrepreneur",
+      "rating": 5,
+      "text": "Farmland investment has given me both financial returns and personal satisfaction. Knowing that I'm contributing to sustainable agriculture while earning good returns feels great.",
+      "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face",
+      "investment_amount": "₹10,00,000",
+      "investment_duration": "3.5 years"
+    },
+    {
+      "id": "8",
+      "name": "Kavya Iyer",
+      "location": "Bangalore",
+      "occupation": "IT Consultant",
+      "rating": 5,
+      "text": "The digital platform makes it so easy to track my investments. I can see real-time updates, photos from my farm, and detailed financial reports. Very impressed with the technology.",
+      "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face",
+      "investment_amount": "₹7,00,000",
+      "investment_duration": "2 years"
+    }
+  ]
+}

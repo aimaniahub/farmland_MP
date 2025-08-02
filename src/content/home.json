@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "title": "Invest in Premium Farmland",
+    "subtitle": "Secure Your Future with Sustainable Agriculture",
+    "description": "Discover profitable farmland investment opportunities with guaranteed returns and professional management.",
+    "background_image": "/uploads/hero-farmland.jpg",
+    "primary_cta": "Explore Farms",
+    "secondary_cta": "Schedule Call"
+  },
+  "introduction": {
+    "subtitle": "Managed Farmlands",
+    "title": "Professional Farm Management for Maximum Returns",
+    "description": "Our expert team handles all aspects of farm management while you enjoy consistent returns from your farmland investment.",
+    "link": {
+      "text": "Learn More About Our Process",
+      "url": "/about"
+    },
+    "features": [
+      {
+        "icon": "Shield",
+        "title": "Secure Investment",
+        "description": "Government-backed land titles and legal documentation."
+      },
+      {
+        "icon": "Leaf",
+        "title": "Sustainable Farming",
+        "description": "Eco-friendly practices for long-term profitability."
+      },
+      {
+        "icon": "TrendingUp",
+        "title": "Guaranteed Returns",
+        "description": "Consistent annual returns with transparent models."
+      },
+      {
+        "icon": "Award",
+        "title": "Expert Management",
+        "description": "Professional farm management by agricultural experts."
+      }
+    ]
+  },
+  "featured_farms": {
+    "title": "Featured Investment Opportunities",
+    "description": "Explore our carefully selected farmland properties with proven track records and excellent growth potential.",
+    "cta": "View All Farms"
+  },
+  "why_choose_us": {
+    "title": "Why Choose Our Platform",
+    "description": "Join hundreds of satisfied investors who trust us with their farmland investments.",
+    "stats": [
+      {
+        "number": "500+",
+        "label": "Happy Investors",
+        "icon": "Users"
+      },
+      {
+        "number": "1000+",
+        "label": "Acres Managed",
+        "icon": "MapPin"
+      },
+      {
+        "number": "25%",
+        "label": "Average Returns",
+        "icon": "TrendingUp"
+      },
+      {
+        "number": "10+",
+        "label": "Years Experience",
+        "icon": "Calendar"
+      }
+    ]
+  },
+  "media_logos": {
+    "title": "AS SEEN IN"
+  },
+  "blog": {
+    "title": "Latest Insights",
+    "subtitle": "Stay updated with the latest trends in farmland investment and sustainable agriculture."
+  },
+  "cta": {
+    "title": "Ready to Start Your Farmland Investment Journey?",
+    "description": "Join our community of successful investors and secure your financial future with sustainable farmland investments.",
+    "primary_cta": "Get Started Today",
+    "secondary_cta": "Explore Opportunities"
+  }
+}

@@ -1,4 +1,26 @@
 import React, { useState } from 'react';
+
+interface OfficeLocation {
+  name: string;
+  address: string;
+  phone: string;
+  email: string;
+}
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface ContactData {
+  title: string;
+  description: string;
+  officeLocations: OfficeLocation[];
+  faqs: FAQ[];
+}
+
+import contactData from "../content/contact.json";
+const contact = contactData as ContactData;
 import { 
   MapPin, 
   Phone, 
@@ -10,6 +32,7 @@ import {
   Calendar,
   CheckCircle
 } from 'lucide-react';
+
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -53,30 +76,6 @@ const ContactPage: React.FC = () => {
     }, 3000);
   };
 
-  const officeLocations = [
-    {
-      name: 'Bangalore Headquarters',
-      address: '123 Brigade Road, Bangalore, Karnataka 560001',
-      phone: '+91 80 1234 5678',
-      email: 'bangalore@maamarafarms.com',
-      hours: 'Mon-Fri: 9:00 AM - 6:00 PM'
-    },
-    {
-      name: 'Mumbai Office',
-      address: '456 Marine Drive, Mumbai, Maharashtra 400002',
-      phone: '+91 22 9876 5432',
-      email: 'mumbai@maamarafarms.com',
-      hours: 'Mon-Fri: 9:00 AM - 6:00 PM'
-    },
-    {
-      name: 'Delhi Office',
-      address: '789 Connaught Place, New Delhi 110001',
-      phone: '+91 11 2345 6789',
-      email: 'delhi@maamarafarms.com',
-      hours: 'Mon-Fri: 9:00 AM - 6:00 PM'
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -86,9 +85,9 @@ const ContactPage: React.FC = () => {
           <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
             <span className="text-primary-200 text-sm font-medium">📞 GET IN TOUCH</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">Contact Us</h1>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">{contact.title}</h1>
           <p className="text-xl md:text-2xl text-primary-100 max-w-3xl mx-auto">
-            We're here to help with any questions about our farmland projects
+            {contact.description}
           </p>
         </div>
       </section>
@@ -97,7 +96,7 @@ const ContactPage: React.FC = () => {
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {officeLocations.map((office, index) => (
+            {contact.officeLocations.map((office, index) => (
               <div key={index} className="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <h3 className="text-xl font-semibold text-gray-800 mb-4">{office.name}</h3>
                 <div className="space-y-4">
@@ -115,7 +114,7 @@ const ContactPage: React.FC = () => {
                   </div>
                   <div className="flex items-center">
                     <Clock className="h-5 w-5 text-green-600 mr-3 flex-shrink-0" />
-                    <p className="text-gray-600">{office.hours}</p>
+
                   </div>
                 </div>
               </div>
@@ -310,22 +309,12 @@ const ContactPage: React.FC = () => {
             </p>
           </div>
           <div className="space-y-6">
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">What are your office hours?</h3>
-              <p className="text-gray-600">Our offices are open Monday through Friday from 9:00 AM to 6:00 PM local time. We are closed on weekends and public holidays.</p>
-            </div>
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">How quickly will I receive a response?</h3>
-              <p className="text-gray-600">We aim to respond to all inquiries within 24 hours during business days. For urgent matters, we recommend calling our office directly.</p>
-            </div>
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Can I schedule a site visit to see the farms?</h3>
-              <p className="text-gray-600">Yes, we offer guided tours of our farm projects. You can request a site visit through our contact form or by calling our office. Tours are typically conducted on weekends.</p>
-            </div>
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">How do I reach your customer support team?</h3>
-              <p className="text-gray-600">Our customer support team can be reached via email at support@maamarafarms.com or by phone at +91 80 1234 5678 during business hours.</p>
-            </div>
+            {contact.faqs.map((faq, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-sm p-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">{faq.question}</h3>
+                <p className="text-gray-600">{faq.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

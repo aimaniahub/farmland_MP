@@ -1,0 +1,167 @@
+{
+  "title": "Farm Gallery",
+  "description": "Explore our beautiful farmland properties through our comprehensive photo gallery showcasing the natural beauty and modern infrastructure of our managed farms.",
+  "categories": [
+    {
+      "name": "Crop Fields",
+      "description": "Lush green fields showcasing various crops across different seasons",
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&h=600&fit=crop",
+          "caption": "Organic wheat field during harvest season",
+          "location": "Green Valley Farm, Karnataka"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop",
+          "caption": "Rice paddies with traditional irrigation",
+          "location": "Sunrise Farm, Tamil Nadu"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop",
+          "caption": "Organic vegetable cultivation",
+          "location": "Fresh Fields Farm, Maharashtra"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&h=600&fit=crop",
+          "caption": "Corn fields stretching to the horizon",
+          "location": "Golden Acres Farm, Punjab"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1560493676-04071c5f467b?w=800&h=600&fit=crop",
+          "caption": "Sugarcane plantation in full bloom",
+          "location": "Sweet Valley Farm, Uttar Pradesh"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop",
+          "caption": "Drip irrigation system in action",
+          "location": "Smart Farm, Gujarat"
+        }
+      ]
+    },
+    {
+      "name": "Infrastructure",
+      "description": "Modern farming infrastructure and facilities",
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&h=600&fit=crop",
+          "caption": "Modern greenhouse facility",
+          "location": "Tech Farm, Bangalore"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&h=600&fit=crop",
+          "caption": "Automated irrigation control center",
+          "location": "Smart Farm, Gujarat"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1592982537447-6f2a6a0c8b75?w=800&h=600&fit=crop",
+          "caption": "Solar-powered water pumping system",
+          "location": "Eco Farm, Rajasthan"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+          "caption": "Modern storage and processing facility",
+          "location": "Harvest Hub, Haryana"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=800&h=600&fit=crop",
+          "caption": "Farm equipment and machinery",
+          "location": "Mechanized Farm, Madhya Pradesh"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&h=600&fit=crop",
+          "caption": "Quality testing laboratory",
+          "location": "Research Center, Pune"
+        }
+      ]
+    },
+    {
+      "name": "Harvest Season",
+      "description": "Capturing the joy and abundance of harvest time",
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=800&h=600&fit=crop",
+          "caption": "Farmers celebrating successful harvest",
+          "location": "Community Farm, Kerala"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
+          "caption": "Fresh organic produce ready for market",
+          "location": "Organic Valley, Himachal Pradesh"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop",
+          "caption": "Traditional harvesting methods",
+          "location": "Heritage Farm, Odisha"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?w=800&h=600&fit=crop",
+          "caption": "Mechanized harvesting in progress",
+          "location": "Modern Farm, Andhra Pradesh"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&h=600&fit=crop",
+          "caption": "Sorting and grading fresh produce",
+          "location": "Processing Center, West Bengal"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=600&fit=crop",
+          "caption": "Farmers with their premium crop yield",
+          "location": "Success Farm, Telangana"
+        }
+      ]
+    },
+    {
+      "name": "Sustainability",
+      "description": "Our commitment to environmental conservation and sustainable practices",
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop",
+          "caption": "Natural forest conservation area",
+          "location": "Eco Reserve, Karnataka"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=800&h=600&fit=crop",
+          "caption": "Rainwater harvesting system",
+          "location": "Water Smart Farm, Tamil Nadu"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1569163139394-de4e4f43e4e5?w=800&h=600&fit=crop",
+          "caption": "Composting facility for organic fertilizer",
+          "location": "Green Circle Farm, Maharashtra"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=600&fit=crop",
+          "caption": "Biodiversity conservation efforts",
+          "location": "Nature Farm, Assam"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1473773508845-188df298d2d1?w=800&h=600&fit=crop",
+          "caption": "Solar panel installation for clean energy",
+          "location": "Solar Farm, Rajasthan"
+        },
+        {
+          "url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop",
+          "caption": "Organic certification process",
+          "location": "Certified Organic Farm, Punjab"
+        }
+      ]
+    }
+  ],
+  "featured": [
+    {
+      "url": "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1200&h=800&fit=crop",
+      "caption": "Aerial view of our flagship organic farm",
+      "location": "Green Valley Farm, Karnataka"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=800&fit=crop",
+      "caption": "Sunset over the rice fields",
+      "location": "Sunrise Farm, Tamil Nadu"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200&h=800&fit=crop",
+      "caption": "Modern irrigation technology in action",
+      "location": "Smart Farm, Gujarat"
+    }
+  ]
+}

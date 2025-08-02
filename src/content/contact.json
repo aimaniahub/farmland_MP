@@ -1,0 +1,90 @@
+{
+  "title": "Contact Us",
+  "description": "Get in touch with our team to learn more about farmland investment opportunities or to schedule a farm visit.",
+  "officeLocations": [
+    {
+      "name": "Bangalore Headquarters",
+      "address": "123 Tech Park, Electronic City, Bangalore, Karnataka 560100",
+      "phone": "+91 80 4567 8900",
+      "email": "bangalore@farmlandinvest.com"
+    },
+    {
+      "name": "Mumbai Office",
+      "address": "456 Business Center, Bandra Kurla Complex, Mumbai, Maharashtra 400051",
+      "phone": "+91 22 6789 0123",
+      "email": "mumbai@farmlandinvest.com"
+    },
+    {
+      "name": "Chennai Office",
+      "address": "789 IT Corridor, OMR, Chennai, Tamil Nadu 600096",
+      "phone": "+91 44 2345 6789",
+      "email": "chennai@farmlandinvest.com"
+    },
+    {
+      "name": "Pune Office",
+      "address": "321 Innovation Hub, Hinjewadi, Pune, Maharashtra 411057",
+      "phone": "+91 20 3456 7890",
+      "email": "pune@farmlandinvest.com"
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is the minimum investment amount?",
+      "answer": "The minimum investment amount varies by farm and package, typically starting from ₹2,50,000 for a 1-acre plot. We offer flexible payment plans to suit different budgets."
+    },
+    {
+      "question": "What returns can I expect from farmland investment?",
+      "answer": "Our investors typically see annual returns between 20-25%, depending on the crop type, market conditions, and farm location. We provide detailed projections for each investment opportunity."
+    },
+    {
+      "question": "How often will I receive updates about my farm?",
+      "answer": "We provide regular updates through our digital platform, including monthly progress reports, quarterly financial statements, and real-time photos from your farm."
+    },
+    {
+      "question": "Can I visit my farm?",
+      "answer": "Absolutely! We encourage investors to visit their farms. We organize quarterly farm visits and can arrange individual visits with prior notice."
+    },
+    {
+      "question": "What happens if there's a crop failure?",
+      "answer": "We have comprehensive risk management strategies including crop insurance, diversified cropping patterns, and contingency funds to protect investor interests."
+    },
+    {
+      "question": "How is the land ownership structured?",
+      "answer": "Investors receive clear title documents and legal ownership of their allocated farmland. All transactions are transparent and legally compliant."
+    },
+    {
+      "question": "What support do you provide for farm management?",
+      "answer": "We provide complete farm management services including crop planning, cultivation, harvesting, marketing, and financial reporting. You don't need any farming experience."
+    },
+    {
+      "question": "Are there any hidden costs?",
+      "answer": "No, we believe in complete transparency. All costs including management fees, maintenance charges, and operational expenses are clearly outlined in your investment agreement."
+    }
+  ],
+  "contactInfo": {
+    "headquarters": {
+      "address": "123 Tech Park, Electronic City, Bangalore, Karnataka 560100",
+      "phone": "+91 80 4567 8900",
+      "email": "info@farmlandinvest.com",
+      "hours": "Monday - Saturday: 9:00 AM - 6:00 PM"
+    },
+    "customerSupport": {
+      "phone": "+91 80 4567 8901",
+      "email": "support@farmlandinvest.com",
+      "whatsapp": "+91 98765 43210",
+      "hours": "24/7 Support Available"
+    },
+    "investorRelations": {
+      "phone": "+91 80 4567 8902",
+      "email": "investors@farmlandinvest.com",
+      "hours": "Monday - Friday: 9:00 AM - 6:00 PM"
+    }
+  },
+  "socialMedia": {
+    "facebook": "https://facebook.com/farmlandinvest",
+    "twitter": "https://twitter.com/farmlandinvest",
+    "linkedin": "https://linkedin.com/company/farmlandinvest",
+    "instagram": "https://instagram.com/farmlandinvest",
+    "youtube": "https://youtube.com/farmlandinvest"
+  }
+}

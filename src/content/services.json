@@ -1,0 +1,139 @@
+{
+  "title": "Our Services",
+  "description": "Comprehensive farmland investment and management services designed to maximize your returns while promoting sustainable agriculture.",
+  "services": [
+    {
+      "name": "Farmland Investment",
+      "description": "Secure and profitable farmland investment opportunities with guaranteed returns and professional management.",
+      "features": [
+        {
+          "title": "Due Diligence",
+          "description": "Comprehensive land verification, soil testing, and legal documentation review."
+        },
+        {
+          "title": "Investment Planning",
+          "description": "Customized investment strategies based on your financial goals and risk appetite."
+        },
+        {
+          "title": "Portfolio Management",
+          "description": "Professional management of your farmland investment portfolio for optimal returns."
+        }
+      ]
+    },
+    {
+      "name": "Farm Management",
+      "description": "End-to-end farm management services including crop planning, cultivation, and harvest management.",
+      "features": [
+        {
+          "title": "Crop Planning",
+          "description": "Strategic crop selection based on market demand, soil conditions, and climate factors."
+        },
+        {
+          "title": "Cultivation Management",
+          "description": "Professional supervision of all farming activities from sowing to harvesting."
+        },
+        {
+          "title": "Quality Control",
+          "description": "Rigorous quality control measures to ensure premium produce and maximum market value."
+        }
+      ]
+    },
+    {
+      "name": "Technology Solutions",
+      "description": "Advanced agricultural technology solutions for precision farming and optimal resource utilization.",
+      "features": [
+        {
+          "title": "IoT Monitoring",
+          "description": "Real-time monitoring of soil moisture, weather conditions, and crop health using IoT sensors."
+        },
+        {
+          "title": "Precision Agriculture",
+          "description": "GPS-guided farming equipment and variable rate application for maximum efficiency."
+        },
+        {
+          "title": "Data Analytics",
+          "description": "Advanced analytics for yield prediction, risk assessment, and decision support."
+        }
+      ]
+    },
+    {
+      "name": "Sustainable Practices",
+      "description": "Implementation of sustainable and organic farming practices for environmental conservation.",
+      "features": [
+        {
+          "title": "Organic Certification",
+          "description": "Complete support for organic certification process and compliance maintenance."
+        },
+        {
+          "title": "Water Conservation",
+          "description": "Efficient irrigation systems and water management practices to minimize usage."
+        },
+        {
+          "title": "Soil Health",
+          "description": "Soil health improvement through organic amendments and regenerative practices."
+        }
+      ]
+    }
+  ],
+  "packages": [
+    {
+      "name": "Starter Package",
+      "price": "₹2,50,000",
+      "features": [
+        "1-2 Acre farmland investment",
+        "Basic farm management",
+        "Quarterly progress reports",
+        "Annual farm visit",
+        "Standard crop selection",
+        "Basic irrigation setup"
+      ]
+    },
+    {
+      "name": "Premium Package",
+      "price": "₹5,00,000",
+      "features": [
+        "3-5 Acre farmland investment",
+        "Advanced farm management",
+        "Monthly progress reports",
+        "Bi-annual farm visits",
+        "Premium crop varieties",
+        "Drip irrigation system",
+        "Organic certification support",
+        "Market linkage assistance"
+      ]
+    },
+    {
+      "name": "Elite Package",
+      "price": "₹10,00,000",
+      "features": [
+        "5+ Acre farmland investment",
+        "Complete farm management",
+        "Weekly progress updates",
+        "Quarterly farm visits",
+        "High-value crop cultivation",
+        "Smart irrigation with IoT",
+        "Full organic certification",
+        "Direct market access",
+        "Processing facility access",
+        "Priority customer support"
+      ]
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Rajesh Kumar",
+      "text": "The farm management service is exceptional. I don't have to worry about anything - they handle everything professionally.",
+      "role": "Investor, Bangalore"
+    },
+    {
+      "name": "Priya Sharma",
+      "text": "The technology solutions have transformed my farm's productivity. The IoT monitoring gives me real-time insights.",
+      "role": "Farm Owner, Mumbai"
+    },
+    {
+      "name": "Amit Patel",
+      "text": "Their sustainable practices not only help the environment but also increase the market value of our produce.",
+      "role": "Organic Farmer, Pune"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "title": "Join Our Team",
+  "description": "Be part of the agricultural revolution. We're looking for passionate individuals to help us transform farmland investment and sustainable agriculture.",
+  "departments": [
+    "Agriculture",
+    "Technology",
+    "Finance",
+    "Operations",
+    "Marketing",
+    "Customer Success"
+  ],
+  "jobListings": [
+    {
+      "id": 1,
+      "title": "Senior Agricultural Scientist",
+      "location": "Bangalore, Karnataka",
+      "department": "Agriculture",
+      "type": "Full-time",
+      "experience": "5-8 years",
+      "description": "Lead our agricultural research and development initiatives to improve crop yields and sustainable farming practices.",
+      "responsibilities": [
+        "Develop and implement sustainable farming strategies",
+        "Conduct soil and crop analysis for optimization",
+        "Lead field trials for new agricultural techniques",
+        "Collaborate with farmers and agronomists",
+        "Prepare technical reports and recommendations"
+      ],
+      "requirements": [
+        "PhD/Masters in Agricultural Sciences or related field",
+        "5+ years experience in agricultural research",
+        "Knowledge of sustainable farming practices",
+        "Strong analytical and problem-solving skills",
+        "Excellent communication and leadership abilities"
+      ],
+      "benefits": [
+        "Competitive salary package",
+        "Health insurance for family",
+        "Performance-based bonuses",
+        "Professional development opportunities",
+        "Flexible working arrangements"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Full Stack Developer",
+      "location": "Pune, Maharashtra",
+      "department": "Technology",
+      "type": "Full-time",
+      "experience": "3-5 years",
+      "description": "Build and maintain our digital platform that connects investors with farmland opportunities.",
+      "responsibilities": [
+        "Develop and maintain web applications using React and Node.js",
+        "Design and implement RESTful APIs",
+        "Work with databases and data visualization tools",
+        "Collaborate with UI/UX designers",
+        "Ensure application security and performance"
+      ],
+      "requirements": [
+        "Bachelor's degree in Computer Science or related field",
+        "3+ years experience in full-stack development",
+        "Proficiency in React, Node.js, and databases",
+        "Experience with cloud platforms (AWS/Azure)",
+        "Strong problem-solving and debugging skills"
+      ],
+      "benefits": [
+        "Competitive salary with equity options",
+        "Latest technology and equipment",
+        "Learning and development budget",
+        "Flexible work from home policy",
+        "Team outings and events"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Investment Analyst",
+      "location": "Mumbai, Maharashtra",
+      "department": "Finance",
+      "type": "Full-time",
+      "experience": "2-4 years",
+      "description": "Analyze farmland investment opportunities and provide financial insights to support investment decisions.",
+      "responsibilities": [
+        "Conduct financial analysis of farmland investments",
+        "Prepare investment reports and presentations",
+        "Monitor portfolio performance and returns",
+        "Support due diligence processes",
+        "Assist in investor relations activities"
+      ],
+      "requirements": [
+        "MBA/Masters in Finance or related field",
+        "2+ years experience in investment analysis",
+        "Strong financial modeling skills",
+        "Knowledge of agricultural markets preferred",
+        "Excellent analytical and presentation skills"
+      ],
+      "benefits": [
+        "Attractive compensation package",
+        "Performance-linked incentives",
+        "Professional certification support",
+        "Health and wellness benefits",
+        "Career growth opportunities"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Farm Operations Manager",
+      "location": "Chennai, Tamil Nadu",
+      "department": "Operations",
+      "type": "Full-time",
+      "experience": "4-6 years",
+      "description": "Oversee day-to-day farm operations and ensure optimal productivity and quality standards.",
+      "responsibilities": [
+        "Manage farm operations and agricultural activities",
+        "Supervise farm workers and contractors",
+        "Ensure compliance with quality standards",
+        "Monitor crop health and implement pest management",
+        "Coordinate with supply chain and logistics teams"
+      ],
+      "requirements": [
+        "Bachelor's degree in Agriculture or related field",
+        "4+ years experience in farm management",
+        "Knowledge of modern farming techniques",
+        "Strong leadership and team management skills",
+        "Willingness to work in field conditions"
+      ],
+      "benefits": [
+        "Competitive salary with field allowances",
+        "Accommodation and transportation provided",
+        "Health insurance and medical benefits",
+        "Training and skill development programs",
+        "Performance-based rewards"
+      ]
+    }
+  ],
+  "whyJoinUs": [
+    {
+      "title": "Make a Real Impact",
+      "description": "Contribute to sustainable agriculture and help transform rural livelihoods while building a successful career."
+    },
+    {
+      "title": "Innovation-Driven Culture",
+      "description": "Work with cutting-edge technology and innovative approaches to solve real-world agricultural challenges."
+    },
+    {
+      "title": "Growth Opportunities",
+      "description": "Fast-growing company with ample opportunities for career advancement and professional development."
+    },
+    {
+      "title": "Collaborative Environment",
+      "description": "Work with passionate, talented individuals in a supportive and collaborative team environment."
+    }
+  ],
+  "recruitmentProcess": [
+    {
+      "step": 1,
+      "title": "Application Review",
+      "description": "Our team reviews your application and resume to assess your qualifications and fit for the role."
+    },
+    {
+      "step": 2,
+      "title": "Initial Screening",
+      "description": "Phone or video call to discuss your background, experience, and interest in the position."
+    },
+    {
+      "step": 3,
+      "title": "Technical Assessment",
+      "description": "Role-specific technical evaluation to assess your skills and problem-solving abilities."
+    },
+    {
+      "step": 4,
+      "title": "Final Interview",
+      "description": "In-person or video interview with the hiring manager and team members."
+    },
+    {
+      "step": 5,
+      "title": "Offer & Onboarding",
+      "description": "Job offer discussion and comprehensive onboarding process to get you started."
+    }
+  ],
+  "internshipProgram": {
+    "title": "Internship Program",
+    "description": "Our internship program offers students and recent graduates hands-on experience in agriculture technology and sustainable farming.",
+    "benefits": [
+      "Real-world project experience",
+      "Mentorship from industry experts",
+      "Networking opportunities",
+      "Potential for full-time employment",
+      "Stipend and learning resources",
+      "Certificate of completion"
+    ]
+  }
+}

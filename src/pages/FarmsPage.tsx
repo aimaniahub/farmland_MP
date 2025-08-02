@@ -10,6 +10,7 @@ import {
   TrendingUp
 } from 'lucide-react';
 import { Farm } from '../App';
+import farmsData from '../content/farms.json';
 
 interface FarmsPageProps {
   onEnquiry: (farm?: Farm) => void;
@@ -21,116 +22,7 @@ const FarmsPage: React.FC<FarmsPageProps> = ({ onEnquiry }) => {
   const [selectedPriceRange, setSelectedPriceRange] = useState<string>('all');
   const [selectedLocation, setSelectedLocation] = useState<string>('all');
 
-  const farms: Farm[] = [
-    {
-      id: '1',
-      name: 'Maamara Farms',
-      location: 'Doddaballapur, Bangalore',
-      proximity: '45 km from Bangalore',
-      startingPrice: 1250000,
-      plotSizes: ['1 Acre', '2 Acres', '5 Acres'],
-      availableUnits: 63,
-      totalUnits: 100,
-      status: 'ongoing',
-      description: 'Premium managed farmland with organic farming practices and modern amenities',
-      images: ['https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg'],
-      features: ['Organic Certification', 'Drip Irrigation', '24/7 Security', 'Farm-to-Table'],
-      amenities: ['Clubhouse', 'Guest House', 'Farm Store', 'Conference Hall'],
-      cropTypes: ['Mango', 'Coconut', 'Vegetables', 'Spices'],
-      area: '100 Acres',
-      paymentPlans: ['Full Payment', '12 Month EMI', '24 Month EMI']
-    },
-    {
-      id: '2',
-      name: 'Eco Habitat Farms',
-      location: 'Kanakapura, Bangalore',
-      proximity: '60 km from Bangalore',
-      startingPrice: 950000,
-      plotSizes: ['1 Acre', '3 Acres'],
-      availableUnits: 28,
-      totalUnits: 80,
-      status: 'ongoing',
-      description: 'Sustainable farmland with permaculture design and natural water bodies',
-      images: ['https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg'],
-      features: ['Permaculture Design', 'Natural Water Bodies', 'Biodiversity', 'Solar Power'],
-      amenities: ['Eco Lodge', 'Organic Store', 'Workshop Area', 'Meditation Garden'],
-      cropTypes: ['Mixed Fruits', 'Spices', 'Medicinal Plants', 'Timber'],
-      area: '80 Acres',
-      paymentPlans: ['Full Payment', '18 Month EMI']
-    },
-    {
-      id: '3',
-      name: 'Green Valley Estates',
-      location: 'Chikkaballapur, Karnataka',
-      proximity: '70 km from Bangalore',
-      startingPrice: 800000,
-      plotSizes: ['2 Acres', '4 Acres'],
-      availableUnits: 15,
-      totalUnits: 50,
-      status: 'upcoming',
-      description: 'Upcoming premium farmland project with modern amenities and smart farming',
-      images: ['https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg'],
-      features: ['Modern Infrastructure', 'Smart Irrigation', 'Solar Power', 'IoT Monitoring'],
-      amenities: ['Resort Style Clubhouse', 'Swimming Pool', 'Spa', 'Restaurant'],
-      cropTypes: ['Grapes', 'Pomegranate', 'Citrus', 'Avocado'],
-      area: '120 Acres',
-      paymentPlans: ['Pre-launch Offer', '36 Month EMI']
-    },
-    {
-      id: '4',
-      name: 'Sunrise Organic Farms',
-      location: 'Tumkur, Karnataka',
-      proximity: '80 km from Bangalore',
-      startingPrice: 750000,
-      plotSizes: ['1 Acre', '2 Acres', '3 Acres'],
-      availableUnits: 45,
-      totalUnits: 75,
-      status: 'ongoing',
-      description: 'Certified organic farmland with focus on sustainable agriculture',
-      images: ['https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg'],
-      features: ['Organic Certification', 'Rainwater Harvesting', 'Composting Unit', 'Bee Keeping'],
-      amenities: ['Farm Stay', 'Organic Kitchen', 'Library', 'Yoga Deck'],
-      cropTypes: ['Organic Vegetables', 'Herbs', 'Flowers', 'Grains'],
-      area: '75 Acres',
-      paymentPlans: ['Full Payment', '15 Month EMI', '30 Month EMI']
-    },
-    {
-      id: '5',
-      name: 'Heritage Farms',
-      location: 'Mysore, Karnataka',
-      proximity: '150 km from Bangalore',
-      startingPrice: 650000,
-      plotSizes: ['2 Acres', '5 Acres'],
-      availableUnits: 0,
-      totalUnits: 60,
-      status: 'sold-out',
-      description: 'Traditional farming methods combined with modern technology',
-      images: ['https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg'],
-      features: ['Heritage Varieties', 'Traditional Methods', 'Modern Tech', 'Water Conservation'],
-      amenities: ['Heritage Museum', 'Traditional Kitchen', 'Bullock Cart Rides', 'Folk Performances'],
-      cropTypes: ['Traditional Rice', 'Millets', 'Pulses', 'Oilseeds'],
-      area: '150 Acres',
-      paymentPlans: ['Sold Out']
-    },
-    {
-      id: '6',
-      name: 'Blueberry Hills',
-      location: 'Coorg, Karnataka',
-      proximity: '250 km from Bangalore',
-      startingPrice: 1500000,
-      plotSizes: ['1 Acre', '2 Acres'],
-      availableUnits: 20,
-      totalUnits: 40,
-      status: 'ongoing',
-      description: 'Premium hill station farmland specializing in exotic fruits and coffee',
-      images: ['https://images.pexels.com/photos/2933243/pexels-photo-2933243.jpeg'],
-      features: ['Hill Station Climate', 'Exotic Fruits', 'Coffee Plantation', 'Scenic Views'],
-      amenities: ['Mountain Resort', 'Coffee Tasting Room', 'Trekking Trails', 'Bird Watching'],
-      cropTypes: ['Coffee', 'Blueberries', 'Strawberries', 'Pepper'],
-      area: '40 Acres',
-      paymentPlans: ['Full Payment', '24 Month EMI']
-    }
-  ];
+  const farms: Farm[] = farmsData.farms;
 
   const filteredFarms = farms.filter(farm => {
     const matchesSearch = farm.name.toLowerCase().includes(searchQuery.toLowerCase()) ||

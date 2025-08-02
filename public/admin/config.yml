@@ -1,0 +1,131 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/content/blog/blog.json"
+        label: "Blog Page"
+        name: "blog"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+      - file: "src/content/about.json"
+        label: "About Page"
+        name: "about"
+        fields:
+          - {label: "Hero Section", name: "hero", widget: "object", fields: [
+              {label: "Pre-title", name: "pre_title", widget: "string"},
+              {label: "Title", name: "title", widget: "string"},
+              {label: "Description", name: "description", widget: "text"}
+            ]}
+          - {label: "Story Section", name: "story", widget: "object", fields: [
+              {label: "Title", name: "title", widget: "string"},
+              {label: "Paragraphs", name: "paragraphs", widget: "list", field: {label: "Paragraph", name: "paragraph", widget: "text"}},
+              {label: "Image", name: "image", widget: "image"},
+              {label: "Image Caption", name: "image_caption", widget: "string"},
+              {label: "Stat", name: "stat", widget: "object", fields: [{label: "Value", name: "value", widget: "string"}, {label: "Label", name: "label", widget: "string"}]}
+            ]}
+          - {label: "Vision, Mission, Values Section", name: "vision_mission_values", widget: "object", fields: [
+              {label: "Vision", name: "vision", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Description", name: "description", widget: "text"}, {label: "Icon", name: "icon", widget: "select", options: ["Target", "Heart", "Shield"]}]},
+              {label: "Mission", name: "mission", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Description", name: "description", widget: "text"}, {label: "Icon", name: "icon", widget: "select", options: ["Target", "Heart", "Shield"]}]},
+              {label: "Values", name: "values", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "List", name: "list", widget: "list", field: {label: "Value", name: "value", widget: "string"}}, {label: "Icon", name: "icon", widget: "select", options: ["Target", "Heart", "Shield"]}]}
+            ]}
+          - {label: "Team Section", name: "team", widget: "object", fields: [
+              {label: "Title", name: "title", widget: "string"},
+              {label: "Description", name: "description", widget: "text"},
+              {label: "Members", name: "members", widget: "list", fields: [
+                  {label: "Name", name: "name", widget: "string"},
+                  {label: "Position", name: "position", widget: "string"},
+                  {label: "Image", name: "image", widget: "image"},
+                  {label: "Bio", name: "bio", widget: "text"}
+                ]}
+            ]}
+          - {label: "Impact Section", name: "impact", widget: "object", fields: [
+              {label: "Title", name: "title", widget: "string"},
+              {label: "Description", name: "description", widget: "text"},
+              {label: "Stats", name: "stats", widget: "list", fields: [
+                  {label: "Number", name: "number", widget: "string"},
+                  {label: "Label", name: "label", widget: "string"},
+                  {label: "Icon", name: "icon", widget: "select", options: ["Globe", "Users", "TrendingUp", "Award"]}
+                ]},
+              {label: "Environmental Impact", name: "environmental_impact", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Points", name: "points", widget: "list", field: {label: "Point", name: "point", widget: "string"}}]},
+              {label: "Community Impact", name: "community_impact", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Points", name: "points", widget: "list", field: {label: "Point", name: "point", widget: "string"}}]}
+            ]}
+          - {label: "Awards Section", name: "awards", widget: "object", fields: [
+              {label: "Title", name: "title", widget: "string"},
+              {label: "Description", name: "description", widget: "text"},
+              {label: "List", name: "list", widget: "list", fields: [
+                  {label: "Title", name: "title", widget: "string"},
+                  {label: "Issuer", name: "issuer", widget: "string"},
+                  {label: "Icon", name: "icon", widget: "select", options: ["Award"]}
+                ]}
+            ]}
+      - file: "src/content/farm-details.json"
+        label: "Farm Details Page"
+        name: "farm-details"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+      - file: "src/content/services.json"
+        label: "Services Page"
+        name: "services"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+      - file: "src/content/media.json"
+        label: "Media Page"
+        name: "media"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+      - file: "src/content/gallery.json"
+        label: "Gallery Page"
+        name: "gallery"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+      - file: "src/content/contact.json"
+        label: "Contact Page"
+        name: "contact"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+      - file: "src/content/faq.json"
+        label: "FAQ Page"
+        name: "faq"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+      - file: "src/content/careers.json"
+        label: "Careers Page"
+        name: "careers"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+  - name: "farms"
+    label: "Farms"
+    folder: "src/content/farms"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Proximity", name: "proximity", widget: "string"}
+      - {label: "Starting Price", name: "startingPrice", widget: "number"}
+      - {label: "Plot Sizes", name: "plotSizes", widget: "list", field: {label: "Size", name: "size", widget: "string"}}
+      - {label: "Available Units", name: "availableUnits", widget: "number"}
+      - {label: "Total Units", name: "totalUnits", widget: "number"}
+      - {label: "Status", name: "status", widget: "select", options: ["ongoing", "upcoming", "sold-out"]}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Images", name: "images", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
+      - {label: "Features", name: "features", widget: "list", field: {label: "Feature", name: "feature", widget: "string"}}
+      - {label: "Amenities", name: "amenities", widget: "list", field: {label: "Amenity", name: "amenity", widget: "string"}}
+      - {label: "Crop Types", name: "cropTypes", widget: "list", field: {label: "Crop Type", name: "crop_type", widget: "string"}}
+      - {label: "Area", name: "area", widget: "string"}
+      - {label: "Payment Plans", name: "paymentPlans", widget: "list", field: {label: "Plan", name: "plan", widget: "string"}}

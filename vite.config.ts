@@ -14,4 +14,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  json: {
+    stringify: false
+  },
 });

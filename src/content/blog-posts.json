@@ -1,0 +1,88 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "The Future of Sustainable Farming",
+      "excerpt": "Discover how modern technology is revolutionizing agriculture and creating sustainable farming practices for a better tomorrow.",
+      "content": "Sustainable farming is no longer just a trend—it's the future of agriculture. With climate change and growing population demands, farmers are adopting innovative practices that protect the environment while maximizing yields.",
+      "date": "2024-01-15",
+      "author": "Dr. Rajesh Aggarwal",
+      "author_bio": "Agricultural Scientist with 15+ years experience",
+      "image": "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&h=600&fit=crop",
+      "slug": "future-sustainable-farming",
+      "category": "Sustainability",
+      "tags": ["sustainable farming", "technology", "environment"],
+      "readTime": "5 min read"
+    },
+    {
+      "id": "2",
+      "title": "Investment Opportunities in Farmland",
+      "excerpt": "Learn about the growing trend of farmland investment and its potential returns in the current economic climate.",
+      "content": "Farmland investment has emerged as one of the most stable and profitable investment options. With consistent returns and inflation hedging properties, it's attracting investors worldwide.",
+      "date": "2024-01-10",
+      "author": "Priya Sharma",
+      "author_bio": "Investment Advisor & Financial Planner",
+      "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop",
+      "slug": "farmland-investment-opportunities",
+      "category": "Investment",
+      "tags": ["investment", "farmland", "returns"],
+      "readTime": "7 min read"
+    },
+    {
+      "id": "3",
+      "title": "Organic Farming: Benefits and Challenges",
+      "excerpt": "Explore the advantages of organic farming and the challenges farmers face in transitioning to organic methods.",
+      "content": "Organic farming offers numerous benefits including better soil health, reduced chemical usage, and premium market prices. However, the transition requires careful planning and patience.",
+      "date": "2024-01-05",
+      "author": "Dr. Sunita Reddy",
+      "author_bio": "Organic Farming Specialist",
+      "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop",
+      "slug": "organic-farming-benefits-challenges",
+      "category": "Farming Techniques",
+      "tags": ["organic farming", "soil health", "certification"],
+      "readTime": "6 min read"
+    },
+    {
+      "id": "4",
+      "title": "Water Management in Modern Agriculture",
+      "excerpt": "Learn about efficient water management techniques that are transforming agricultural productivity and sustainability.",
+      "content": "Water scarcity is a growing concern in agriculture. Modern irrigation techniques like drip irrigation and smart sensors are helping farmers optimize water usage while maintaining crop yields.",
+      "date": "2023-12-28",
+      "author": "Vikram Singh",
+      "author_bio": "Irrigation Technology Expert",
+      "image": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&h=600&fit=crop",
+      "slug": "water-management-modern-agriculture",
+      "category": "Technology",
+      "tags": ["water management", "irrigation", "technology"],
+      "readTime": "8 min read"
+    },
+    {
+      "id": "5",
+      "title": "Climate-Smart Agriculture Practices",
+      "excerpt": "Discover how farmers are adapting to climate change with innovative agricultural practices and resilient crop varieties.",
+      "content": "Climate change poses significant challenges to agriculture. Climate-smart practices help farmers adapt to changing weather patterns while reducing greenhouse gas emissions.",
+      "date": "2023-12-20",
+      "author": "Dr. Meera Nair",
+      "author_bio": "Climate Change Researcher",
+      "image": "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=800&h=600&fit=crop",
+      "slug": "climate-smart-agriculture-practices",
+      "category": "Climate",
+      "tags": ["climate change", "adaptation", "resilience"],
+      "readTime": "9 min read"
+    },
+    {
+      "id": "6",
+      "title": "The Economics of Farmland Investment",
+      "excerpt": "A comprehensive analysis of farmland as an investment asset class and its performance compared to traditional investments.",
+      "content": "Farmland has consistently outperformed many traditional asset classes over the past decades. This analysis explores the economic factors driving farmland investment returns.",
+      "date": "2023-12-15",
+      "author": "Amit Patel",
+      "author_bio": "Agricultural Economist",
+      "image": "https://images.unsplash.com/photo-1560493676-04071c5f467b?w=800&h=600&fit=crop",
+      "slug": "economics-farmland-investment",
+      "category": "Economics",
+      "tags": ["economics", "investment analysis", "asset class"],
+      "readTime": "10 min read"
+    }
+  ]
+}
