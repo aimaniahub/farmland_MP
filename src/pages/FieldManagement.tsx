@@ -10,7 +10,11 @@ import {
   Calendar,
   BarChart3
 } from 'lucide-react';
-import { User } from '../App';
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
 
 interface Field {
   id: string;

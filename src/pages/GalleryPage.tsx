@@ -1,27 +1,30 @@
 
 import React, { useState } from 'react';
-import { 
-  Filter, 
+import {
+  Filter,
   Image as ImageIcon,
-  Video,
   X,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
 
-interface GalleryItem {
-  id: string;
-  title: string;
+interface GalleryImage {
+  url: string;
+  caption: string;
+  location: string;
+}
+
+interface GalleryCategory {
+  name: string;
   description: string;
-  src: string;
-  type: 'image' | 'video';
-  category: 'farms' | 'events' | 'produce';
+  images: GalleryImage[];
 }
 
 interface GalleryData {
   title: string;
   description: string;
-  galleryItems: GalleryItem[];
+  categories: GalleryCategory[];
+  featured: GalleryImage[];
 }
 
 import galleryData from '../content/gallery.json';
@@ -29,14 +32,21 @@ import galleryData from '../content/gallery.json';
 const gallery = galleryData as GalleryData;
 
 const GalleryPage: React.FC = () => {
-  const [filter, setFilter] = useState<'all' | 'farms' | 'events' | 'produce'>('all');
+  const [filter, setFilter] = useState<string>('all');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  
-  const galleryItems = gallery.galleryItems;
 
-  const filteredItems = filter === 'all' 
-    ? galleryItems 
-    : galleryItems.filter(item => item.category === filter);
+  // Flatten all images from categories
+  const allImages = gallery.categories.flatMap(category =>
+    category.images.map((image, index) => ({
+      ...image,
+      category: category.name,
+      id: `${category.name}-${index}`
+    }))
+  );
+
+  const filteredItems = filter === 'all'
+    ? allImages
+    : allImages.filter(item => item.category === filter);
 
   const openLightbox = (src: string) => {
     setSelectedImage(src);
@@ -72,24 +82,15 @@ const GalleryPage: React.FC = () => {
             >
               All
             </button>
-            <button
-              onClick={() => setFilter('farms')}
-              className={`px-6 py-2 rounded-full font-medium ${filter === 'farms' ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'} transition-colors`}
-            >
-              Farms
-            </button>
-            <button
-              onClick={() => setFilter('produce')}
-              className={`px-6 py-2 rounded-full font-medium ${filter === 'produce' ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'} transition-colors`}
-            >
-              Produce
-            </button>
-            <button
-              onClick={() => setFilter('events')}
-              className={`px-6 py-2 rounded-full font-medium ${filter === 'events' ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'} transition-colors`}
-            >
-              Events
-            </button>
+            {gallery.categories.map((category) => (
+              <button
+                key={category.name}
+                onClick={() => setFilter(category.name)}
+                className={`px-6 py-2 rounded-full font-medium ${filter === category.name ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'} transition-colors`}
+              >
+                {category.name}
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -102,21 +103,15 @@ const GalleryPage: React.FC = () => {
               <div 
                 key={item.id} 
                 className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer"
-                onClick={() => item.type === 'image' ? openLightbox(item.src) : null}
+                onClick={() => openLightbox(item.url)}
               >
                 <div className="relative">
-                  <img 
-                    src={item.src} 
-                    alt={item.title} 
+                  <img
+                    src={item.url}
+                    alt={item.caption}
                     className="w-full h-64 object-cover"
                   />
-                  {item.type === 'video' && (
-                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
-                        <Video className="h-8 w-8 text-green-600" />
-                      </div>
-                    </div>
-                  )}
+
                   <div className="absolute top-4 right-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${item.category === 'farms' ? 'bg-green-500 text-white' : item.category === 'produce' ? 'bg-orange-500 text-white' : 'bg-blue-500 text-white'}`}>
                       {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
@@ -124,8 +119,8 @@ const GalleryPage: React.FC = () => {
                   </div>
                 </div>
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-1">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.description}</p>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-1">{item.caption}</h3>
+                  <p className="text-gray-600 text-sm">{item.location}</p>
                 </div>
               </div>
             ))}
