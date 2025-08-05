@@ -1,8 +1,8 @@
-# Netlify CMS Setup for Farmland Website
+# Decap CMS Setup for Farmland Website
 
 ## 🎉 Setup Complete!
 
-Netlify CMS has been successfully configured for the Farmland website with comprehensive content management capabilities.
+Decap CMS (modern fork of Netlify CMS) has been successfully configured for the Farmland website with comprehensive content management capabilities.
 
 ## 📋 What's Included
 

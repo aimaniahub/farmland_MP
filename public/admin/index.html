@@ -63,8 +63,8 @@
     <div>Loading Farmland CMS...</div>
   </div>
 
-  <!-- Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+  <!-- Decap CMS (Modern Netlify CMS) -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
   <!-- Custom CMS Configuration -->
   <script>
@@ -79,10 +79,13 @@
     });
 
     // Custom preview styles
-    CMS.registerPreviewStyle('/admin/preview.css');
+    if (window.CMS) {
+      CMS.registerPreviewStyle('/admin/preview.css');
+    }
 
     // Custom editor components can be added here
-    // CMS.registerEditorComponent({
+    // if (window.CMS) {
+    //   CMS.registerEditorComponent({
     //   id: "youtube",
     //   label: "YouTube",
     //   fields: [{name: 'id', label: 'YouTube Video ID', widget: 'string'}],
@@ -98,7 +101,8 @@
     //   toPreview: function(obj) {
     //     return '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>';
     //   }
-    // });
+    //   });
+    // }
   </script>
 </body>
 </html>
