@@ -36,34 +36,14 @@ const services = servicesData as ServicesData;
 import {
   ArrowRight,
   Leaf,
-  TrendingUp,
   Shield,
   Users,
-  BarChart,
-  Sprout,
   Tractor,
-  Droplets,
   Sun,
-  FileText,
-  Briefcase,
   Star,
-  CheckCircle,
-  Phone
+  CheckCircle
 } from 'lucide-react';
 
-
-const iconMap = {
-  Tractor: Tractor,
-  Leaf: Leaf,
-  Droplets: Droplets,
-  Sun: Sun,
-  TrendingUp: TrendingUp,
-  Shield: Shield,
-  Sprout: Sprout,
-  BarChart: BarChart,
-  Briefcase: Briefcase,
-  FileText: FileText,
-};
 
 const ServicesPage: React.FC = () => {
   // Define icons for each service
@@ -72,50 +52,50 @@ const ServicesPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-r from-green-700 to-green-900 text-white rounded-b-3xl">
+      <section className="relative py-12 sm:py-16 lg:py-24 bg-gradient-to-r from-green-700 to-green-900 text-white rounded-b-3xl">
         <div className="absolute inset-0 bg-black/20 rounded-b-3xl"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
-            <span className="text-green-200 text-sm font-medium">🌱 OUR SERVICES</span>
+        <div className="relative max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 text-center">
+          <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-4 sm:mb-6">
+            <span className="text-green-200 text-xs sm:text-sm font-medium">🌱 OUR SERVICES</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{services.title}</h1>
-          <p className="text-xl md:text-2xl text-green-100 max-w-3xl mx-auto mb-12">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6">{services.title}</h1>
+          <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-green-100 max-w-2xl lg:max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-12">
             {services.description}
           </p>
-          <button className="inline-flex items-center px-8 py-4 bg-white text-green-600 rounded-full hover:bg-gray-100 transition-all duration-300 font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+          <button className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-white text-green-600 rounded-full hover:bg-gray-100 transition-all duration-300 font-semibold text-sm sm:text-base lg:text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
             Schedule a Consultation
-            <ArrowRight className="ml-2 h-5 w-5" />
+            <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
           </button>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Comprehensive Farm Services</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+      <section className="py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+          <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-2 sm:mb-3 lg:mb-4">Comprehensive Farm Services</h2>
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 max-w-2xl lg:max-w-3xl mx-auto">
               From planning to harvest, we provide end-to-end solutions for your farmland
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {services.services.map((service, index) => {
               const Icon = serviceIcons[index] || Tractor;
               return (
-                <div key={index} className="bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-                  <div className="flex items-center mb-6">
-                    <div className="bg-green-100 p-3 rounded-xl mr-4">
-                      <Icon className="h-8 w-8 text-green-600" />
+                <div key={index} className="bg-white rounded-3xl shadow-lg p-4 sm:p-6 lg:p-8 hover:shadow-xl transition-shadow duration-300">
+                  <div className="flex items-center mb-4 sm:mb-6">
+                    <div className="bg-green-100 p-2 sm:p-3 rounded-2xl mr-3 sm:mr-4">
+                      <Icon className="h-6 w-6 sm:h-8 sm:w-8 text-green-600" />
                     </div>
-                    <h3 className="text-2xl font-semibold text-gray-800">{service.name}</h3>
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-800">{service.name}</h3>
                   </div>
-                  <p className="text-gray-600 mb-6">{service.description}</p>
-                  <div className="space-y-4">
+                  <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">{service.description}</p>
+                  <div className="space-y-3 sm:space-y-4">
                     {service.features.map((feature, idx) => (
-                      <div key={idx} className="bg-gray-50 rounded-xl p-4">
-                        <h4 className="font-semibold text-gray-800 mb-2">{feature.title}</h4>
-                        <p className="text-gray-600 text-sm">{feature.description}</p>
+                      <div key={idx} className="bg-gray-50 rounded-2xl p-3 sm:p-4">
+                        <h4 className="font-semibold text-gray-800 mb-1 sm:mb-2 text-sm sm:text-base">{feature.title}</h4>
+                        <p className="text-gray-600 text-xs sm:text-sm">{feature.description}</p>
                       </div>
                     ))}
                   </div>

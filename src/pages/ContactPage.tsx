@@ -21,11 +21,11 @@ interface ContactData {
 
 import contactData from "../content/contact.json";
 const contact = contactData as ContactData;
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
   Send,
   MessageSquare,
   Users,

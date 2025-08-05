@@ -4,24 +4,35 @@ interface NewsArticle {
   title: string;
   date: string;
   summary: string;
+  image?: string;
+  source?: string;
+  excerpt?: string;
+  link?: string;
 }
 
 interface PressRelease {
   title: string;
   date: string;
   content: string;
+  excerpt?: string;
+  link?: string;
 }
 
 interface Event {
   name: string;
   date: string;
   location: string;
+  title?: string;
+  description?: string;
+  link?: string;
 }
 
 interface Video {
   title: string;
   url: string;
   thumbnail: string;
+  duration?: string;
+  link?: string;
 }
 
 interface MediaMention {
@@ -32,6 +43,8 @@ interface MediaMention {
 interface Award {
   name: string;
   organization: string;
+  title?: string;
+  year?: string;
 }
 
 interface MediaData {
@@ -63,11 +76,11 @@ const MediaPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-green-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-green-600 text-white py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4">{media.title}</h1>
-            <p className="text-xl text-green-100">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 lg:mb-4">{media.title}</h1>
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-green-100">
               {media.description}
             </p>
           </div>
@@ -231,9 +244,9 @@ const MediaPage: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {media.mediaMentions.map((logo, index) => (
+            {media.mediaMentions.map((mention, index) => (
               <div key={index} className="text-2xl font-bold text-gray-400 hover:text-gray-600 transition-colors">
-                {logo}
+                {mention.publication}
               </div>
             ))}
           </div>

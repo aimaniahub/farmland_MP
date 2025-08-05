@@ -1,0 +1,249 @@
+/* Netlify CMS Preview Styles for Farmland Website */
+
+/* Import Tailwind base styles for preview */
+@import url('https://cdn.tailwindcss.com');
+
+/* Custom CSS Variables matching the main site */
+:root {
+  /* Primary Green Color Palette */
+  --primary-green: #2A6F2D;
+  --primary-green-light: #3A8F3E;
+  --primary-green-dark: #1F4F1F;
+  --primary-green-lightest: #F0F9F0;
+  
+  /* Accent Orange Color Palette */
+  --accent-orange: #F39C12;
+  --accent-orange-light: #F5B041;
+  --accent-orange-dark: #D68910;
+  --accent-orange-lightest: #FEF9E7;
+  
+  /* Neutral Colors */
+  --dark-text: #212529;
+  --light-text: #555555;
+  --section-bg: #F8F9FA;
+  --white: #FFFFFF;
+  --border-color: #DEE2E6;
+  
+  /* Earth Tones */
+  --earth-brown: #8B6F47;
+  --earth-light: #D4C5B9;
+  --earth-dark: #5D4E37;
+  
+  /* Fonts */
+  --font-heading: 'Montserrat', 'Inter', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+/* Base preview styling */
+.cms-preview-content {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--dark-text);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Typography */
+.cms-preview-content h1,
+.cms-preview-content h2,
+.cms-preview-content h3,
+.cms-preview-content h4,
+.cms-preview-content h5,
+.cms-preview-content h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--dark-text);
+  margin-bottom: 1rem;
+}
+
+.cms-preview-content h1 {
+  font-size: 2.5rem;
+  color: var(--primary-green);
+}
+
+.cms-preview-content h2 {
+  font-size: 2rem;
+  color: var(--primary-green);
+}
+
+.cms-preview-content h3 {
+  font-size: 1.5rem;
+  color: var(--primary-green-dark);
+}
+
+.cms-preview-content p {
+  margin-bottom: 1rem;
+  color: var(--light-text);
+}
+
+/* Links */
+.cms-preview-content a {
+  color: var(--primary-green);
+  text-decoration: underline;
+}
+
+.cms-preview-content a:hover {
+  color: var(--primary-green-dark);
+}
+
+/* Lists */
+.cms-preview-content ul,
+.cms-preview-content ol {
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.cms-preview-content li {
+  margin-bottom: 0.5rem;
+  color: var(--light-text);
+}
+
+/* Images */
+.cms-preview-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Blockquotes */
+.cms-preview-content blockquote {
+  border-left: 4px solid var(--primary-green);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: var(--light-text);
+  background: var(--primary-green-lightest);
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+/* Code blocks */
+.cms-preview-content code {
+  background: var(--section-bg);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.cms-preview-content pre {
+  background: var(--section-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.cms-preview-content pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Tables */
+.cms-preview-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.cms-preview-content th,
+.cms-preview-content td {
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.cms-preview-content th {
+  background: var(--primary-green);
+  color: white;
+  font-weight: 600;
+}
+
+.cms-preview-content tr:nth-child(even) {
+  background: var(--section-bg);
+}
+
+/* Buttons (for preview) */
+.cms-preview-content .btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-green);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  transition: background-color 0.3s ease;
+}
+
+.cms-preview-content .btn:hover {
+  background: var(--primary-green-dark);
+}
+
+.cms-preview-content .btn-secondary {
+  background: var(--accent-orange);
+}
+
+.cms-preview-content .btn-secondary:hover {
+  background: var(--accent-orange-dark);
+}
+
+/* Cards (for preview) */
+.cms-preview-content .card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cms-preview-content {
+    padding: 15px;
+  }
+  
+  .cms-preview-content h1 {
+    font-size: 2rem;
+  }
+  
+  .cms-preview-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Special preview indicators */
+.cms-preview-content::before {
+  content: "📝 Content Preview";
+  display: block;
+  background: var(--primary-green);
+  color: white;
+  padding: 0.5rem 1rem;
+  margin: -20px -20px 20px -20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Form elements (for preview) */
+.cms-preview-content input,
+.cms-preview-content textarea,
+.cms-preview-content select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  margin: 0.5rem 0;
+}
+
+.cms-preview-content input:focus,
+.cms-preview-content textarea:focus,
+.cms-preview-content select:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(42, 111, 45, 0.1);
+}

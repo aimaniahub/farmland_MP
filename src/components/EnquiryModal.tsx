@@ -61,6 +61,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, farm }) =>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-full"
+            aria-label="Close modal"
           >
             <X className="h-6 w-6" />
           </button>

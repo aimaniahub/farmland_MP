@@ -60,7 +60,7 @@
 @layer components {
   /* Button Styles */
   .btn-primary {
-    @apply bg-primary-green text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary-green-light hover:shadow-lg hover:shadow-primary-green/25 transform hover:-translate-y-0.5 relative overflow-hidden;
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-2xl font-semibold transition-all duration-300 hover:from-primary-700 hover:to-primary-800 hover:shadow-xl hover:shadow-primary-600/25 transform hover:-translate-y-1 hover:scale-105 relative overflow-hidden;
   }
   
   .btn-primary::before {
@@ -72,11 +72,11 @@
   }
   
   .btn-secondary {
-    @apply bg-white text-primary-green border-2 border-primary-green px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-medium transition-all duration-300 hover:bg-primary-green hover:text-white hover:shadow-lg hover:shadow-primary-green/25 transform hover:-translate-y-0.5 relative overflow-hidden;
+    @apply bg-white text-primary-600 border-2 border-primary-600 px-6 py-3 sm:px-8 sm:py-4 rounded-2xl font-semibold transition-all duration-300 hover:bg-primary-600 hover:text-white hover:shadow-xl hover:shadow-primary-600/25 transform hover:-translate-y-1 hover:scale-105 relative overflow-hidden;
   }
-  
+
   .btn-accent {
-    @apply bg-accent-orange text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg font-medium transition-all duration-300 hover:bg-accent-orange-light hover:shadow-lg hover:shadow-accent-orange/25 transform hover:-translate-y-0.5 relative overflow-hidden;
+    @apply bg-gradient-to-r from-secondary-500 to-secondary-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-2xl font-semibold transition-all duration-300 hover:from-secondary-600 hover:to-secondary-700 hover:shadow-xl hover:shadow-secondary-500/25 transform hover:-translate-y-1 hover:scale-105 relative overflow-hidden;
   }
   
   .btn-accent::before {
@@ -89,7 +89,7 @@
   
   /* Card Styles */
   .card {
-    @apply bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 border border-gray-100;
+    @apply bg-white rounded-3xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 border border-gray-100;
   }
   
   .card-green {
@@ -181,32 +181,163 @@
     @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6;
   }
   
+  /* Responsive Typography System */
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+
+  .text-responsive-sm {
+    @apply text-xs sm:text-sm lg:text-base;
+  }
+
   .text-responsive-base {
-    @apply text-sm sm:text-base;
+    @apply text-sm sm:text-base lg:text-lg;
   }
-  
+
   .text-responsive-lg {
-    @apply text-base sm:text-lg;
+    @apply text-base sm:text-lg lg:text-xl;
   }
-  
+
   .text-responsive-xl {
-    @apply text-lg sm:text-xl;
+    @apply text-lg sm:text-xl lg:text-2xl;
   }
-  
+
   .text-responsive-2xl {
-    @apply text-xl sm:text-2xl;
+    @apply text-xl sm:text-2xl lg:text-3xl;
   }
-  
+
   .text-responsive-3xl {
-    @apply text-2xl sm:text-3xl;
+    @apply text-xl sm:text-2xl lg:text-3xl xl:text-4xl;
   }
-  
+
   .text-responsive-4xl {
-    @apply text-3xl sm:text-4xl;
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl;
   }
-  
+
   .text-responsive-5xl {
-    @apply text-4xl sm:text-5xl;
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl;
+  }
+
+  .text-responsive-6xl {
+    @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl;
+  }
+
+  /* Mobile-first heading styles */
+  .heading-mobile-sm {
+    @apply text-lg sm:text-xl lg:text-2xl font-bold;
+  }
+
+  .heading-mobile-md {
+    @apply text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold;
+  }
+
+  .heading-mobile-lg {
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold;
+  }
+
+  .heading-mobile-xl {
+    @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold;
+  }
+
+  /* Compact spacing for mobile */
+  .spacing-mobile-tight {
+    @apply space-y-2 sm:space-y-3 lg:space-y-4;
+  }
+
+  .spacing-mobile-normal {
+    @apply space-y-3 sm:space-y-4 lg:space-y-6;
+  }
+
+  .spacing-mobile-loose {
+    @apply space-y-4 sm:space-y-6 lg:space-y-8;
+  }
+
+  /* Mobile-optimized padding */
+  .padding-mobile-sm {
+    @apply p-3 sm:p-4 lg:p-6;
+  }
+
+  .padding-mobile-md {
+    @apply p-4 sm:p-6 lg:p-8;
+  }
+
+  .padding-mobile-lg {
+    @apply p-6 sm:p-8 lg:p-12;
+  }
+
+  /* Mobile-optimized margins */
+  .margin-mobile-sm {
+    @apply m-2 sm:m-3 lg:m-4;
+  }
+
+  .margin-mobile-md {
+    @apply m-3 sm:m-4 lg:m-6;
+  }
+
+  .margin-mobile-lg {
+    @apply m-4 sm:m-6 lg:m-8;
+  }
+
+  /* Mobile section padding */
+  .section-mobile-sm {
+    @apply py-6 sm:py-8 lg:py-12;
+  }
+
+  .section-mobile-md {
+    @apply py-8 sm:py-12 lg:py-16;
+  }
+
+  .section-mobile-lg {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  /* Mobile container padding */
+  .container-mobile-padding {
+    @apply px-3 sm:px-4 lg:px-8;
+  }
+
+  /* Mobile-optimized grid layouts */
+  .grid-mobile-1 {
+    @apply grid grid-cols-1 gap-3 sm:gap-4 lg:gap-6;
+  }
+
+  .grid-mobile-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6;
+  }
+
+  .grid-mobile-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6;
+  }
+
+  .grid-mobile-4 {
+    @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6;
+  }
+
+  /* Mobile-optimized flex layouts */
+  .flex-mobile-col {
+    @apply flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6;
+  }
+
+  /* Mobile line clamping */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   
   /* Animation Classes */

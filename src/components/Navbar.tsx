@@ -85,6 +85,7 @@ const Navbar: React.FC<NavbarProps> = ({ onEnquiry }) => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`transition-all duration-300 p-2 rounded-lg ${isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'}`}
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

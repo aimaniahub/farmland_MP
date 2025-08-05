@@ -1,131 +1,586 @@
+# Netlify CMS Configuration for Farmland Website
 backend:
   name: git-gateway
   branch: main
 
+# Local development backend (uncomment for local development)
+# backend:
+#   name: proxy
+#   proxy_url: http://localhost:8081/api/v1
+#   branch: main
+
+# Media configuration
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
+# Media library configuration
+media_library:
+  name: uploadcare
+  config:
+    publicKey: "your-uploadcare-public-key"
+    multiple: true
+    tabs: "file camera url facebook gdrive gphotos dropbox instagram"
+    effects: "crop,rotate,enhance,grayscale"
+    imageShrink: "2048x2048"
+    previewStep: true
+    clearable: true
+
+# Alternative media configuration for local development
+# media_library:
+#   name: cloudinary
+#   config:
+#     cloud_name: "your-cloud-name"
+#     api_key: "your-api-key"
+
+# File size limits and formats
+media_folder_relative: true
+media_library_config:
+  max_file_size: 10485760  # 10MB
+  allowed_extensions: ["jpg", "jpeg", "png", "gif", "webp", "svg", "pdf", "doc", "docx"]
+
+# Site URL for preview
+site_url: "https://your-farmland-site.netlify.app"
+
+# Collections configuration
 collections:
+  # ===== PAGES COLLECTION =====
   - name: "pages"
-    label: "Pages"
+    label: "📄 Pages"
+    description: "Manage all website pages content"
     files:
-      - file: "src/content/blog/blog.json"
-        label: "Blog Page"
-        name: "blog"
+      # Home Page
+      - file: "src/content/home.json"
+        label: "🏠 Home Page"
+        name: "home"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Subtitle", name: "subtitle", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - {label: "Background Image", name: "background_image", widget: "image", required: true}
+              - {label: "Primary CTA Text", name: "primary_cta", widget: "string", required: true}
+              - {label: "Secondary CTA Text", name: "secondary_cta", widget: "string", required: true}
+
+          - label: "Introduction Section"
+            name: "introduction"
+            widget: "object"
+            fields:
+              - {label: "Subtitle", name: "subtitle", widget: "string", required: true}
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - label: "Link"
+                name: "link"
+                widget: "object"
+                fields:
+                  - {label: "Text", name: "text", widget: "string"}
+                  - {label: "URL", name: "url", widget: "string"}
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                fields:
+                  - {label: "Icon", name: "icon", widget: "select", options: ["Shield", "Leaf", "TrendingUp", "Award", "Users", "CheckCircle", "MapPin", "Calendar"]}
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+
+          - label: "Why Choose Us Section"
+            name: "why_choose_us"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - label: "Benefits"
+                name: "benefits"
+                widget: "list"
+                fields:
+                  - {label: "Icon", name: "icon", widget: "select", options: ["Shield", "Leaf", "TrendingUp", "Award", "Users", "CheckCircle"]}
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+
+          - label: "CTA Section"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - {label: "Primary CTA", name: "primary_cta", widget: "string", required: true}
+              - {label: "Secondary CTA", name: "secondary_cta", widget: "string", required: true}
+              - {label: "Background Image", name: "background_image", widget: "image"}
+
+      # About Page
       - file: "src/content/about.json"
-        label: "About Page"
+        label: "ℹ️ About Page"
         name: "about"
         fields:
-          - {label: "Hero Section", name: "hero", widget: "object", fields: [
-              {label: "Pre-title", name: "pre_title", widget: "string"},
-              {label: "Title", name: "title", widget: "string"},
-              {label: "Description", name: "description", widget: "text"}
-            ]}
-          - {label: "Story Section", name: "story", widget: "object", fields: [
-              {label: "Title", name: "title", widget: "string"},
-              {label: "Paragraphs", name: "paragraphs", widget: "list", field: {label: "Paragraph", name: "paragraph", widget: "text"}},
-              {label: "Image", name: "image", widget: "image"},
-              {label: "Image Caption", name: "image_caption", widget: "string"},
-              {label: "Stat", name: "stat", widget: "object", fields: [{label: "Value", name: "value", widget: "string"}, {label: "Label", name: "label", widget: "string"}]}
-            ]}
-          - {label: "Vision, Mission, Values Section", name: "vision_mission_values", widget: "object", fields: [
-              {label: "Vision", name: "vision", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Description", name: "description", widget: "text"}, {label: "Icon", name: "icon", widget: "select", options: ["Target", "Heart", "Shield"]}]},
-              {label: "Mission", name: "mission", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Description", name: "description", widget: "text"}, {label: "Icon", name: "icon", widget: "select", options: ["Target", "Heart", "Shield"]}]},
-              {label: "Values", name: "values", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "List", name: "list", widget: "list", field: {label: "Value", name: "value", widget: "string"}}, {label: "Icon", name: "icon", widget: "select", options: ["Target", "Heart", "Shield"]}]}
-            ]}
-          - {label: "Team Section", name: "team", widget: "object", fields: [
-              {label: "Title", name: "title", widget: "string"},
-              {label: "Description", name: "description", widget: "text"},
-              {label: "Members", name: "members", widget: "list", fields: [
-                  {label: "Name", name: "name", widget: "string"},
-                  {label: "Position", name: "position", widget: "string"},
-                  {label: "Image", name: "image", widget: "image"},
-                  {label: "Bio", name: "bio", widget: "text"}
-                ]}
-            ]}
-          - {label: "Impact Section", name: "impact", widget: "object", fields: [
-              {label: "Title", name: "title", widget: "string"},
-              {label: "Description", name: "description", widget: "text"},
-              {label: "Stats", name: "stats", widget: "list", fields: [
-                  {label: "Number", name: "number", widget: "string"},
-                  {label: "Label", name: "label", widget: "string"},
-                  {label: "Icon", name: "icon", widget: "select", options: ["Globe", "Users", "TrendingUp", "Award"]}
-                ]},
-              {label: "Environmental Impact", name: "environmental_impact", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Points", name: "points", widget: "list", field: {label: "Point", name: "point", widget: "string"}}]},
-              {label: "Community Impact", name: "community_impact", widget: "object", fields: [{label: "Title", name: "title", widget: "string"}, {label: "Points", name: "points", widget: "list", field: {label: "Point", name: "point", widget: "string"}}]}
-            ]}
-          - {label: "Awards Section", name: "awards", widget: "object", fields: [
-              {label: "Title", name: "title", widget: "string"},
-              {label: "Description", name: "description", widget: "text"},
-              {label: "List", name: "list", widget: "list", fields: [
-                  {label: "Title", name: "title", widget: "string"},
-                  {label: "Issuer", name: "issuer", widget: "string"},
-                  {label: "Icon", name: "icon", widget: "select", options: ["Award"]}
-                ]}
-            ]}
-      - file: "src/content/farm-details.json"
-        label: "Farm Details Page"
-        name: "farm-details"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Pre-title", name: "pre_title", widget: "string", required: true}
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+
+          - label: "Story Section"
+            name: "story"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Paragraphs", name: "paragraphs", widget: "list", field: {label: "Paragraph", name: "paragraph", widget: "text"}}
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Image Caption", name: "image_caption", widget: "string"}
+              - label: "Stat"
+                name: "stat"
+                widget: "object"
+                fields:
+                  - {label: "Value", name: "value", widget: "string"}
+                  - {label: "Label", name: "label", widget: "string"}
+
+          - label: "Vision, Mission, Values Section"
+            name: "vision_mission_values"
+            widget: "object"
+            fields:
+              - label: "Vision"
+                name: "vision"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Icon", name: "icon", widget: "select", options: ["Target", "Heart", "Shield", "Globe", "Users", "TrendingUp", "Award"]}
+              - label: "Mission"
+                name: "mission"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Icon", name: "icon", widget: "select", options: ["Target", "Heart", "Shield", "Globe", "Users", "TrendingUp", "Award"]}
+              - label: "Values"
+                name: "values"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "List", name: "list", widget: "list", field: {label: "Value", name: "value", widget: "string"}}
+                  - {label: "Icon", name: "icon", widget: "select", options: ["Target", "Heart", "Shield", "Globe", "Users", "TrendingUp", "Award"]}
+
+          - label: "Team Section"
+            name: "team"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - label: "Members"
+                name: "members"
+                widget: "list"
+                fields:
+                  - {label: "Name", name: "name", widget: "string", required: true}
+                  - {label: "Position", name: "position", widget: "string", required: true}
+                  - {label: "Image", name: "image", widget: "image", required: true}
+                  - {label: "Bio", name: "bio", widget: "text"}
+
+          - label: "Impact Section"
+            name: "impact"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - {label: "Number", name: "number", widget: "string", required: true}
+                  - {label: "Label", name: "label", widget: "string", required: true}
+                  - {label: "Icon", name: "icon", widget: "select", options: ["Globe", "Users", "TrendingUp", "Award", "Shield", "Leaf"]}
+              - label: "Environmental Impact"
+                name: "environmental_impact"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Points", name: "points", widget: "list", field: {label: "Point", name: "point", widget: "string"}}
+              - label: "Community Impact"
+                name: "community_impact"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Points", name: "points", widget: "list", field: {label: "Point", name: "point", widget: "string"}}
+
+          - label: "Awards Section"
+            name: "awards"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - label: "List"
+                name: "list"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string", required: true}
+                  - {label: "Issuer", name: "issuer", widget: "string", required: true}
+                  - {label: "Icon", name: "icon", widget: "select", options: ["Award"], default: "Award"}
+
+      # Services Page
       - file: "src/content/services.json"
-        label: "Services Page"
+        label: "🛠️ Services Page"
         name: "services"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
-      - file: "src/content/media.json"
-        label: "Media Page"
-        name: "media"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
-      - file: "src/content/gallery.json"
-        label: "Gallery Page"
-        name: "gallery"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
-      - file: "src/content/contact.json"
-        label: "Contact Page"
-        name: "contact"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
-      - file: "src/content/faq.json"
-        label: "FAQ Page"
-        name: "faq"
-        fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Title", name: "title", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "text", required: true}
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                fields:
+                  - {label: "Title", name: "title", widget: "string", required: true}
+                  - {label: "Description", name: "description", widget: "text", required: true}
+          - label: "Packages"
+            name: "packages"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "Price", name: "price", widget: "string", required: true}
+              - {label: "Features", name: "features", widget: "list", field: {label: "Feature", name: "feature", widget: "string"}}
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "Text", name: "text", widget: "text", required: true}
+              - {label: "Role", name: "role", widget: "string", required: true}
+
+      # Careers Page
       - file: "src/content/careers.json"
-        label: "Careers Page"
+        label: "💼 Careers Page"
         name: "careers"
         fields:
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Title", name: "title", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "text", required: true}
+          - {label: "Departments", name: "departments", widget: "list", field: {label: "Department", name: "department", widget: "string"}}
+          - label: "Job Listings"
+            name: "jobListings"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "number", required: true}
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Location", name: "location", widget: "string", required: true}
+              - {label: "Department", name: "department", widget: "string", required: true}
+              - {label: "Type", name: "type", widget: "select", options: ["Full-time", "Part-time", "Contract", "Internship"], required: true}
+              - {label: "Experience", name: "experience", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - {label: "Responsibilities", name: "responsibilities", widget: "list", field: {label: "Responsibility", name: "responsibility", widget: "string"}}
+              - {label: "Requirements", name: "requirements", widget: "list", field: {label: "Requirement", name: "requirement", widget: "string"}}
+              - {label: "Benefits", name: "benefits", widget: "list", field: {label: "Benefit", name: "benefit", widget: "string"}}
+          - label: "Why Join Us"
+            name: "whyJoinUs"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - {label: "Icon", name: "icon", widget: "select", options: ["Users", "TrendingUp", "Award", "Shield", "Heart", "Globe"]}
+          - label: "Recruitment Process"
+            name: "recruitmentProcess"
+            widget: "list"
+            fields:
+              - {label: "Step", name: "step", widget: "number", required: true}
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+          - label: "Internship Program"
+            name: "internshipProgram"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - {label: "Duration", name: "duration", widget: "string"}
+              - {label: "Stipend", name: "stipend", widget: "string"}
+              - {label: "Benefits", name: "benefits", widget: "list", field: {label: "Benefit", name: "benefit", widget: "string"}}
+
+      # FAQ Page
+      - file: "src/content/faq.json"
+        label: "❓ FAQ Page"
+        name: "faq"
+        fields:
+          - {label: "Title", name: "title", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "text", required: true}
+          - label: "Categories"
+            name: "categories"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - label: "Questions"
+                name: "questions"
+                widget: "list"
+                fields:
+                  - {label: "Question", name: "question", widget: "string", required: true}
+                  - {label: "Answer", name: "answer", widget: "text", required: true}
+
+      # Media Page
+      - file: "src/content/media.json"
+        label: "📺 Media Page"
+        name: "media"
+        fields:
+          - {label: "Title", name: "title", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "text", required: true}
+          - label: "News Articles"
+            name: "newsArticles"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Publication", name: "publication", widget: "string", required: true}
+              - {label: "Date", name: "date", widget: "datetime", required: true}
+              - {label: "URL", name: "url", widget: "string", required: true}
+              - {label: "Summary", name: "summary", widget: "text"}
+              - {label: "Image", name: "image", widget: "image"}
+          - label: "Press Releases"
+            name: "pressReleases"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Date", name: "date", widget: "datetime", required: true}
+              - {label: "Content", name: "content", widget: "markdown", required: true}
+              - {label: "PDF", name: "pdf", widget: "file"}
+          - label: "Events"
+            name: "events"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Date", name: "date", widget: "datetime", required: true}
+              - {label: "Location", name: "location", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - {label: "Image", name: "image", widget: "image"}
+          - label: "Videos"
+            name: "videos"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "YouTube URL", name: "youtubeUrl", widget: "string"}
+              - {label: "Thumbnail", name: "thumbnail", widget: "image"}
+          - label: "Media Mentions"
+            name: "mediaMentions"
+            widget: "list"
+            fields:
+              - {label: "Publication", name: "publication", widget: "string", required: true}
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Date", name: "date", widget: "datetime", required: true}
+              - {label: "URL", name: "url", widget: "string", required: true}
+          - label: "Awards"
+            name: "awards"
+            widget: "list"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Issuer", name: "issuer", widget: "string", required: true}
+              - {label: "Date", name: "date", widget: "datetime", required: true}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Image", name: "image", widget: "image"}
+
+      # Contact Page
+      - file: "src/content/contact.json"
+        label: "📞 Contact Page"
+        name: "contact"
+        fields:
+          - {label: "Title", name: "title", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "text", required: true}
+          - label: "Office Locations"
+            name: "officeLocations"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "Address", name: "address", widget: "text", required: true}
+              - {label: "Phone", name: "phone", widget: "string", required: true}
+              - {label: "Email", name: "email", widget: "string", required: true}
+          - label: "FAQs"
+            name: "faqs"
+            widget: "list"
+            fields:
+              - {label: "Question", name: "question", widget: "string", required: true}
+              - {label: "Answer", name: "answer", widget: "text", required: true}
+
+      # Gallery Page
+      - file: "src/content/gallery.json"
+        label: "🖼️ Gallery Page"
+        name: "gallery"
+        fields:
+          - {label: "Title", name: "title", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "text", required: true}
+          - label: "Categories"
+            name: "categories"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                fields:
+                  - {label: "Image", name: "image", widget: "image", required: true}
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Alt Text", name: "alt", widget: "string", required: true}
+
+  # ===== DYNAMIC CONTENT COLLECTIONS =====
+
+  # Farms Collection
   - name: "farms"
-    label: "Farms"
-    folder: "src/content/farms"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Location", name: "location", widget: "string"}
-      - {label: "Proximity", name: "proximity", widget: "string"}
-      - {label: "Starting Price", name: "startingPrice", widget: "number"}
-      - {label: "Plot Sizes", name: "plotSizes", widget: "list", field: {label: "Size", name: "size", widget: "string"}}
-      - {label: "Available Units", name: "availableUnits", widget: "number"}
-      - {label: "Total Units", name: "totalUnits", widget: "number"}
-      - {label: "Status", name: "status", widget: "select", options: ["ongoing", "upcoming", "sold-out"]}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Images", name: "images", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
-      - {label: "Features", name: "features", widget: "list", field: {label: "Feature", name: "feature", widget: "string"}}
-      - {label: "Amenities", name: "amenities", widget: "list", field: {label: "Amenity", name: "amenity", widget: "string"}}
-      - {label: "Crop Types", name: "cropTypes", widget: "list", field: {label: "Crop Type", name: "crop_type", widget: "string"}}
-      - {label: "Area", name: "area", widget: "string"}
-      - {label: "Payment Plans", name: "paymentPlans", widget: "list", field: {label: "Plan", name: "plan", widget: "string"}}
+    label: "🚜 Farms"
+    description: "Manage farm listings and details"
+    files:
+      - file: "src/content/farms.json"
+        label: "Farm Listings"
+        name: "farms"
+        fields:
+          - label: "Farms"
+            name: "farms"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string", required: true}
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "Location", name: "location", widget: "string", required: true}
+              - {label: "Proximity", name: "proximity", widget: "string", required: true}
+              - {label: "Starting Price (₹)", name: "startingPrice", widget: "number", required: true, min: 50000, max: 10000000, step: 1000}
+              - {label: "Plot Sizes", name: "plotSizes", widget: "list", field: {label: "Size", name: "size", widget: "string"}}
+              - {label: "Available Units", name: "availableUnits", widget: "number", required: true, min: 0, max: 1000}
+              - {label: "Total Units", name: "totalUnits", widget: "number", required: true, min: 1, max: 1000}
+              - {label: "Status", name: "status", widget: "select", options: ["ongoing", "upcoming", "sold-out"], required: true}
+              - {label: "Description", name: "description", widget: "text", required: true, pattern: [".{50,500}", "Description must be between 50 and 500 characters"]}
+              - {label: "Images", name: "images", widget: "list", field: {label: "Image URL", name: "image", widget: "string"}}
+              - {label: "Features", name: "features", widget: "list", field: {label: "Feature", name: "feature", widget: "string"}}
+              - {label: "Amenities", name: "amenities", widget: "list", field: {label: "Amenity", name: "amenity", widget: "string"}}
+              - {label: "Crop Types", name: "cropTypes", widget: "list", field: {label: "Crop Type", name: "crop_type", widget: "string"}}
+              - {label: "Area", name: "area", widget: "string", required: true}
+              - {label: "Payment Plans", name: "paymentPlans", widget: "list", field: {label: "Plan", name: "plan", widget: "string"}}
+
+  # Blog Posts Collection
+  - name: "blog"
+    label: "📝 Blog Posts"
+    description: "Manage blog posts and articles"
+    files:
+      - file: "src/content/blog-posts.json"
+        label: "Blog Posts"
+        name: "blog-posts"
+        fields:
+          - label: "Posts"
+            name: "posts"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "string", required: true}
+              - {label: "Title", name: "title", widget: "string", required: true, pattern: [".{10,100}", "Title must be between 10 and 100 characters"]}
+              - {label: "Excerpt", name: "excerpt", widget: "text", required: true, pattern: [".{50,300}", "Excerpt must be between 50 and 300 characters"]}
+              - {label: "Author", name: "author", widget: "string", required: true}
+              - {label: "Date", name: "date", widget: "datetime", required: true}
+              - {label: "Category", name: "category", widget: "select", options: ["Farming Tips", "Investment", "Sustainability", "Technology", "News"], required: true}
+              - {label: "Tags", name: "tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"}}
+              - {label: "Featured Image", name: "image", widget: "image", required: true}
+              - {label: "Read Time", name: "readTime", widget: "string", required: true, pattern: ["\\d+ min read", "Format: '5 min read'"], hint: "Format: '5 min read'"}
+              - {label: "Content", name: "content", widget: "markdown", required: true}
+              - {label: "Featured", name: "featured", widget: "boolean", default: false}
+              - {label: "Published", name: "published", widget: "boolean", default: true}
+
+  # Testimonials Collection
+  - name: "testimonials"
+    label: "💬 Testimonials"
+    description: "Manage customer testimonials and reviews"
+    files:
+      - file: "src/content/testimonials.json"
+        label: "Testimonials"
+        name: "testimonials"
+        fields:
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "Location", name: "location", widget: "string", required: true}
+              - {label: "Text", name: "text", widget: "text", required: true}
+              - {label: "Image", name: "image", widget: "image", required: true}
+              - {label: "Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5, step: 1, value_type: "int"}
+              - {label: "Farm", name: "farm", widget: "string"}
+              - {label: "Investment Amount", name: "investment", widget: "string"}
+              - {label: "Featured", name: "featured", widget: "boolean", default: false}
+
+  # Media Logos Collection
+  - name: "media-logos"
+    label: "📰 Media Logos"
+    description: "Manage media publication logos"
+    files:
+      - file: "src/content/media-logos.json"
+        label: "Media Logos"
+        name: "media-logos"
+        fields:
+          - label: "Logos"
+            name: "logos"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "Logo", name: "logo", widget: "image", required: true}
+              - {label: "URL", name: "url", widget: "string"}
+              - {label: "Alt Text", name: "alt", widget: "string", required: true}
+
+  # ===== SITE CONFIGURATION =====
+
+  # Site Settings
+  - name: "settings"
+    label: "⚙️ Site Settings"
+    description: "Global site configuration and settings"
+    files:
+      - file: "src/content/site-settings.json"
+        label: "Site Settings"
+        name: "site-settings"
+        fields:
+          - {label: "Site Title", name: "siteTitle", widget: "string", required: true}
+          - {label: "Site Description", name: "siteDescription", widget: "text", required: true}
+          - {label: "Site URL", name: "siteUrl", widget: "string", required: true, pattern: ["^https?://[^\\s/$.?#].[^\\s]*$", "Please enter a valid URL"], hint: "Include http:// or https://"}
+          - {label: "Contact Email", name: "contactEmail", widget: "string", required: true, pattern: ["^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", "Please enter a valid email address"]}
+          - {label: "Contact Phone", name: "contactPhone", widget: "string", required: true, pattern: ["^\\+?[1-9]\\d{1,14}$", "Please enter a valid phone number"], hint: "Format: +91 98765 43210"}
+          - {label: "Address", name: "address", widget: "text", required: true}
+          - label: "Social Media"
+            name: "socialMedia"
+            widget: "object"
+            fields:
+              - {label: "Facebook", name: "facebook", widget: "string"}
+              - {label: "Twitter", name: "twitter", widget: "string"}
+              - {label: "Instagram", name: "instagram", widget: "string"}
+              - {label: "LinkedIn", name: "linkedin", widget: "string"}
+              - {label: "YouTube", name: "youtube", widget: "string"}
+          - label: "SEO Settings"
+            name: "seo"
+            widget: "object"
+            fields:
+              - {label: "Meta Keywords", name: "keywords", widget: "list", field: {label: "Keyword", name: "keyword", widget: "string"}}
+              - {label: "Google Analytics ID", name: "googleAnalyticsId", widget: "string"}
+              - {label: "Google Tag Manager ID", name: "googleTagManagerId", widget: "string"}
+          - label: "Business Information"
+            name: "business"
+            widget: "object"
+            fields:
+              - {label: "Company Name", name: "companyName", widget: "string", required: true}
+              - {label: "Registration Number", name: "registrationNumber", widget: "string"}
+              - {label: "GST Number", name: "gstNumber", widget: "string"}
+              - {label: "Founded Year", name: "foundedYear", widget: "number"}
+
+# Preview configuration
+show_preview_links: true
+display_url: "https://your-farmland-site.netlify.app"
+logo_url: "/logo.svg"
+
+# Slug configuration
+slug:
+  encoding: "unicode"
+  clean_accents: true
+  sanitize_replacement: "_"
+
+# Editor configuration
+editor:
+  preview: true
+
+# Publish mode
+publish_mode: editorial_workflow
+
+# Search configuration
+search: true
+
+# Local backend configuration for development
+local_backend: true

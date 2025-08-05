@@ -17,14 +17,31 @@ interface FAQ {
   category: string;
 }
 
+interface FAQQuestion {
+  question: string;
+  answer: string;
+}
+
+interface FAQCategory {
+  name: string;
+  questions: FAQQuestion[];
+}
+
 const FAQPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [openFAQs, setOpenFAQs] = useState<number[]>([]);
 
-  const faqCategories = faq.faqCategories;
+  const faqCategories = faq.categories;
 
-  const faqs: FAQ[] = faq.faqs;
+  const faqs: FAQ[] = faq.categories.flatMap((category: FAQCategory) =>
+    category.questions.map((q: FAQQuestion, index: number) => ({
+      id: index + 1,
+      question: q.question,
+      answer: q.answer,
+      category: category.name
+    }))
+  );
 
   const toggleFAQ = (id: number) => {
     setOpenFAQs(prev => 
@@ -44,11 +61,11 @@ const FAQPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-green-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-green-600 text-white py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4">{faq.title}</h1>
-            <p className="text-xl text-green-100">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 lg:mb-4">{faq.title}</h1>
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-green-100">
               {faq.description}
             </p>
           </div>
@@ -56,8 +73,8 @@ const FAQPage: React.FC = () => {
       </section>
 
       {/* Search Bar */}
-      <section className="py-8 bg-white shadow-sm">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-4 sm:py-6 lg:py-8 bg-white shadow-sm">
+        <div className="max-w-4xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <Search className="h-5 w-5 text-gray-400" />
@@ -77,11 +94,11 @@ const FAQPage: React.FC = () => {
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-4">
-            {faqCategories.map((category) => (
+            {faqCategories.map((category: FAQCategory) => (
               <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`px-6 py-2 rounded-full font-medium ${activeCategory === category.id ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'} transition-colors`}
+                key={category.name}
+                onClick={() => setActiveCategory(category.name)}
+                className={`px-6 py-2 rounded-full font-medium ${activeCategory === category.name ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'} transition-colors`}
               >
                 {category.name}
               </button>

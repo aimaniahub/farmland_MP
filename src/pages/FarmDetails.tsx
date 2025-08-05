@@ -13,7 +13,6 @@ import {
 } from 'lucide-react';
 import { Farm } from '../App';
 import farmsData from '../content/farms.json';
-import farmDetails from '../content/farm-details.json';
 
 interface FarmDetailsProps {
   onEnquiry: (farm: Farm) => void;
@@ -153,7 +152,7 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
             <div className="lg:col-span-2">
               {activeTab === 'overview' && (
                 <div className="bg-white rounded-xl shadow-md p-6 mb-8">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">{farmDetails.title} {farm.name}</h2>
+                  <h2 className="text-2xl font-bold text-gray-800 mb-4">About {farm.name}</h2>
                   <p className="text-gray-600 mb-6">{farm.description}</p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">

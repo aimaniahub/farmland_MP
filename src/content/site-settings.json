@@ -1,0 +1,37 @@
+{
+  "siteTitle": "Maamara Farms - Premium Farmland Investment",
+  "siteDescription": "Invest in premium farmland with guaranteed returns and professional management. Discover profitable farmland investment opportunities with sustainable agriculture practices.",
+  "siteUrl": "https://maamara-farms.netlify.app",
+  "contactEmail": "info@maamarafarms.com",
+  "contactPhone": "+91 98765 43210",
+  "address": "123 Green Valley Road, Bangalore, Karnataka 560001, India",
+  "socialMedia": {
+    "facebook": "https://facebook.com/maamarafarms",
+    "twitter": "https://twitter.com/maamarafarms",
+    "instagram": "https://instagram.com/maamarafarms",
+    "linkedin": "https://linkedin.com/company/maamarafarms",
+    "youtube": "https://youtube.com/@maamarafarms"
+  },
+  "seo": {
+    "keywords": [
+      "farmland investment",
+      "agricultural investment",
+      "managed farmland",
+      "sustainable farming",
+      "farm investment India",
+      "agricultural land",
+      "farm management",
+      "organic farming",
+      "rural investment",
+      "agri business"
+    ],
+    "googleAnalyticsId": "GA_MEASUREMENT_ID",
+    "googleTagManagerId": "GTM_CONTAINER_ID"
+  },
+  "business": {
+    "companyName": "Maamara Farms Private Limited",
+    "registrationNumber": "U01100KA2020PTC123456",
+    "gstNumber": "29ABCDE1234F1Z5",
+    "foundedYear": 2020
+  }
+}

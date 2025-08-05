@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-interface JobListing {
+interface JobListingBasic {
   title: string;
   department: string;
   location: string;
@@ -28,24 +28,30 @@ interface CareersData {
   title: string;
   description: string;
   departments: string[];
-  jobListings: JobListing[];
+  jobListings: JobListingBasic[];
   whyJoinUs: WhyJoinUs[];
   recruitmentProcess: RecruitmentStep[];
   internshipProgram: InternshipProgram;
+  testimonials?: Array<{
+    name: string;
+    text: string;
+    role: string;
+    position?: string;
+    duration?: string;
+    quote?: string;
+    image?: string;
+  }>;
 }
 
 import careersData from "../content/careers.json";
 const careers = careersData as CareersData;
-import { 
-  Briefcase, 
-  MapPin, 
-  Clock, 
-  ChevronDown, 
+import {
+  Briefcase,
+  MapPin,
+  Clock,
+  ChevronDown,
   ChevronUp,
-  Users,
   Leaf,
-  TrendingUp,
-  Heart,
   Send,
   FileText,
   CheckCircle
@@ -84,7 +90,18 @@ const CareersPage: React.FC = () => {
 
   const departments = careers.departments;
 
-  const jobListings: JobListing[] = careers.jobListings;
+  const jobListings: JobListing[] = careers.jobListings.map((job, index) => ({
+    id: index + 1,
+    title: job.title,
+    location: job.location,
+    department: job.department,
+    type: job.type as 'Full-time' | 'Part-time' | 'Contract' | 'Internship',
+    experience: 'Not specified',
+    description: 'Job description not available',
+    responsibilities: [],
+    requirements: [],
+    benefits: []
+  }));
 
   const filteredJobs = jobListings.filter(job => {
     const matchesDepartment = activeFilter === 'all' || job.department === activeFilter;
@@ -303,11 +320,11 @@ const CareersPage: React.FC = () => {
       )}
 
       {/* Hero Section */}
-      <section className="bg-green-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-green-600 text-white py-8 sm:py-12 lg:py-16">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4">{careers.title}</h1>
-            <p className="text-xl text-green-100">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 sm:mb-3 lg:mb-4">{careers.title}</h1>
+            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-green-100">
               {careers.description}
             </p>
           </div>
@@ -591,7 +608,7 @@ const CareersPage: React.FC = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {careers.testimonials.map((testimonial, index) => (
+            {careers.testimonials?.map((testimonial, index: number) => (
               <div key={index} className="bg-white rounded-xl shadow-sm overflow-hidden">
                 <div className="h-48 bg-gray-200"></div>
                 <div className="p-6">

@@ -25,7 +25,7 @@ export interface Farm {
   plotSizes: string[];
   availableUnits: number;
   totalUnits: number;
-  status: 'ongoing' | 'upcoming' | 'sold-out';
+  status: string; // Changed to string to match JSON data
   description: string;
   images: string[];
   features: string[];

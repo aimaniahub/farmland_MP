@@ -135,6 +135,11 @@ export default {
         '88': '22rem',
         '128': '32rem',
       },
+      borderRadius: {
+        '4xl': '2rem',
+        '5xl': '2.5rem',
+        '6xl': '3rem',
+      },
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.75rem' }],
         '5xl': ['3rem', { lineHeight: '1.1' }],
