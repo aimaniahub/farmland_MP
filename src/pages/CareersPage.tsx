@@ -335,7 +335,7 @@ const CareersPage: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Why Join Maamara Farms</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Why Join Bharatvan</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
               We're building the future of sustainable agriculture and farmland investment in India. Join us on this exciting journey.
             </p>
@@ -603,7 +603,7 @@ const CareersPage: React.FC = () => {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Meet Our Team</h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              Hear from our employees about their experience working at Maamara Farms
+              Hear from our employees about their experience working at Bharatvan
             </p>
           </div>
           

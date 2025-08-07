@@ -3,28 +3,28 @@
   "description": "Get in touch with our team to learn more about farmland investment opportunities or to schedule a farm visit.",
   "officeLocations": [
     {
-      "name": "Bangalore Headquarters",
-      "address": "123 Tech Park, Electronic City, Bangalore, Karnataka 560100",
-      "phone": "+91 80 4567 8900",
-      "email": "bangalore@farmlandinvest.com"
+      "name": "Bharatvan Indore Office",
+      "address": "Bharatvan, 85,Tijori Gali,Siyaganj, Indore-452001 MP",
+      "phone": "8819855558",
+      "email": "bharatvanfarming@gmail.com"
     },
     {
-      "name": "Mumbai Office",
-      "address": "456 Business Center, Bandra Kurla Complex, Mumbai, Maharashtra 400051",
-      "phone": "+91 22 6789 0123",
-      "email": "mumbai@farmlandinvest.com"
+      "name": "Bharatvan Kukshi Office",
+      "address": "Bharatvan, Behind Swami Narayan, Bagh Road Kukshi-454331 MP",
+      "phone": "8819855558",
+      "email": "bharatvanfarming@gmail.com"
     },
     {
-      "name": "Chennai Office",
-      "address": "789 IT Corridor, OMR, Chennai, Tamil Nadu 600096",
-      "phone": "+91 44 2345 6789",
-      "email": "chennai@farmlandinvest.com"
+      "name": "Bharatvan Ganaur Office",
+      "address": "Bharatvan, Rajbala, Gandhi nagar,Ganaur City, Sonipat -131101 Haryana India",
+      "phone": "8819855558",
+      "email": "bharatvanfarming@gmail.com"
     },
     {
-      "name": "Pune Office",
-      "address": "321 Innovation Hub, Hinjewadi, Pune, Maharashtra 411057",
-      "phone": "+91 20 3456 7890",
-      "email": "pune@farmlandinvest.com"
+      "name": "Bharatvan Location Address",
+      "address": "Bharatvan, Katni Barhi Road,Near Sai Kripa warehousing, Village - Sunhara (488441) Katni MP India",
+      "phone": "8819855558",
+      "email": "bharatvanfarming@gmail.com"
     }
   ],
   "faqs": [
@@ -63,28 +63,28 @@
   ],
   "contactInfo": {
     "headquarters": {
-      "address": "123 Tech Park, Electronic City, Bangalore, Karnataka 560100",
-      "phone": "+91 80 4567 8900",
-      "email": "info@farmlandinvest.com",
+      "address": "Bharatvan, 85,Tijori Gali,Siyaganj, Indore-452001 MP",
+      "phone": "8819855558",
+      "email": "bharatvanfarming@gmail.com",
       "hours": "Monday - Saturday: 9:00 AM - 6:00 PM"
     },
     "customerSupport": {
-      "phone": "+91 80 4567 8901",
-      "email": "support@farmlandinvest.com",
-      "whatsapp": "+91 98765 43210",
+      "phone": "8819855558",
+      "email": "bharatvanfarming@gmail.com",
+      "whatsapp": "8819855558",
       "hours": "24/7 Support Available"
     },
     "investorRelations": {
-      "phone": "+91 80 4567 8902",
-      "email": "investors@farmlandinvest.com",
+      "phone": "8819855558",
+      "email": "bharatvanfarming@gmail.com",
       "hours": "Monday - Friday: 9:00 AM - 6:00 PM"
     }
   },
   "socialMedia": {
-    "facebook": "https://facebook.com/farmlandinvest",
-    "twitter": "https://twitter.com/farmlandinvest",
-    "linkedin": "https://linkedin.com/company/farmlandinvest",
-    "instagram": "https://instagram.com/farmlandinvest",
-    "youtube": "https://youtube.com/farmlandinvest"
+    "facebook": "",
+    "twitter": "",
+    "linkedin": "",
+    "instagram": "https://www.instagram.com/bharatvan2025?igsh=NGJscWVwMzdlM3hl",
+    "youtube": ""
   }
 }

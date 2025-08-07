@@ -4,27 +4,30 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
-  <title>Farmland CMS - Content Manager</title>
+  <title>Bharatvan CMS - Content Management System</title>
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-  <!-- Netlify CMS Styles -->
+  <!-- Enhanced CMS Styles -->
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f8f9fa;
     }
 
-    /* Custom CMS styling */
+    /* Custom CMS styling with Bharatvan branding */
     .nc-app-header {
       background: linear-gradient(135deg, #2A6F2D 0%, #3A8F3E 100%) !important;
+      box-shadow: 0 2px 10px rgba(42, 111, 45, 0.2) !important;
     }
 
     .nc-app-header h1 {
       color: white !important;
+      font-weight: 600 !important;
     }
 
-    /* Loading screen */
+    /* Enhanced loading screen */
     .loading-screen {
       position: fixed;
       top: 0;
@@ -33,11 +36,30 @@
       height: 100%;
       background: linear-gradient(135deg, #2A6F2D 0%, #3A8F3E 100%);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       color: white;
       font-size: 18px;
       z-index: 9999;
+    }
+
+    .loading-content {
+      text-align: center;
+    }
+
+    .loading-logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #2A6F2D;
     }
 
     .loading-spinner {
@@ -47,62 +69,127 @@
       width: 40px;
       height: 40px;
       animation: spin 1s linear infinite;
-      margin-right: 15px;
+      margin: 20px auto;
+    }
+
+    .loading-text {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .loading-subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 30px;
     }
 
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+
+    /* Custom button styling */
+    .nc-button-primary {
+      background: linear-gradient(135deg, #2A6F2D 0%, #3A8F3E 100%) !important;
+      border: none !important;
+    }
+
+    .nc-button-primary:hover {
+      background: linear-gradient(135deg, #1F4F1F 0%, #2A6F2D 100%) !important;
+    }
   </style>
 </head>
 <body>
-  <!-- Loading Screen -->
+  <!-- Enhanced Loading Screen -->
   <div class="loading-screen" id="loading-screen">
-    <div class="loading-spinner"></div>
-    <div>Loading Farmland CMS...</div>
+    <div class="loading-content">
+      <div class="loading-logo">🌱</div>
+      <div class="loading-text">Bharatvan CMS</div>
+      <div class="loading-subtitle">Content Management System</div>
+      <div class="loading-spinner"></div>
+      <div>Loading your dashboard...</div>
+    </div>
   </div>
 
   <!-- Decap CMS (Modern Netlify CMS) -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
-  <!-- Custom CMS Configuration -->
+  <!-- Enhanced CMS Configuration -->
   <script>
     // Hide loading screen when CMS loads
     window.addEventListener('load', function() {
       setTimeout(function() {
         const loadingScreen = document.getElementById('loading-screen');
         if (loadingScreen) {
-          loadingScreen.style.display = 'none';
+          loadingScreen.style.opacity = '0';
+          loadingScreen.style.transition = 'opacity 0.5s ease-out';
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+          }, 500);
         }
-      }, 1000);
+      }, 1500);
     });
 
-    // Custom preview styles
+    // Initialize CMS when available
     if (window.CMS) {
+      // Register custom preview styles
       CMS.registerPreviewStyle('/admin/preview.css');
-    }
 
-    // Custom editor components can be added here
-    // if (window.CMS) {
-    //   CMS.registerEditorComponent({
-    //   id: "youtube",
-    //   label: "YouTube",
-    //   fields: [{name: 'id', label: 'YouTube Video ID', widget: 'string'}],
-    //   pattern: /^{{< youtube (\S+) >}}$/,
-    //   fromBlock: function(match) {
-    //     return {
-    //       id: match[1]
-    //     };
-    //   },
-    //   toBlock: function(obj) {
-    //     return '{{< youtube ' + obj.id + ' >}}';
-    //   },
-    //   toPreview: function(obj) {
-    //     return '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>';
-    //   }
-    //   });
-    // }
+      // Custom editor components
+      CMS.registerEditorComponent({
+        id: "callout",
+        label: "Callout Box",
+        fields: [
+          {name: 'type', label: 'Type', widget: 'select', options: ['info', 'warning', 'success', 'error']},
+          {name: 'title', label: 'Title', widget: 'string'},
+          {name: 'content', label: 'Content', widget: 'text'}
+        ],
+        pattern: /^{{< callout type="(\w+)" title="([^"]+)" >}}([\s\S]*?){{< \/callout >}}$/,
+        fromBlock: function(match) {
+          return {
+            type: match[1],
+            title: match[2],
+            content: match[3]
+          };
+        },
+        toBlock: function(obj) {
+          return `{{< callout type="${obj.type}" title="${obj.title}" >}}${obj.content}{{< /callout >}}`;
+        },
+        toPreview: function(obj) {
+          return `<div class="callout callout-${obj.type}"><h4>${obj.title}</h4><p>${obj.content}</p></div>`;
+        }
+      });
+
+      // YouTube embed component
+      CMS.registerEditorComponent({
+        id: "youtube",
+        label: "YouTube Video",
+        fields: [
+          {name: 'id', label: 'YouTube Video ID', widget: 'string', hint: 'The ID from the YouTube URL (e.g., dQw4w9WgXcQ)'},
+          {name: 'title', label: 'Video Title', widget: 'string', required: false}
+        ],
+        pattern: /^{{< youtube id="([^"]+)"(?: title="([^"]+)")? >}}$/,
+        fromBlock: function(match) {
+          return {
+            id: match[1],
+            title: match[2] || ''
+          };
+        },
+        toBlock: function(obj) {
+          const title = obj.title ? ` title="${obj.title}"` : '';
+          return `{{< youtube id="${obj.id}"${title} >}}`;
+        },
+        toPreview: function(obj) {
+          return `<div class="youtube-embed">
+            <img src="https://img.youtube.com/vi/${obj.id}/maxresdefault.jpg" alt="${obj.title || 'YouTube Video'}" style="width: 100%; max-width: 560px;">
+            <p><strong>YouTube Video:</strong> ${obj.title || obj.id}</p>
+          </div>`;
+        }
+      });
+
+      console.log('Bharatvan CMS initialized successfully!');
+    }
   </script>
 </body>
 </html>

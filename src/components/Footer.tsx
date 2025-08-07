@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '/logo.svg';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
+import siteSettings from '../content/site-settings.json';
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Twitter,
+  Instagram,
   Linkedin,
   Youtube,
   Send
@@ -64,26 +65,28 @@ const Footer: React.FC = () => {
             {/* Company Info - Spans 3 columns on mobile */}
             <div className="col-span-3 text-center mb-4">
               <Link to="/" className="flex items-center justify-center space-x-2 mb-3">
-                <img src={Logo} alt="Earth Foundation Logo" className="h-8 w-auto" />
-                <span className="text-lg font-heading font-bold text-white">Earth Foundation</span>
+                <img src={Logo} alt="Bharatvan Logo" className="h-8 w-auto" />
+                <span className="text-lg font-heading font-bold text-white">Bharatvan</span>
               </Link>
               <p className="text-gray-400 text-sm mb-3 max-w-sm mx-auto">
                 Transforming agriculture through managed farmland investments.
               </p>
               <div className="flex justify-center space-x-3">
-                <a href="#" className="text-gray-400 hover:text-primary-500 transition-colors">
-                  <Facebook className="h-4 w-4" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-primary-500 transition-colors">
+                {siteSettings.socialMedia.facebook && (
+                  <a href={siteSettings.socialMedia.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-500 transition-colors">
+                    <Facebook className="h-4 w-4" />
+                  </a>
+                )}
+                <a href={siteSettings.socialMedia.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-500 transition-colors">
                   <Twitter className="h-4 w-4" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-primary-500 transition-colors">
+                <a href={siteSettings.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-500 transition-colors">
                   <Instagram className="h-4 w-4" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-primary-500 transition-colors">
+                <a href={siteSettings.socialMedia.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-500 transition-colors">
                   <Linkedin className="h-4 w-4" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-primary-500 transition-colors">
+                <a href={siteSettings.socialMedia.youtube} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-500 transition-colors">
                   <Youtube className="h-4 w-4" />
                 </a>
               </div>
@@ -115,11 +118,11 @@ const Footer: React.FC = () => {
               <div className="space-y-1">
                 <div className="flex items-center justify-center space-x-1">
                   <Phone className="h-3 w-3 text-primary-500" />
-                  <p className="text-gray-400 text-xs">+91 98765 43210</p>
+                  <p className="text-gray-400 text-xs">8819855558</p>
                 </div>
                 <div className="flex items-center justify-center space-x-1">
                   <Mail className="h-3 w-3 text-primary-500" />
-                  <p className="text-gray-400 text-xs">info@earth.com</p>
+                  <p className="text-gray-400 text-xs">bharatvanfarming@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -150,27 +153,29 @@ const Footer: React.FC = () => {
             {/* Company Info */}
             <div className="lg:col-span-1">
               <Link to="/" className="flex items-center space-x-2 mb-4">
-                <img src={Logo} alt="Earth Foundation Logo" className="h-10 lg:h-12 w-auto" />
-                <span className="text-xl lg:text-2xl font-heading font-bold text-white">Earth Foundation</span>
+                <img src={Logo} alt="Bharatvan Logo" className="h-10 lg:h-12 w-auto" />
+                <span className="text-xl lg:text-2xl font-heading font-bold text-white">Bharatvan</span>
               </Link>
               <p className="text-gray-400 mb-6 text-sm lg:text-base">
                 Transforming agriculture through managed farmland investments.
                 Own your dream farm with hassle-free management and sustainable practices.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-primary-500 transition-colors">
-                  <Facebook className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-primary-500 transition-colors">
+                {siteSettings.socialMedia.facebook && (
+                  <a href={siteSettings.socialMedia.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-500 transition-colors">
+                    <Facebook className="h-5 w-5" />
+                  </a>
+                )}
+                <a href={siteSettings.socialMedia.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-500 transition-colors">
                   <Twitter className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-primary-500 transition-colors">
+                <a href={siteSettings.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-500 transition-colors">
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-primary-500 transition-colors">
+                <a href={siteSettings.socialMedia.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-500 transition-colors">
                   <Linkedin className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-primary-500 transition-colors">
+                <a href={siteSettings.socialMedia.youtube} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary-500 transition-colors">
                   <Youtube className="h-5 w-5" />
                 </a>
               </div>
@@ -208,17 +213,17 @@ const Footer: React.FC = () => {
                 <div className="flex items-start space-x-3">
                   <MapPin className="h-5 w-5 text-primary-500 mt-1 flex-shrink-0" />
                   <div>
-                    <p className="text-gray-400">123 Green Valley Road</p>
-                    <p className="text-gray-400">Bangalore, Karnataka 560001</p>
+                    <p className="text-gray-400">Bharatvan, 85,Tijori Gali,Siyaganj</p>
+                    <p className="text-gray-400">Indore-452001 MP</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-primary-500" />
-                  <p className="text-gray-400">+91 98765 43210</p>
+                  <p className="text-gray-400">8819855558</p>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-primary-500" />
-                  <p className="text-gray-400">info@earthfoundation.com</p>
+                  <p className="text-gray-400">bharatvanfarming@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -231,7 +236,7 @@ const Footer: React.FC = () => {
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
             <p className="text-gray-400 text-xs sm:text-sm">
-              © 2024 Earth Foundation. All rights reserved.
+              © 2024 Bharatvan. All rights reserved.
             </p>
             <div className="flex space-x-3 sm:space-x-6 mt-2 sm:mt-0">
               <a href="#" className="text-gray-400 hover:text-primary-500 text-xs sm:text-sm transition-colors">

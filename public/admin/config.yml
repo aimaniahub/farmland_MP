@@ -1,36 +1,26 @@
-# Netlify CMS Configuration for Farmland Website
+# Bharatvan Farmland Website - Netlify CMS Configuration
 backend:
   name: git-gateway
   branch: main
 
-# Local development backend (uncomment for local development)
-# backend:
-#   name: proxy
-#   proxy_url: http://localhost:8081/api/v1
-#   branch: main
+# Local development backend (for testing)
+local_backend: true
 
 # Media configuration
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
-# Media library configuration
+# Simplified media library for better compatibility
 media_library:
   name: uploadcare
   config:
-    publicKey: "your-uploadcare-public-key"
+    publicKey: "demopublickey"
     multiple: true
-    tabs: "file camera url facebook gdrive gphotos dropbox instagram"
-    effects: "crop,rotate,enhance,grayscale"
+    tabs: "file camera url"
+    effects: "crop,rotate,enhance"
     imageShrink: "2048x2048"
     previewStep: true
     clearable: true
-
-# Alternative media configuration for local development
-# media_library:
-#   name: cloudinary
-#   config:
-#     cloud_name: "your-cloud-name"
-#     api_key: "your-api-key"
 
 # File size limits and formats
 media_folder_relative: true
@@ -39,7 +29,8 @@ media_library_config:
   allowed_extensions: ["jpg", "jpeg", "png", "gif", "webp", "svg", "pdf", "doc", "docx"]
 
 # Site URL for preview
-site_url: "https://your-farmland-site.netlify.app"
+site_url: "http://localhost:5174"
+display_url: "http://localhost:5174"
 
 # Collections configuration
 collections:
@@ -85,19 +76,40 @@ collections:
                   - {label: "Title", name: "title", widget: "string"}
                   - {label: "Description", name: "description", widget: "text"}
 
+          - label: "Featured Farms Section"
+            name: "featured_farms"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - {label: "CTA Button Text", name: "cta", widget: "string", required: true}
+
           - label: "Why Choose Us Section"
             name: "why_choose_us"
             widget: "object"
             fields:
               - {label: "Title", name: "title", widget: "string", required: true}
               - {label: "Description", name: "description", widget: "text", required: true}
-              - label: "Benefits"
-                name: "benefits"
+              - label: "Statistics"
+                name: "stats"
                 widget: "list"
                 fields:
-                  - {label: "Icon", name: "icon", widget: "select", options: ["Shield", "Leaf", "TrendingUp", "Award", "Users", "CheckCircle"]}
-                  - {label: "Title", name: "title", widget: "string"}
-                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Number", name: "number", widget: "string", required: true}
+                  - {label: "Label", name: "label", widget: "string", required: true}
+                  - {label: "Icon", name: "icon", widget: "select", options: ["Users", "MapPin", "TrendingUp", "Calendar", "Shield", "Award"]}
+
+          - label: "Media Logos Section"
+            name: "media_logos"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+
+          - label: "Blog Section"
+            name: "blog"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Subtitle", name: "subtitle", widget: "text", required: true}
 
           - label: "CTA Section"
             name: "cta"
@@ -388,10 +400,46 @@ collections:
             name: "officeLocations"
             widget: "list"
             fields:
-              - {label: "Name", name: "name", widget: "string", required: true}
+              - {label: "Office Name", name: "name", widget: "string", required: true}
               - {label: "Address", name: "address", widget: "text", required: true}
-              - {label: "Phone", name: "phone", widget: "string", required: true}
-              - {label: "Email", name: "email", widget: "string", required: true}
+              - {label: "Phone", name: "phone", widget: "string", required: true, pattern: ["^[0-9+\\-\\s()]+$", "Please enter a valid phone number"]}
+              - {label: "Email", name: "email", widget: "string", required: true, pattern: ["^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", "Please enter a valid email address"]}
+          - label: "Contact Information"
+            name: "contactInfo"
+            widget: "object"
+            fields:
+              - label: "Headquarters"
+                name: "headquarters"
+                widget: "object"
+                fields:
+                  - {label: "Address", name: "address", widget: "text", required: true}
+                  - {label: "Phone", name: "phone", widget: "string", required: true}
+                  - {label: "Email", name: "email", widget: "string", required: true}
+                  - {label: "Hours", name: "hours", widget: "string", required: true}
+              - label: "Customer Support"
+                name: "customerSupport"
+                widget: "object"
+                fields:
+                  - {label: "Phone", name: "phone", widget: "string", required: true}
+                  - {label: "Email", name: "email", widget: "string", required: true}
+                  - {label: "WhatsApp", name: "whatsapp", widget: "string"}
+                  - {label: "Hours", name: "hours", widget: "string", required: true}
+              - label: "Investor Relations"
+                name: "investorRelations"
+                widget: "object"
+                fields:
+                  - {label: "Phone", name: "phone", widget: "string", required: true}
+                  - {label: "Email", name: "email", widget: "string", required: true}
+                  - {label: "Hours", name: "hours", widget: "string", required: true}
+          - label: "Social Media"
+            name: "socialMedia"
+            widget: "object"
+            fields:
+              - {label: "Facebook URL", name: "facebook", widget: "string", hint: "Leave blank if not available"}
+              - {label: "Twitter URL", name: "twitter", widget: "string", hint: "Leave blank if not available"}
+              - {label: "LinkedIn URL", name: "linkedin", widget: "string", hint: "Leave blank if not available"}
+              - {label: "Instagram URL", name: "instagram", widget: "string", hint: "Leave blank if not available"}
+              - {label: "YouTube URL", name: "youtube", widget: "string", hint: "Leave blank if not available"}
           - label: "FAQs"
             name: "faqs"
             widget: "list"
@@ -426,7 +474,7 @@ collections:
   # Farms Collection
   - name: "farms"
     label: "🚜 Farms"
-    description: "Manage farm listings and details"
+    description: "Manage farm listings and investment opportunities"
     files:
       - file: "src/content/farms.json"
         label: "Farm Listings"
@@ -435,28 +483,63 @@ collections:
           - label: "Farms"
             name: "farms"
             widget: "list"
+            summary: "{{fields.name}} - {{fields.location}} (₹{{fields.startingPrice}})"
             fields:
-              - {label: "ID", name: "id", widget: "string", required: true}
-              - {label: "Name", name: "name", widget: "string", required: true}
-              - {label: "Location", name: "location", widget: "string", required: true}
-              - {label: "Proximity", name: "proximity", widget: "string", required: true}
-              - {label: "Starting Price (₹)", name: "startingPrice", widget: "number", required: true, min: 50000, max: 10000000, step: 1000}
-              - {label: "Plot Sizes", name: "plotSizes", widget: "list", field: {label: "Size", name: "size", widget: "string"}}
-              - {label: "Available Units", name: "availableUnits", widget: "number", required: true, min: 0, max: 1000}
-              - {label: "Total Units", name: "totalUnits", widget: "number", required: true, min: 1, max: 1000}
-              - {label: "Status", name: "status", widget: "select", options: ["ongoing", "upcoming", "sold-out"], required: true}
-              - {label: "Description", name: "description", widget: "text", required: true, pattern: [".{50,500}", "Description must be between 50 and 500 characters"]}
-              - {label: "Images", name: "images", widget: "list", field: {label: "Image URL", name: "image", widget: "string"}}
-              - {label: "Features", name: "features", widget: "list", field: {label: "Feature", name: "feature", widget: "string"}}
-              - {label: "Amenities", name: "amenities", widget: "list", field: {label: "Amenity", name: "amenity", widget: "string"}}
-              - {label: "Crop Types", name: "cropTypes", widget: "list", field: {label: "Crop Type", name: "crop_type", widget: "string"}}
-              - {label: "Area", name: "area", widget: "string", required: true}
-              - {label: "Payment Plans", name: "paymentPlans", widget: "list", field: {label: "Plan", name: "plan", widget: "string"}}
+              - {label: "Farm ID", name: "id", widget: "string", required: true, hint: "Unique identifier for the farm"}
+              - {label: "Farm Name", name: "name", widget: "string", required: true, pattern: [".{3,100}", "Name must be between 3 and 100 characters"]}
+              - {label: "Location", name: "location", widget: "string", required: true, hint: "State, Country format"}
+              - {label: "Proximity to City", name: "proximity", widget: "string", required: true, hint: "e.g., '45 km from Bangalore'"}
+              - {label: "Starting Price (₹)", name: "startingPrice", widget: "number", required: true, min: 50000, max: 50000000, step: 1000, hint: "Minimum investment amount in Indian Rupees"}
+              - label: "Plot Sizes Available"
+                name: "plotSizes"
+                widget: "list"
+                field: {label: "Plot Size", name: "size", widget: "string", hint: "e.g., '1 Acre', '2 Acres'"}
+                min: 1
+                max: 10
+              - {label: "Available Units", name: "availableUnits", widget: "number", required: true, min: 0, max: 1000, hint: "Number of plots still available for purchase"}
+              - {label: "Total Units", name: "totalUnits", widget: "number", required: true, min: 1, max: 1000, hint: "Total number of plots in this farm"}
+              - {label: "Status", name: "status", widget: "select", options: ["ongoing", "upcoming", "sold-out"], required: true, hint: "Current availability status"}
+              - {label: "Description", name: "description", widget: "text", required: true, pattern: [".{100,1000}", "Description must be between 100 and 1000 characters"], hint: "Detailed description of the farm and investment opportunity"}
+              - label: "Farm Images"
+                name: "images"
+                widget: "list"
+                field: {label: "Image URL", name: "image", widget: "string", hint: "High-quality image URLs"}
+                min: 1
+                max: 10
+              - label: "Key Features"
+                name: "features"
+                widget: "list"
+                field: {label: "Feature", name: "feature", widget: "string"}
+                min: 3
+                max: 15
+                hint: "Highlight the main selling points of this farm"
+              - label: "Amenities"
+                name: "amenities"
+                widget: "list"
+                field: {label: "Amenity", name: "amenity", widget: "string"}
+                min: 1
+                max: 15
+                hint: "Available facilities and services"
+              - label: "Crop Types"
+                name: "cropTypes"
+                widget: "list"
+                field: {label: "Crop Type", name: "crop_type", widget: "string"}
+                min: 1
+                max: 10
+                hint: "Types of crops grown or suitable for this farm"
+              - {label: "Total Area", name: "area", widget: "string", required: true, hint: "e.g., '50 acres total'"}
+              - label: "Payment Plans"
+                name: "paymentPlans"
+                widget: "list"
+                field: {label: "Payment Plan", name: "plan", widget: "string"}
+                min: 1
+                max: 5
+                hint: "Available payment options for investors"
 
   # Blog Posts Collection
   - name: "blog"
     label: "📝 Blog Posts"
-    description: "Manage blog posts and articles"
+    description: "Create and manage blog articles about farming, investment, and sustainability"
     files:
       - file: "src/content/blog-posts.json"
         label: "Blog Posts"
@@ -465,59 +548,73 @@ collections:
           - label: "Posts"
             name: "posts"
             widget: "list"
+            summary: "{{fields.title}} - {{fields.category}} ({{fields.date}})"
             fields:
-              - {label: "ID", name: "id", widget: "string", required: true}
-              - {label: "Title", name: "title", widget: "string", required: true, pattern: [".{10,100}", "Title must be between 10 and 100 characters"]}
-              - {label: "Excerpt", name: "excerpt", widget: "text", required: true, pattern: [".{50,300}", "Excerpt must be between 50 and 300 characters"]}
-              - {label: "Author", name: "author", widget: "string", required: true}
-              - {label: "Date", name: "date", widget: "datetime", required: true}
-              - {label: "Category", name: "category", widget: "select", options: ["Farming Tips", "Investment", "Sustainability", "Technology", "News"], required: true}
-              - {label: "Tags", name: "tags", widget: "list", field: {label: "Tag", name: "tag", widget: "string"}}
-              - {label: "Featured Image", name: "image", widget: "image", required: true}
-              - {label: "Read Time", name: "readTime", widget: "string", required: true, pattern: ["\\d+ min read", "Format: '5 min read'"], hint: "Format: '5 min read'"}
-              - {label: "Content", name: "content", widget: "markdown", required: true}
-              - {label: "Featured", name: "featured", widget: "boolean", default: false}
-              - {label: "Published", name: "published", widget: "boolean", default: true}
+              - {label: "Post ID", name: "id", widget: "string", required: true, hint: "Unique identifier for the blog post"}
+              - {label: "Title", name: "title", widget: "string", required: true, pattern: [".{10,150}", "Title must be between 10 and 150 characters"]}
+              - {label: "Excerpt", name: "excerpt", widget: "text", required: true, pattern: [".{50,500}", "Excerpt must be between 50 and 500 characters"], hint: "Brief summary that appears in blog listings"}
+              - {label: "Author Name", name: "author", widget: "string", required: true}
+              - {label: "Author Bio", name: "author_bio", widget: "string", hint: "Brief description of the author"}
+              - {label: "Author Image", name: "authorImage", widget: "string", hint: "URL to author's profile image"}
+              - {label: "Publication Date", name: "date", widget: "datetime", required: true, format: "YYYY-MM-DD"}
+              - {label: "Category", name: "category", widget: "select", options: ["Farming Tips", "Investment", "Sustainability", "Technology", "News", "Climate", "Market Analysis"], required: true}
+              - label: "Tags"
+                name: "tags"
+                widget: "list"
+                field: {label: "Tag", name: "tag", widget: "string"}
+                min: 1
+                max: 10
+                hint: "Keywords related to this post"
+              - {label: "Featured Image", name: "image", widget: "string", required: true, hint: "High-quality image URL for the blog post"}
+              - {label: "Read Time", name: "readTime", widget: "string", required: true, pattern: ["\\d+ min read", "Format: '5 min read'"], hint: "Estimated reading time (e.g., '5 min read')"}
+              - {label: "SEO Slug", name: "slug", widget: "string", required: true, pattern: ["^[a-z0-9-]+$", "Use lowercase letters, numbers, and hyphens only"], hint: "URL-friendly version of the title"}
+              - {label: "Content", name: "content", widget: "markdown", required: true, hint: "Full article content in Markdown format"}
+              - {label: "Featured Post", name: "featured", widget: "boolean", default: false, hint: "Show this post prominently on the blog page"}
+              - {label: "Published", name: "published", widget: "boolean", default: true, hint: "Make this post visible on the website"}
 
   # Testimonials Collection
   - name: "testimonials"
     label: "💬 Testimonials"
-    description: "Manage customer testimonials and reviews"
+    description: "Manage customer testimonials and success stories"
     files:
       - file: "src/content/testimonials.json"
-        label: "Testimonials"
+        label: "Customer Testimonials"
         name: "testimonials"
         fields:
           - label: "Testimonials"
             name: "testimonials"
             widget: "list"
+            summary: "{{fields.name}} - {{fields.location}} ({{fields.rating}}⭐)"
             fields:
-              - {label: "Name", name: "name", widget: "string", required: true}
-              - {label: "Location", name: "location", widget: "string", required: true}
-              - {label: "Text", name: "text", widget: "text", required: true}
-              - {label: "Image", name: "image", widget: "image", required: true}
-              - {label: "Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5, step: 1, value_type: "int"}
-              - {label: "Farm", name: "farm", widget: "string"}
-              - {label: "Investment Amount", name: "investment", widget: "string"}
-              - {label: "Featured", name: "featured", widget: "boolean", default: false}
+              - {label: "Customer Name", name: "name", widget: "string", required: true}
+              - {label: "Location", name: "location", widget: "string", required: true, hint: "City, State format"}
+              - {label: "Testimonial Text", name: "text", widget: "text", required: true, pattern: [".{50,1000}", "Testimonial must be between 50 and 1000 characters"]}
+              - {label: "Customer Photo", name: "image", widget: "string", required: true, hint: "Professional photo of the customer"}
+              - {label: "Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5, step: 1, value_type: "int", hint: "Star rating out of 5"}
+              - {label: "Farm Invested In", name: "farm", widget: "string", hint: "Name of the farm they invested in"}
+              - {label: "Investment Amount", name: "investment", widget: "string", hint: "e.g., '₹5 Lakhs for 2 acres'"}
+              - {label: "Investment Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", hint: "When they made the investment"}
+              - {label: "Featured Testimonial", name: "featured", widget: "boolean", default: false, hint: "Show prominently on homepage"}
+              - {label: "Verified Customer", name: "verified", widget: "boolean", default: true, hint: "Mark as verified testimonial"}
 
   # Media Logos Collection
   - name: "media-logos"
     label: "📰 Media Logos"
-    description: "Manage media publication logos"
+    description: "Manage media publication logos and press coverage"
     files:
       - file: "src/content/media-logos.json"
         label: "Media Logos"
         name: "media-logos"
         fields:
-          - label: "Logos"
+          - label: "Media Logos"
             name: "logos"
             widget: "list"
+            summary: "{{fields.name}}"
             fields:
-              - {label: "Name", name: "name", widget: "string", required: true}
-              - {label: "Logo", name: "logo", widget: "image", required: true}
-              - {label: "URL", name: "url", widget: "string"}
-              - {label: "Alt Text", name: "alt", widget: "string", required: true}
+              - {label: "Publication Name", name: "name", widget: "string", required: true}
+              - {label: "Logo Image", name: "image", widget: "string", required: true, hint: "High-quality logo image URL"}
+              - {label: "Website URL", name: "url", widget: "string", pattern: ["^https?://[^\\s/$.?#].[^\\s]*$", "Please enter a valid URL"], hint: "Link to the publication's website"}
+              - {label: "Alt Text", name: "alt", widget: "string", hint: "Descriptive text for accessibility (auto-generated if empty)"}
 
   # ===== SITE CONFIGURATION =====
 
@@ -561,26 +658,34 @@ collections:
               - {label: "GST Number", name: "gstNumber", widget: "string"}
               - {label: "Founded Year", name: "foundedYear", widget: "number"}
 
-# Preview configuration
+# Preview and display configuration
 show_preview_links: true
-display_url: "https://your-farmland-site.netlify.app"
+display_url: "http://localhost:5174"
 logo_url: "/logo.svg"
 
-# Slug configuration
+# Slug configuration for SEO-friendly URLs
 slug:
   encoding: "unicode"
   clean_accents: true
-  sanitize_replacement: "_"
+  sanitize_replacement: "-"
 
 # Editor configuration
 editor:
   preview: true
 
-# Publish mode
+# Publish mode - use editorial workflow for content review
 publish_mode: editorial_workflow
 
 # Search configuration
 search: true
 
-# Local backend configuration for development
+# Local backend for development
 local_backend: true
+
+# Custom preview styles
+preview_path: "{{slug}}"
+
+# Collection sorting
+collections_config:
+  default_sort_field: "date"
+  default_sort_direction: "desc"

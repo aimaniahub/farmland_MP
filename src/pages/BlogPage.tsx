@@ -258,7 +258,7 @@ const BlogPage: React.FC = () => {
           <p className="text-gray-700 mb-4">Share this page:</p>
           <SocialShare 
             url={window.location.href} 
-            title="Farm Blog - Earth Foundation" 
+            title="Farm Blog - Bharatvan"
             description="Insights, tips, and stories from our farming community" 
           />
         </div>

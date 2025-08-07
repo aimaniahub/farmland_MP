@@ -10,8 +10,9 @@
     "preview": "vite preview",
     "cms": "npx @decap/cli proxy-server",
     "cms:validate": "node scripts/validate-cms.js",
+    "cms:test": "node scripts/test-cms.js",
     "cms:dev": "concurrently \"npm run dev\" \"npm run cms\"",
-    "test:cms": "npm run cms:validate && echo 'CMS validation passed!'"
+    "test:cms": "npm run cms:test && echo 'CMS validation passed!'"
   },
   "dependencies": {
     "decap-cms": "^3.8.3",

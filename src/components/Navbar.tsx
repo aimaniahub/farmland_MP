@@ -39,9 +39,9 @@ const Navbar: React.FC<NavbarProps> = ({ onEnquiry }) => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center pt-3 pb-3 pl-4 pr-4 group">
               <div className="relative overflow-hidden rounded-full p-1 bg-white/60 transition-all duration-300 group-hover:bg-white/10 group-hover:shadow-md">
-                <img src={Logo} alt="Earth Foundation Logo" className="h-12 md:h-18 w-auto transition-transform duration-300 group-hover:scale-105" />
+                <img src={Logo} alt="Bharatvan Logo" className="h-12 md:h-18 w-auto transition-transform duration-300 group-hover:scale-105" />
               </div>
-              <span className={`text-xl sm:text-2xl font-heading font-bold transition-colors duration-300 ml-4 ${isScrolled ? 'text-gray-800' : 'text-white'}`}>Earth Foundation</span>
+              <span className={`text-xl sm:text-2xl font-heading font-bold transition-colors duration-300 ml-4 ${isScrolled ? 'text-gray-800' : 'text-white'}`}>Bharatvan</span>
             </Link>
           </div>
 
