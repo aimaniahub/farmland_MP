@@ -31,9 +31,33 @@ function log(message, color = 'reset') {
 }
 
 function parseSimpleYAML(content) {
-  // Simple YAML parser for basic validation
-  // This is a simplified parser for our specific use case
+  // Enhanced YAML validation for CMS configuration
   try {
+    // Check for duplicate top-level keys that would cause YAML errors
+    const lines = content.split('\n');
+    const topLevelKeys = new Set();
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const trimmed = line.trim();
+
+      // Skip comments and empty lines
+      if (!trimmed || trimmed.startsWith('#')) continue;
+
+      // Check if this is a top-level key (no indentation and contains colon)
+      if (!line.startsWith(' ') && !line.startsWith('\t') && trimmed.includes(':')) {
+        const key = trimmed.split(':')[0].trim();
+
+        // Skip array items (lines starting with -)
+        if (key.startsWith('-')) continue;
+
+        if (topLevelKeys.has(key)) {
+          throw new Error(`Duplicate top-level key found: "${key}" at line ${i + 1}`);
+        }
+        topLevelKeys.add(key);
+      }
+    }
+
     // Check for basic YAML structure
     if (content.includes('backend:') && content.includes('collections:')) {
       return {
@@ -49,7 +73,7 @@ function parseSimpleYAML(content) {
     }
     return null;
   } catch (error) {
-    return null;
+    throw error;
   }
 }
 

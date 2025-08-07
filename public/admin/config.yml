@@ -660,7 +660,6 @@ collections:
 
 # Preview and display configuration
 show_preview_links: true
-display_url: "http://localhost:5174"
 logo_url: "/logo.svg"
 
 # Slug configuration for SEO-friendly URLs
@@ -678,9 +677,6 @@ publish_mode: editorial_workflow
 
 # Search configuration
 search: true
-
-# Local backend for development
-local_backend: true
 
 # Custom preview styles
 preview_path: "{{slug}}"
