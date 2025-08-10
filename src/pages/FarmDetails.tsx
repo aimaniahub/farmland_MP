@@ -1,18 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { 
-  MapPin, 
-  ArrowLeft, 
-  Calendar, 
-  Leaf, 
+import {
+  MapPin,
+  ArrowLeft,
+  Calendar,
+  Leaf,
   Home,
   Check,
   ChevronRight,
   Image as ImageIcon,
-  Phone
+  Phone,
+  Droplet,
+  Sun,
+  Factory,
+  FileText
 } from 'lucide-react';
 import { Farm } from '../App';
 import farmsData from '../content/farms.json';
+import farmDetailsData from '../content/farm-details.json';
+type Details = typeof farmDetailsData extends { farmDetails: infer T } ? T : Record<string, unknown>;
+const DETAILS: Record<string, any> = (farmDetailsData as any).farmDetails || {};
+
+const infraIconMap: Record<string, React.FC<any>> = {
+  Leaf,
+  Home,
+  Droplet,
+  Sun,
+  Factory,
+  FileText,
+  Check,
+};
+
 
 interface FarmDetailsProps {
   onEnquiry: (farm: Farm) => void;
@@ -21,8 +39,17 @@ interface FarmDetailsProps {
 const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
   const { id } = useParams<{ id: string }>();
   const [farm, setFarm] = useState<Farm | null>(null);
-  const [activeTab, setActiveTab] = useState<'overview' | 'features' | 'gallery' | 'location'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'features' | 'gallery' | 'infrastructure' | 'legal' | 'location'>('overview');
   const [loading, setLoading] = useState<boolean>(true);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const details = useMemo(() => (id ? DETAILS[id] : null), [id]);
+  const galleryItems = useMemo(() => {
+    const items = (details?.gallery || farm?.images || []) as any[];
+    return items.map((it: any, i: number) =>
+      typeof it === 'string' ? { src: it, caption: `${farm?.name || 'Image'} ${i + 1}` } : it
+    );
+  }, [details, farm]);
 
   useEffect(() => {
     const farms: Farm[] = farmsData.farms;
@@ -77,7 +104,7 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="relative h-96">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${farm.images[0]})`
@@ -85,7 +112,7 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
         >
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
-        
+
         <div className="relative h-full flex flex-col justify-between p-6 md:p-12">
           <div>
             <Link
@@ -96,7 +123,7 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
               Back to Farms
             </Link>
           </div>
-          
+
           <div className="text-white">
             <div className="mb-2">
               <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(farm.status)}`}>
@@ -135,6 +162,19 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
               Gallery
             </button>
             <button
+              onClick={() => setActiveTab('infrastructure')}
+              className={`px-6 py-4 font-medium text-sm whitespace-nowrap ${activeTab === 'infrastructure' ? 'text-green-600 border-b-2 border-green-600' : 'text-gray-600 hover:text-green-600'}`}
+            >
+              Infrastructure
+            </button>
+            <button
+              onClick={() => setActiveTab('legal')}
+              className={`px-6 py-4 font-medium text-sm whitespace-nowrap ${activeTab === 'legal' ? 'text-green-600 border-b-2 border-green-600' : 'text-gray-600 hover:text-green-600'}`}
+            >
+              Legal & Documentation
+            </button>
+
+            <button
               onClick={() => setActiveTab('location')}
               className={`px-6 py-4 font-medium text-sm whitespace-nowrap ${activeTab === 'location' ? 'text-green-600 border-b-2 border-green-600' : 'text-gray-600 hover:text-green-600'}`}
             >
@@ -154,7 +194,7 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
                 <div className="bg-white rounded-xl shadow-md p-6 mb-8">
                   <h2 className="text-2xl font-bold text-gray-800 mb-4">About {farm.name}</h2>
                   <p className="text-gray-600 mb-6">{farm.description}</p>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <h3 className="text-lg font-semibold text-gray-800 mb-3">Farm Details</h3>
@@ -175,10 +215,10 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
                         </li>
                       </ul>
                     </div>
-                    
-                    
+
+
                   </div>
-                  
+
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800 mb-3">Payment Plans</h3>
                     <ul className="space-y-2">
@@ -191,12 +231,45 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
                     </ul>
                   </div>
                 </div>
+                )}
+
+              {activeTab === 'infrastructure' && (
+                <div className="bg-white rounded-xl shadow-md p-6 mb-8">
+                  <h2 className="text-2xl font-bold text-gray-800 mb-6">Infrastructure</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {(DETAILS[id!]?.infrastructure || []).map((item: any, i: number) => {
+                      const Icon = infraIconMap[item.icon] || Check;
+                      return (
+                        <div key={i} className="flex items-center p-3 bg-gray-50 rounded-lg">
+                          <Icon className="h-5 w-5 text-green-600 mr-3" />
+                          <span>{item.label || item}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
               )}
-              
+
+              {activeTab === 'legal' && (
+                <div className="bg-white rounded-xl shadow-md p-6 mb-8">
+                  <h2 className="text-2xl font-bold text-gray-800 mb-6">Legal & Documentation</h2>
+                  <ul className="space-y-2">
+                    {(DETAILS[id!]?.legal || ['Clear Title', '100% Vastu Compliant', 'Hassle-free Registration']).map((item: string, i: number) => (
+                      <li key={i} className="flex items-center">
+                        <Check className="h-5 w-5 text-green-600 mr-2" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+
+              )}
+
               {activeTab === 'features' && (
                 <div className="bg-white rounded-xl shadow-md p-6 mb-8">
                   <h2 className="text-2xl font-bold text-gray-800 mb-6">Features & Amenities</h2>
-                  
+
                   <div className="mb-8">
                     <h3 className="text-xl font-semibold text-gray-800 mb-4">Farm Features</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -208,7 +281,7 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
                       ))}
                     </div>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-xl font-semibold text-gray-800 mb-4">Amenities</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -222,52 +295,63 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
                   </div>
                 </div>
               )}
-              
+
               {activeTab === 'gallery' && (
                 <div className="bg-white rounded-xl shadow-md p-6 mb-8">
                   <h2 className="text-2xl font-bold text-gray-800 mb-6">Farm Gallery</h2>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {farm.images.map((image, index) => (
-                      <div key={index} className="rounded-lg overflow-hidden">
-                        <img 
-                          src={image} 
-                          alt={`${farm.name} - Image ${index + 1}`} 
-                          className="w-full h-64 object-cover hover:opacity-90 transition-opacity"
+                    {galleryItems.map((item, index) => (
+                      <button key={index} onClick={() => setLightboxIndex(index)} className="group text-left rounded-lg overflow-hidden">
+                        <img
+                          src={item.src}
+                          alt={`${farm.name} - Image ${index + 1}`}
+                          className="w-full h-64 object-cover group-hover:opacity-90 transition"
                         />
-                      </div>
+                        {item.caption && <div className="p-2 text-sm text-gray-600 bg-gray-50">{item.caption}</div>}
+                      </button>
                     ))}
-                    
-                    {/* Placeholder for more images */}
-                    <div className="rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center h-64">
-                      <div className="text-center">
-                        <ImageIcon className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-                        <p className="text-gray-500">More images coming soon</p>
+                    {galleryItems.length === 0 && (
+                      <div className="rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center h-64">
+                        <div className="text-center">
+                          <ImageIcon className="h-12 w-12 text-gray-400 mx-auto mb-2" />
+                          <p className="text-gray-500">More images coming soon</p>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
+
+                  {lightboxIndex !== null && (
+                    <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => setLightboxIndex(null)}>
+                      <img src={galleryItems[lightboxIndex].src} alt={galleryItems[lightboxIndex].caption} className="max-h-[85vh] max-w-full" />
+                    </div>
+                  )}
                 </div>
               )}
-              
+
               {activeTab === 'location' && (
                 <div className="bg-white rounded-xl shadow-md p-6 mb-8">
                   <h2 className="text-2xl font-bold text-gray-800 mb-6">Location</h2>
-                  
+
                   <div className="mb-6">
                     <h3 className="text-lg font-semibold text-gray-800 mb-3">Address</h3>
                     <p className="text-gray-600">{farm.location}</p>
                     <p className="text-gray-600">{farm.proximity}</p>
                   </div>
-                  
-                  {/* Map Placeholder */}
-                  <div className="bg-gray-100 rounded-lg h-80 flex items-center justify-center mb-6">
-                    <div className="text-center">
-                      <MapPin className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-                      <p className="text-gray-500">Map view coming soon</p>
-                      <p className="text-sm text-gray-400">Exact location will be shared upon enquiry</p>
-                    </div>
+
+                  {/* Map */}
+                  <div className="rounded-lg overflow-hidden h-80 mb-6">
+                    <iframe
+                      title="Farm Location"
+                      width="100%"
+                      height="100%"
+                      loading="lazy"
+                      allowFullScreen
+                      referrerPolicy="no-referrer-when-downgrade"
+                      src={`https://www.google.com/maps?q=${encodeURIComponent(details?.location?.lat || 12.97)},${encodeURIComponent(details?.location?.lng || 77.59)}&z=12&output=embed`}
+                    />
                   </div>
-                  
+
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800 mb-3">Nearby Landmarks</h3>
                     <ul className="space-y-2">
@@ -288,33 +372,33 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
                 </div>
               )}
             </div>
-            
+
             {/* Right Column - Sidebar */}
             <div>
-              <div className="bg-white rounded-xl shadow-md p-6 sticky top-24">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">Interested in this farm?</h3>
-                
-                <div className="mb-6">
-                  <p className="text-3xl font-bold text-green-600 mb-1">
+              <div className="bg-white rounded-lg sm:rounded-xl shadow-md p-4 sm:p-6 sticky top-20 sm:top-24 compact-card">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 compact-text">Interested in this farm?</h3>
+
+                <div className="mb-4 sm:mb-6">
+                  <p className="text-2xl sm:text-3xl font-bold text-green-600 mb-1">
                     ₹{(farm.startingPrice / 100000).toFixed(1)}L
                   </p>
-                  <p className="text-gray-600">Starting Price</p>
+                  <p className="text-gray-600 text-sm sm:text-base">Starting Price</p>
                 </div>
-                
+
                 {farm.status !== 'sold-out' && (
-                  <div className="mb-6">
-                    <p className="text-orange-600 font-medium">
+                  <div className="mb-4 sm:mb-6">
+                    <p className="text-orange-600 font-medium text-sm sm:text-base">
                       Only {farm.availableUnits} units left out of {farm.totalUnits}
                     </p>
                     <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
-                      <div 
-                        className="bg-green-600 h-2 rounded-full" 
+                      <div
+                        className="bg-green-600 h-2 rounded-full"
                         style={{ width: `${(farm.availableUnits / farm.totalUnits) * 100}%` }}
                       ></div>
                     </div>
                   </div>
                 )}
-                
+
                 <div className="space-y-3 mb-6">
                   <button
                     onClick={() => onEnquiry(farm)}
@@ -322,7 +406,7 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
                   >
                     Enquire Now
                   </button>
-                  
+
                   <button
                     className="w-full bg-white border border-green-600 text-green-600 py-3 px-4 rounded-lg hover:bg-green-50 transition-colors font-medium flex items-center justify-center"
                   >
@@ -330,7 +414,7 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
                     Book Site Visit
                   </button>
                 </div>
-                
+
                 <div className="text-center text-gray-600 text-sm">
                   <p>Need help? Contact our farm experts</p>
                   <p className="font-medium text-gray-800 mt-1 flex items-center justify-center">
@@ -348,7 +432,7 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white rounded-xl shadow-md p-6 mb-8 mx-4">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Similar Farms You May Like</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* This would typically be filtered to show related farms */}
             {/* For now, just showing a placeholder */}

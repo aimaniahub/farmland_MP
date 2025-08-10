@@ -124,47 +124,47 @@ const ContactPage: React.FC = () => {
       </section>
 
       {/* Contact Form */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-xl shadow-md overflow-hidden">
+      <section className="py-8 sm:py-12 md:py-16 bg-gray-50 section-mobile-compact">
+        <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="bg-white rounded-lg sm:rounded-xl shadow-md overflow-hidden">
             <div className="md:flex">
-              <div className="md:w-1/3 bg-green-600 text-white p-8">
-                <h2 className="text-2xl font-bold mb-6">Get In Touch</h2>
-                <div className="space-y-6">
+              <div className="md:w-1/3 bg-green-600 text-white p-4 sm:p-6 md:p-8">
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-6 compact-text">Get In Touch</h2>
+                <div className="space-y-3 sm:space-y-4 md:space-y-6">
                   <div className="flex items-center">
-                    <MessageSquare className="h-5 w-5 mr-3" />
-                    <span>General Inquiries</span>
+                    <MessageSquare className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 flex-shrink-0" />
+                    <span className="text-sm sm:text-base">General Inquiries</span>
                   </div>
                   <div className="flex items-center">
-                    <Users className="h-5 w-5 mr-3" />
-                    <span>Investment Opportunities</span>
+                    <Users className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 flex-shrink-0" />
+                    <span className="text-sm sm:text-base">Investment Opportunities</span>
                   </div>
                   <div className="flex items-center">
-                    <Calendar className="h-5 w-5 mr-3" />
-                    <span>Schedule a Site Visit</span>
+                    <Calendar className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3 flex-shrink-0" />
+                    <span className="text-sm sm:text-base">Schedule a Site Visit</span>
                   </div>
                 </div>
-                <div className="mt-12">
-                  <p className="text-sm text-green-200">
+                <div className="mt-6 sm:mt-8 md:mt-12">
+                  <p className="text-xs sm:text-sm text-green-200">
                     We aim to respond to all inquiries within 24 hours during business days.
                   </p>
                 </div>
               </div>
-              <div className="md:w-2/3 p-8">
+              <div className="md:w-2/3 p-4 sm:p-6 md:p-8">
                 {submitted ? (
                   <div className="h-full flex flex-col items-center justify-center text-center">
-                    <CheckCircle className="h-16 w-16 text-green-500 mb-4" />
-                    <h3 className="text-2xl font-semibold text-gray-800 mb-2">Thank You!</h3>
-                    <p className="text-gray-600 mb-6">
+                    <CheckCircle className="h-12 w-12 sm:h-16 sm:w-16 text-green-500 mb-3 sm:mb-4" />
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 mb-2 compact-text">Thank You!</h3>
+                    <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 content-dense">
                       Your message has been sent successfully. We'll get back to you shortly.
                     </p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit}>
-                    <h3 className="text-xl font-semibold text-gray-800 mb-6">Send us a message</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <form onSubmit={handleSubmit} className="form-mobile-optimized">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-4 sm:mb-6 compact-text">Send us a message</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                           Full Name *
                         </label>
                         <input
@@ -174,11 +174,11 @@ const ContactPage: React.FC = () => {
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          className="w-full px-3 sm:px-4 py-3 sm:py-3.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-base touch-target"
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                        <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                           Email Address *
                         </label>
                         <input
@@ -188,7 +188,7 @@ const ContactPage: React.FC = () => {
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                          className="w-full px-3 sm:px-4 py-3 sm:py-3.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-base touch-target"
                         />
                       </div>
                       <div>

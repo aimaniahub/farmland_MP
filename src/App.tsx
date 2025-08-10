@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import NewFooter from './components/NewFooter';
 import HomePage from './pages/HomePage';
 import AboutUs from './pages/AboutUs';
 import FarmsPage from './pages/FarmsPage';
@@ -14,6 +14,7 @@ import FAQPage from './pages/FAQPage.tsx';
 import CareersPage from './pages/CareersPage.tsx';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
+import WhyManagedFarmland from './pages/WhyManagedFarmland';
 import EnquiryModal from './components/EnquiryModal';
 
 export interface Farm {
@@ -21,11 +22,15 @@ export interface Farm {
   name: string;
   location: string;
   proximity: string;
-  startingPrice: number;
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
+  startingPrice: string; // Changed to string to match JSON data
   plotSizes: string[];
   availableUnits: number;
   totalUnits: number;
-  status: string; // Changed to string to match JSON data
+  status: string;
   description: string;
   images: string[];
   features: string[];
@@ -54,6 +59,7 @@ function App() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/farms" element={<FarmsPage onEnquiry={handleEnquiry} />} />
           <Route path="/farms/:id" element={<FarmDetails onEnquiry={handleEnquiry} />} />
+          <Route path="/why-managed-farmland" element={<WhyManagedFarmland />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/media" element={<MediaPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
@@ -64,7 +70,7 @@ function App() {
           <Route path="/blog/:id" element={<BlogPostPage />} />
         </Routes>
 
-        <Footer />
+        <NewFooter />
 
         <EnquiryModal
           isOpen={isEnquiryModalOpen}

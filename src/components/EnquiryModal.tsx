@@ -44,33 +44,33 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, farm }) =>
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between p-8 border-b border-gray-100">
-          <div>
-            <h2 className="text-2xl font-heading font-bold text-gray-800">
+    <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center z-50 p-1 sm:p-4 animate-fadeIn">
+      <div className="bg-white rounded-lg sm:rounded-xl md:rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-lg max-h-[98vh] sm:max-h-[95vh] md:max-h-[90vh] overflow-y-auto animate-zoomIn">
+        <div className="flex items-center justify-between p-3 sm:p-4 md:p-6 lg:p-8 border-b border-gray-100">
+          <div className="flex-1 min-w-0">
+            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-heading font-bold text-gray-800 line-clamp-2">
               {farm ? `Enquire about ${farm.name}` : 'General Enquiry'}
             </h2>
             {farm && (
-              <p className="text-sm text-gray-600 flex items-center mt-2">
-                <MapPin className="h-4 w-4 mr-1 text-primary-500" />
-                {farm.location}
+              <p className="text-xs sm:text-sm text-gray-600 flex items-center mt-1 sm:mt-2">
+                <MapPin className="h-3 w-3 sm:h-4 sm:w-4 mr-1 text-primary-500 flex-shrink-0" />
+                <span className="truncate">{farm.location}</span>
               </p>
             )}
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-full"
+            className="text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-100 rounded-full touch-target ml-2 flex-shrink-0"
             aria-label="Close modal"
           >
-            <X className="h-6 w-6" />
+            <X className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-8 space-y-6">
+        <form onSubmit={handleSubmit} className="p-3 sm:p-4 md:p-6 lg:p-8 space-y-3 sm:space-y-4 md:space-y-6 form-mobile-optimized">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              <User className="h-4 w-4 inline mr-1" />
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2">
+              <User className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
               Full Name *
             </label>
             <input
@@ -79,14 +79,14 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, farm }) =>
               required
               value={formData.name}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+              className="w-full px-3 sm:px-4 py-3 sm:py-3.5 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 text-base touch-target"
               placeholder="Enter your full name"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              <Mail className="h-4 w-4 inline mr-1" />
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2">
+              <Mail className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
               Email Address *
             </label>
             <input
@@ -95,14 +95,14 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, farm }) =>
               required
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+              className="w-full px-3 sm:px-4 py-3 sm:py-3.5 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 text-base touch-target"
               placeholder="Enter your email address"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
-              <Phone className="h-4 w-4 inline mr-1" />
+            <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-1 sm:mb-2">
+              <Phone className="h-3 w-3 sm:h-4 sm:w-4 inline mr-1" />
               Phone Number *
             </label>
             <input
@@ -111,7 +111,7 @@ const EnquiryModal: React.FC<EnquiryModalProps> = ({ isOpen, onClose, farm }) =>
               required
               value={formData.phone}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+              className="w-full px-3 sm:px-4 py-3 sm:py-3.5 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 text-base touch-target"
               placeholder="Enter your phone number"
             />
           </div>

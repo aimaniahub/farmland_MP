@@ -5,7 +5,11 @@
       "name": "Green Valley Farm",
       "location": "Karnataka, India",
       "proximity": "45 km from Bangalore",
-      "startingPrice": 250000,
+      "coordinates": {
+        "lat": 12.9716,
+        "lng": 77.5946
+      },
+      "startingPrice": "4800000",
       "plotSizes": ["1 Acre", "2 Acres", "5 Acres"],
       "availableUnits": 25,
       "totalUnits": 50,
@@ -27,6 +31,10 @@
       "name": "Sunrise Orchards",
       "location": "Tamil Nadu, India",
       "proximity": "60 km from Chennai",
+      "coordinates": {
+        "lat": 13.0827,
+        "lng": 80.2707
+      },
       "startingPrice": 180000,
       "plotSizes": ["0.5 Acre", "1 Acre", "3 Acres"],
       "availableUnits": 40,
@@ -49,6 +57,10 @@
       "name": "Heritage Spice Farm",
       "location": "Kerala, India",
       "proximity": "35 km from Kochi",
+      "coordinates": {
+        "lat": 9.9312,
+        "lng": 76.2673
+      },
       "startingPrice": 320000,
       "plotSizes": ["1 Acre", "2.5 Acres", "4 Acres"],
       "availableUnits": 15,
@@ -71,6 +83,10 @@
       "name": "Golden Harvest Fields",
       "location": "Maharashtra, India",
       "proximity": "80 km from Pune",
+      "coordinates": {
+        "lat": 18.5204,
+        "lng": 73.8567
+      },
       "startingPrice": 150000,
       "plotSizes": ["2 Acres", "5 Acres", "10 Acres"],
       "availableUnits": 60,

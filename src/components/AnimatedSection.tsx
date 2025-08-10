@@ -59,3 +59,27 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
 };
 
 export default AnimatedSection;
+
+// ScrollAnimation component for compatibility with provided files
+interface ScrollAnimationProps {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}
+
+export const ScrollAnimation: React.FC<ScrollAnimationProps> = ({
+  children,
+  delay = 0,
+  className = '',
+}) => {
+  return (
+    <AnimatedSection
+      className={className}
+      animation="fade-in"
+      delay={delay}
+      threshold={0.1}
+    >
+      {children}
+    </AnimatedSection>
+  );
+};

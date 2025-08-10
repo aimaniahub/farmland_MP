@@ -3,33 +3,45 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
-      'xs': '480px',
-      'sm': '640px',
+      'xs': '320px',
+      'sm': '480px',
       'md': '768px',
       'lg': '1024px',
       'xl': '1280px',
       '2xl': '1536px',
+      // Mobile-first breakpoints
+      'mobile': {'max': '767px'},
+      'tablet': {'min': '768px', 'max': '1023px'},
+      'desktop': {'min': '1024px'},
     },
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Montserrat', 'Inter', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Poppins', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
       },
       colors: {
-        // Primary Green Color Palette
+        // New Design System Colors
+        'primary-green': '#006837',
+        'light-green': '#EBF4F0',
+        'creamy-white': '#FCFBF8',
+        'interactive-blue': '#007BFF',
+        'earthy-brown': '#3E2723',
+        'text-dark': '#333333',
+
+        // Primary Green Color Palette (updated)
         primary: {
           50: '#f0f9f0',
           100: '#dcf2dc',
           200: '#bce5bc',
           300: '#8dd18d',
           400: '#5bb85b',
-          500: '#2A6F2D', // Main brand green
-          600: '#246028',
-          700: '#1F4F1F',
-          800: '#1A3E18',
-          900: '#153012',
-          950: '#0A1809',
+          500: '#006837', // Updated to match new primary-green
+          600: '#005a2f',
+          700: '#004d27',
+          800: '#003f1f',
+          900: '#003217',
+          950: '#001a0c',
         },
         // Accent Orange Color Palette
         secondary: {
@@ -94,17 +106,37 @@ export default {
         'farm-pattern': "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23f0f9f0\" fill-opacity=\"0.1\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')",
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.5s ease-out',
-        'slide-down': 'slideDown 0.5s ease-out',
-        'slide-left': 'slideLeft 0.5s ease-out',
-        'slide-right': 'slideRight 0.5s ease-out',
-        'zoom-in': 'zoomIn 0.5s ease-out',
+        // Legacy names (kept for backward compatibility)
+        'fade-in': 'fadeIn 0.5s ease-in-out both',
+        'slide-up': 'slideUp 0.6s ease-out both',
+        'slide-down': 'slideDown 0.6s ease-out both',
+        'slide-left': 'slideInLeft 0.7s ease-out both',
+        'slide-right': 'slideInRight 0.7s ease-out both',
+        'zoom-in': 'zoomIn 0.6s ease-out both',
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'fade-in-up': 'fadeInUp 1s ease-in-out forwards',
+        'fade-in-up': 'fadeInUp 0.8s ease-out both',
+
+        // New canonical names
+        fadeIn: 'fadeIn 0.5s ease-in-out both',
+        fadeInUp: 'fadeInUp 0.8s ease-out both',
+        fadeInDown: 'fadeInDown 0.8s ease-out both',
+        slideInLeft: 'slideInLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1) both',
+        slideInRight: 'slideInRight 0.7s cubic-bezier(0.22, 1, 0.36, 1) both',
+        zoomIn: 'zoomIn 0.6s ease-out both',
+        floatGentle: 'float 8s ease-in-out infinite',
+
+        // New Design System Animations
+        'pulse-soft': 'pulse-soft 2s ease-in-out infinite',
+        'count-up': 'count-up 2s ease-out forwards',
+        'lift': 'lift 0.3s ease-out forwards',
+        'pulse-interactive': 'pulse-interactive 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
         fadeInUp: {
           '0%': {
             opacity: '0',
@@ -115,19 +147,93 @@ export default {
             transform: 'translateY(0)',
           },
         },
-        fadeInSlideUp: {
+        fadeInDown: {
           '0%': {
             opacity: '0',
-            transform: 'translateY(40px)',
+            transform: 'translateY(-20px)',
           },
           '100%': {
             opacity: '1',
             transform: 'translateY(0)',
           },
         },
+        slideInLeft: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateX(-24px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+        },
+        slideInRight: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateX(24px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateX(0)',
+          },
+        },
+        slideUp: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(16px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
+        slideDown: {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(-16px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
+        zoomIn: {
+          '0%': {
+            opacity: '0',
+            transform: 'scale(0.95)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'scale(1)',
+          },
+        },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' },
+        },
+        'pulse-soft': {
+          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+          '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+        },
+        'count-up': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'lift': {
+          '0%': { transform: 'translateY(0px)' },
+          '100%': { transform: 'translateY(-2px)' },
+        },
+        'pulse-interactive': {
+          '0%, 100%': { 
+            opacity: '1', 
+            transform: 'scale(1)',
+            boxShadow: '0 4px 15px rgba(0, 123, 255, 0.15)'
+          },
+          '50%': { 
+            opacity: '0.9', 
+            transform: 'scale(1.05)',
+            boxShadow: '0 8px 25px rgba(0, 123, 255, 0.25)'
+          },
         },
       },
       spacing: {

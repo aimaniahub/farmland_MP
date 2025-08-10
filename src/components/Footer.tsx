@@ -37,22 +37,25 @@ const Footer: React.FC = () => {
           <p className="text-primary-100 mb-4 sm:mb-6 lg:mb-8 max-w-xl sm:max-w-2xl mx-auto text-sm sm:text-base">
             Subscribe to our newsletter for the latest farmland projects, investment opportunities, and sustainable farming insights delivered to your inbox.
           </p>
-          <form onSubmit={handleNewsletterSubmit} className="max-w-sm sm:max-w-md mx-auto flex">
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email address"
-              className="flex-1 px-3 py-2.5 sm:px-4 sm:py-3 lg:px-6 lg:py-4 rounded-l-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 border-0 text-sm sm:text-base"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-primary-600 hover:bg-primary-700 px-4 py-2.5 sm:px-5 sm:py-3 lg:px-6 lg:py-4 rounded-r-lg transition-all duration-300 font-medium shadow-lg hover:shadow-primary-500/25 transform hover:-translate-y-0.5"
-              aria-label="Subscribe to newsletter"
-            >
-              <Send className="h-4 w-4 sm:h-5 sm:w-5" />
-            </button>
+          <form onSubmit={handleNewsletterSubmit} className="max-w-md mx-auto">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-0">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email address"
+                className="flex-1 px-4 py-3 lg:px-6 lg:py-4 rounded-lg sm:rounded-l-lg sm:rounded-r-none text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500 border-0 text-sm sm:text-base"
+                required
+              />
+              <button
+                type="submit"
+                className="bg-primary-600 hover:bg-primary-700 px-6 py-3 lg:px-8 lg:py-4 rounded-lg sm:rounded-l-none sm:rounded-r-lg transition-all duration-300 font-medium shadow-lg hover:shadow-primary-500/25 transform hover:-translate-y-0.5 flex items-center justify-center"
+                aria-label="Subscribe to newsletter"
+              >
+                <Send className="h-4 w-4 sm:h-5 sm:w-5 sm:mr-0 mr-2" />
+                <span className="sm:hidden">Subscribe</span>
+              </button>
+            </div>
           </form>
         </div>
       </div>
