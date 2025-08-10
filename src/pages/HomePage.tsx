@@ -164,10 +164,10 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section ref={howRef as any} className="py-6 sm:py-12 md:py-16 lg:py-20 bg-white bg-farm-pattern">
+      {/* How It Works - Compact */}
+      <section ref={howRef as any} className="py-4 sm:py-8 md:py-12 lg:py-16 bg-white bg-farm-pattern section-mobile-compact">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-          <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-12">
+          <div className="text-center mb-3 sm:mb-4 md:mb-6 lg:mb-8">
             <h2 className="text-xl sm:text-2xl lg:text-4xl font-heading font-bold text-gray-800">How It Works</h2>
             <p className="text-gray-600 mt-2">Four simple steps to owning your dream farmland</p>
           </div>
@@ -195,33 +195,33 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
         </div>
       </section>
 
-      {/* Introduction to Managed Farmlands */}
-      <section className="py-4 sm:py-8 md:py-12 lg:py-16 bg-cream-50">
+      {/* Introduction to Managed Farmlands - Compact Mobile */}
+      <section className="py-3 sm:py-6 md:py-8 lg:py-12 bg-cream-50 section-mobile-compact">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
             <div className="text-left">
               <span className="text-primary-700 text-xs sm:text-sm font-semibold">{home.introduction.subtitle}</span>
 
-              <h2 className="text-xl sm:text-2xl lg:text-4xl font-serif font-bold text-gray-800 mt-1 sm:mt-2 mb-3 sm:mb-4 lg:mb-6">
+              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-bold text-gray-800 mt-1 mb-2 sm:mb-3 lg:mb-4 compact-text">
                 {home.introduction.title}
               </h2>
-              <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed mb-4 sm:mb-6">
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-3 sm:mb-4 content-dense">
                 {home.introduction.description}
               </p>
-              <Link to={home.introduction.link.url} className="text-primary-600 font-semibold hover:underline text-sm sm:text-base">
+              <Link to={home.introduction.link.url} className="text-primary-600 font-semibold hover:underline text-sm sm:text-base touch-target">
                 {home.introduction.link.text}
               </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-3 lg:gap-4">
               {home?.introduction?.features?.map((feature, index) => {
                 const Icon = iconMap[feature.icon as keyof typeof iconMap] || Shield;
                 return (
-                  <div key={index} className="p-4 sm:p-5 lg:p-6 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 border border-gray-100">
-                    <div className="bg-primary-50 w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
-                      <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary-600" />
+                  <div key={index} className="p-2 sm:p-3 md:p-4 lg:p-5 bg-white rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] sm:hover:scale-105 border border-gray-100 compact-card">
+                    <div className="bg-primary-50 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-3">
+                      <Icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-primary-600" />
                     </div>
-                    <h3 className="text-base sm:text-lg font-bold text-gray-800 mb-1 sm:mb-2">{feature.title}</h3>
-                    <p className="text-xs sm:text-sm text-gray-600">
+                    <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-800 mb-1 compact-text">{feature.title}</h3>
+                    <p className="text-2xs xs:text-xs sm:text-sm text-gray-600 content-dense">
                       {feature.description}
                     </p>
                   </div>
@@ -232,17 +232,17 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
         </div>
       </section>
 
-      {/* Featured Farms */}
-      <section className="py-4 sm:py-8 md:py-12 lg:py-16 bg-white">
+      {/* Featured Farms - Compact */}
+      <section className="py-3 sm:py-6 md:py-8 lg:py-12 bg-white section-mobile-compact">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-          <div className="text-center mb-3 sm:mb-4 md:mb-6 lg:mb-8 xl:mb-12">
-            <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-serif font-bold text-gray-800 mb-2 sm:mb-3 lg:mb-4">{home.featured_farms.title}</h2>
-            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 max-w-2xl lg:max-w-3xl mx-auto">
+          <div className="text-center mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-bold text-gray-800 mb-2 sm:mb-3 compact-text">{home.featured_farms.title}</h2>
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto content-dense">
               {home.featured_farms.description}
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8 mb-6 sm:mb-8 lg:mb-10 xl:mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8 mb-4 sm:mb-6 lg:mb-8">
             {featuredFarms.map((farm) => (
               <div key={farm.id} className="bg-white rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 sm:hover:-translate-y-2 hover:scale-[1.02] sm:hover:scale-105 group border border-gray-100">
                 <div className="relative h-32 xs:h-36 sm:h-40 md:h-48 lg:h-56 bg-cover bg-center rounded-t-2xl sm:rounded-t-3xl" style={{ backgroundImage: `url(${farm.images[0]})` }}>
@@ -265,7 +265,9 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
                   <div className="flex justify-between items-center mb-2 sm:mb-3">
                     <div>
                       <p className="text-sm sm:text-base md:text-lg font-bold text-primary-600">
-                        ₹{(parseInt(farm.startingPrice) / 100000).toFixed(1)}L
+                        {farm.startingPrice && !isNaN(parseInt(farm.startingPrice))
+                          ? `₹${(parseInt(farm.startingPrice) / 100000).toFixed(1)}L`
+                          : 'Updating soon'}
                       </p>
                       <p className="text-2xs sm:text-xs text-gray-500">Starting</p>
                     </div>
@@ -310,12 +312,12 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-4 sm:py-8 md:py-12 lg:py-16 bg-cream-50">
+      {/* Why Choose Us - Compact */}
+      <section className="py-3 sm:py-6 md:py-8 lg:py-12 bg-cream-50 section-mobile-compact">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-          <div className="text-center mb-3 sm:mb-4 md:mb-6 lg:mb-8 xl:mb-12">
-            <h2 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-serif font-bold text-gray-800 mb-2 sm:mb-3 lg:mb-4">{home.why_choose_us.title}</h2>
-            <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600">
+          <div className="text-center mb-3 sm:mb-4 md:mb-6 lg:mb-8">
+            <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-bold text-gray-800 mb-2 sm:mb-3 compact-text">{home.why_choose_us.title}</h2>
+            <p className="text-sm sm:text-base lg:text-lg text-gray-600 content-dense">
               {home.why_choose_us.description}
             </p>
           </div>

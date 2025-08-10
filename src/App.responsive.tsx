@@ -26,7 +26,7 @@ export interface Farm {
     lat: number;
     lng: number;
   };
-  startingPrice: string;
+  startingPrice: string; // Changed to string to match JSON data
   plotSizes: string[];
   availableUnits: number;
   totalUnits: number;
@@ -51,24 +51,28 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white overflow-x-hidden">
         <Navbar onEnquiry={handleEnquiry} />
         
-        <Routes>
-          <Route path="/" element={<HomePage onEnquiry={handleEnquiry} />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/farms" element={<FarmsPage onEnquiry={handleEnquiry} />} />
-          <Route path="/farms/:id" element={<FarmDetails onEnquiry={handleEnquiry} />} />
-          <Route path="/why-managed-farmland" element={<WhyManagedFarmland />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/media" element={<MediaPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/faq" element={<FAQPage />} />
-          <Route path="/careers" element={<CareersPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:id" element={<BlogPostPage />} />
-        </Routes>
+        <main className="w-full">
+          <Routes>
+            <Route path="/" element={<HomePage onEnquiry={handleEnquiry} />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/farms" element={<FarmsPage onEnquiry={handleEnquiry} />} />
+            <Route path="/farms/:id" element={<FarmDetails onEnquiry={handleEnquiry} />} />
+            <Route path="/why-managed-farmland" element={<WhyManagedFarmland />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/media" element={<MediaPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:id" element={<BlogPostPage />} />
+            {/* Fallback route */}
+            <Route path="*" element={<HomePage onEnquiry={handleEnquiry} />} />
+          </Routes>
+        </main>
 
         <NewFooter />
 

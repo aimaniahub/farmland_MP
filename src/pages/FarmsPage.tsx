@@ -29,10 +29,13 @@ const FarmsPage: React.FC<FarmsPageProps> = ({ onEnquiry }) => {
                          farm.location.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesStatus = selectedStatus === 'all' || farm.status === selectedStatus;
     const priceValue = parseInt(farm.startingPrice);
+    const isNumber = !isNaN(priceValue);
     const matchesPrice = selectedPriceRange === 'all' ||
-                        (selectedPriceRange === 'under-10' && priceValue < 1000000) ||
-                        (selectedPriceRange === '10-15' && priceValue >= 1000000 && priceValue < 1500000) ||
-                        (selectedPriceRange === 'above-15' && priceValue >= 1500000);
+      (isNumber && (
+        (selectedPriceRange === 'under-10' && priceValue < 1000000) ||
+        (selectedPriceRange === '10-15' && priceValue >= 1000000 && priceValue < 1500000) ||
+        (selectedPriceRange === 'above-15' && priceValue >= 1500000)
+      ));
     const matchesLocation = selectedLocation === 'all' || farm.location.includes(selectedLocation);
 
     return matchesSearch && matchesStatus && matchesPrice && matchesLocation;
@@ -218,7 +221,11 @@ const FarmsPage: React.FC<FarmsPageProps> = ({ onEnquiry }) => {
                   <p className="text-xs sm:text-sm text-gray-600 flex items-center mb-2 sm:mb-3 line-clamp-1"><MapPin className="h-3 w-3 sm:h-4 sm:w-4 mr-1 flex-shrink-0" />{farm.proximity}</p>
                   <div className="flex justify-between items-center mb-2 sm:mb-4">
                     <div>
-                      <p className="text-sm sm:text-lg md:text-2xl font-bold text-green-600">₹{(parseInt(farm.startingPrice) / 100000).toFixed(1)}L</p>
+                      <p className="text-sm sm:text-lg md:text-2xl font-bold text-green-600">
+                        {farm.startingPrice && !isNaN(parseInt(farm.startingPrice))
+                          ? `₹${(parseInt(farm.startingPrice) / 100000).toFixed(1)}L`
+                          : 'Updating soon'}
+                      </p>
                       <p className="text-xs text-gray-500">Starting from</p>
                     </div>
                     <div className="flex gap-1 sm:gap-2 text-gray-500">
@@ -267,7 +274,11 @@ const FarmsPage: React.FC<FarmsPageProps> = ({ onEnquiry }) => {
                   <p className="text-xs sm:text-sm text-gray-600 flex items-center mb-2 sm:mb-3 line-clamp-1"><MapPin className="h-3 w-3 sm:h-4 sm:w-4 mr-1 flex-shrink-0" />{farm.proximity}</p>
                   <div className="flex justify-between items-center mb-2 sm:mb-4">
                     <div>
-                      <p className="text-sm sm:text-lg md:text-2xl font-bold text-green-600">₹{(parseInt(farm.startingPrice) / 100000).toFixed(1)}L</p>
+                      <p className="text-sm sm:text-lg md:text-2xl font-bold text-green-600">
+                        {farm.startingPrice && !isNaN(Number(farm.startingPrice))
+                          ? `₹${(Number(farm.startingPrice) / 100000).toFixed(1)}L`
+                          : 'Updating soon'}
+                      </p>
                       <p className="text-xs text-gray-500">Starting from</p>
                     </div>
                     <div className="flex gap-1 sm:gap-2 text-gray-500">

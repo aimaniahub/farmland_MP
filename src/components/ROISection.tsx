@@ -64,27 +64,27 @@ const ROISection: React.FC = () => {
   ];
 
   return (
-    <section id="roi-section" className="py-20 bg-gradient-to-b from-green-50 to-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="roi-section" className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-green-50 to-white section-mobile-compact">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <ScrollAnimation>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-serif font-bold text-green-900 mb-4">
+          <div className="text-center mb-6 sm:mb-8 md:mb-12 lg:mb-16">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-green-900 mb-2 sm:mb-4 compact-text">
               Sandalwood: The Golden Harvest of Your Future
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto mb-6">
-              Understand the powerful, long-term growth potential of your investment. 
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto mb-3 sm:mb-6 content-dense">
+              Understand the powerful, long-term growth potential of your investment.
               The table below provides a conservative estimate based on current market trends.
             </p>
-            <div className="w-24 h-1 bg-yellow-500 mx-auto"></div>
+            <div className="w-16 sm:w-20 md:w-24 h-1 bg-yellow-500 mx-auto"></div>
           </div>
         </ScrollAnimation>
 
         {/* ROI Table */}
         <ScrollAnimation delay={200}>
-          <div className="max-w-6xl mx-auto mb-16">
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
-              <div className="bg-gradient-to-r from-green-600 to-green-700 px-6 py-4">
-                <h3 className="text-2xl font-bold text-white text-center">
+          <div className="max-w-6xl mx-auto mb-8 sm:mb-12 md:mb-16">
+            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl sm:shadow-2xl overflow-hidden">
+              <div className="bg-gradient-to-r from-green-600 to-green-700 px-3 sm:px-4 md:px-6 py-3 sm:py-4">
+                <h3 className="text-sm sm:text-base md:text-lg lg:text-2xl font-bold text-white text-center compact-text">
                   Sandalwood Investment Projection (Per Plant)
                 </h3>
               </div>
@@ -93,9 +93,9 @@ const ROISection: React.FC = () => {
                 <table className="w-full">
                   <thead className="bg-green-50">
                     <tr>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-green-900">Metric</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-green-900">Current Status / Initial Phase</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-green-900">Projected Value (After 15 Years)</th>
+                      <th className="px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 md:py-4 text-left text-xs sm:text-sm font-semibold text-green-900">Metric</th>
+                      <th className="px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 md:py-4 text-left text-xs sm:text-sm font-semibold text-green-900">Current Status / Initial Phase</th>
+                      <th className="px-2 sm:px-3 md:px-4 lg:px-6 py-2 sm:py-3 md:py-4 text-left text-xs sm:text-sm font-semibold text-green-900">Projected Value (After 15 Years)</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">

@@ -342,6 +342,12 @@
       padding-top: 1.5rem; /* 24px */
       padding-bottom: 1.5rem; /* 24px */
     }
+
+    /* Ultra compact for very small screens */
+    .section-mobile-compact {
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+    }
   }
 
   @media (max-width: 768px) {
@@ -409,6 +415,26 @@
       padding: 0.875rem;
       font-size: 16px;
       border-radius: 0.5rem;
+    }
+
+    /* Additional mobile spacing optimizations */
+    section {
+      margin-bottom: 0.5rem;
+    }
+
+    .section-mobile-compact {
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+
+    /* Reduce margins between elements on mobile */
+    .content-dense {
+      margin-bottom: 0.5rem;
+    }
+
+    .compact-text {
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
     }
   }
 
