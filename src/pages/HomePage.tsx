@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Farm } from '../App';
 import TestimonialCarousel from '../components/TestimonialCarousel';
-import { Shield, Leaf, TrendingUp, Award, Users, CheckCircle, Phone, ArrowRight, MapPin, Calendar, Search, FileText, Tractor, Droplet } from 'lucide-react';
+import { Shield, Leaf, TrendingUp, Award, Users, CheckCircle, Phone, ArrowRight, MapPin, Calendar, Tractor } from 'lucide-react';
 import BlogFeatured from '../components/BlogFeatured';
 import LiveGoogleReviews from '../components/LiveGoogleReviews';
 import StatisticsSection from '../components/StatisticsSection';
@@ -27,8 +27,6 @@ const iconMap = {
   CheckCircle: CheckCircle,
   MapPin: MapPin,
   Calendar: Calendar,
-  Search: Search,
-  FileText: FileText,
   Tractor: Tractor,
 };
 
@@ -88,7 +86,7 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
   const blogPosts = blogPostsData?.posts || [];
 
   const { ref: whyRef, inView: whyInView } = useInView();
-  const { ref: howRef, inView: howInView } = useInView();
+  const howRef = useRef(null);
   const [enquiryTriggered, setEnquiryTriggered] = useState(false);
 
   useEffect(() => {
@@ -123,7 +121,7 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
         {/* Background video */}
         <video
           className="absolute inset-0 w-full h-full object-cover"
-          src="https://cdn.coverr.co/videos/coverr-a-beautiful-sunrise-over-a-field-0573/1080p.mp4"
+          src=""
           autoPlay
           loop
           muted
@@ -131,14 +129,14 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
           poster={home.hero.background_image}
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/40" />
 
 
         <div className="relative z-10 text-center text-white px-3 py-8 sm:px-4 sm:py-12 sm:max-w-4xl mx-auto">
           <div className="space-y-3 sm:space-y-4">
             <h1 className="animate-fadeInUp [animation-delay:0.1s] text-2xl sm:text-4xl lg:text-6xl font-serif font-bold leading-tight text-white">
-              <span className="text-white">{home.hero.title}</span>
-              <span className="block text-white opacity-90">{home.hero.subtitle}</span>
+              <span className="text-green-500">{home.hero.title}</span>
+              <span className="block text-white opacity-75">{home.hero.subtitle}</span>
             </h1>
             <h2 className="animate-fadeInUp [animation-delay:0.25s] text-base sm:text-lg lg:text-xl text-white opacity-95">Hassle-free ownership, sustainable practices, and a legacy of growth.</h2>
             <p className="animate-fadeInUp [animation-delay:0.4s] text-sm sm:text-lg lg:text-xl text-white opacity-90 max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
@@ -164,33 +162,86 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
         </div>
       </section>
 
-      {/* How It Works - Compact */}
-      <section ref={howRef as any} className="py-4 sm:py-8 md:py-12 lg:py-16 bg-white bg-farm-pattern section-mobile-compact">
+      {/* Sandalwood Introduction */}
+  <section ref={howRef as any} className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-br from-green-50 via-green-100 to-green-50 section-mobile-compact">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-          <div className="text-center mb-3 sm:mb-4 md:mb-6 lg:mb-8">
-            <h2 className="text-xl sm:text-2xl lg:text-4xl font-heading font-bold text-gray-800">How It Works</h2>
-            <p className="text-gray-600 mt-2">Four simple steps to owning your dream farmland</p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-            {[
-              { icon: Search, title: 'Discover Farms', desc: 'Browse our curated portfolio of high-yield farmland projects.' },
-              { icon: MapPin, title: 'Visit the Site', desc: 'Schedule a guided tour to experience the land firsthand.' },
-              { icon: FileText, title: 'Secure Ownership', desc: 'Our team handles all legal paperwork for a seamless transfer.' },
-              { icon: Leaf, title: 'Watch it Grow', desc: 'We manage the farm while you receive regular updates and returns.' },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className={`p-3 sm:p-4 md:p-6 bg-white rounded-xl sm:rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 sm:hover:-translate-y-2 compact-card ${howInView ? 'animate-slideInLeft' : 'opacity-0 translate-x-6'}`}
-                style={{ animationDelay: `${idx * 120}ms` }}
-              >
-                <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-lg sm:rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mb-2 sm:mb-3 md:mb-4">
-                  <item.icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6" />
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Content */}
+            <div className="text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
+                <img src="/logo.svg" alt="Darvi Group Logo" className="h-16 w-auto" />
+                <div className="inline-block px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                  Premium Investment Opportunity
                 </div>
-                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-800 mb-1 sm:mb-2 compact-text">{item.title}</h3>
-                <p className="text-gray-600 text-xs sm:text-sm content-dense">{item.desc}</p>
               </div>
-            ))}
+              <h2 className="text-2xl sm:text-3xl lg:text-5xl font-serif font-bold text-gray-800 mb-4 lg:mb-6">
+                Introduction Sandalwood cultivation for the first time in
+                <span className="text-green-600"> Madhya Pradesh</span> on a large scale
+              </h2>
+              <div className="space-y-4 mb-6 lg:mb-8">
+                <div className="flex items-center justify-center lg:justify-start">
+                  <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                  <p className="text-lg sm:text-xl font-semibold text-gray-700">
+                    The world's most costly wood
+                  </p>
+                </div>
+                <div className="flex items-center justify-center lg:justify-start">
+                  <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                  <p className="text-lg sm:text-xl font-semibold text-gray-700">
+                    Mysore Sandal quality
+                  </p>
+                </div>
+                <div className="flex items-center justify-center lg:justify-start">
+                  <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                  <p className="text-lg sm:text-xl font-semibold text-gray-700">
+                    Own a farm land with private resort
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link
+                  to="/farms"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-green-600 to-green-400 text-white rounded-xl hover:from-green-700 hover:to-green-500 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                >
+                  Explore Sandalwood Farms
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+                <button
+                  onClick={() => onEnquiry()}
+                  className="inline-flex items-center justify-center px-6 py-3 border-2 border-green-600 text-green-700 rounded-xl hover:bg-green-600 hover:text-white transition-all duration-300 font-semibold"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+
+            {/* Images */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <img
+                  src="/public/sand1.jpg"
+                  alt="Sandalwood Plantation"
+                  className="w-full h-48 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                />
+                <img
+                  src="/public/sand2.jpeg"
+                  alt="Sandalwood Trees"
+                  className="w-full h-40 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                />
+              </div>
+              <div className="space-y-4 mt-8">
+                <img
+                  src="/public/sand3.jpg"
+                  alt="Sandalwood Cultivation"
+                  className="w-full h-40 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                />
+                <img
+                  src="/public/sand4.jpg"
+                  alt="Premium Sandalwood"
+                  className="w-full h-48 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

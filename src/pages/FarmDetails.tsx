@@ -113,18 +113,17 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
 
-        <div className="relative h-full flex flex-col justify-between p-3 sm:p-6 md:p-12">
-          <div className="flex justify-between items-start">
+        <div className="relative h-full flex flex-col justify-end p-3 sm:p-6 md:p-12">
+          {/* Back button positioned at bottom left to avoid navbar collision */}
+          <div className="absolute top-20 sm:top-24 left-3 sm:left-6 md:left-12 z-30">
             <Link
               to="/farms"
-              className="inline-flex items-center px-3 sm:px-4 py-2 bg-white bg-opacity-90 text-gray-800 rounded-lg hover:bg-opacity-100 transition-colors font-medium text-sm sm:text-base shadow-lg z-20 relative"
+              className="inline-flex items-center px-3 sm:px-4 py-2 bg-white/95 backdrop-blur-sm text-gray-800 rounded-lg hover:bg-white transition-all duration-300 font-medium text-sm sm:text-base shadow-lg border border-white/30"
             >
               <ArrowLeft className="mr-1 sm:mr-2 h-4 w-4" />
               <span className="hidden xs:inline">Back to Farms</span>
               <span className="xs:hidden">Back</span>
             </Link>
-            {/* Logo space reserved to prevent overlap */}
-            <div className="w-16 sm:w-20 md:w-24"></div>
           </div>
 
           <div className="text-white">
@@ -194,35 +193,102 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
             {/* Left Column - Main Content */}
             <div className="lg:col-span-2">
               {activeTab === 'overview' && (
-                <div className="bg-white rounded-xl shadow-md p-6 mb-8">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-4">About {farm.name}</h2>
-                  <p className="text-gray-600 mb-6">{farm.description}</p>
+                <div className="space-y-8">
+                  {/* About Section */}
+                  <div className="bg-white rounded-xl shadow-md p-6">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4">About {farm.name}</h2>
+                    <p className="text-gray-600 mb-6">{DETAILS[id!]?.detailedDescription || farm.description}</p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <h3 className="text-lg font-semibold text-gray-800 mb-3">Farm Details</h3>
-                      <ul className="space-y-2">
-                        <li className="flex justify-between">
-                          <span className="text-gray-600">Total Area:</span>
-                          <span className="font-medium">{farm.area}</span>
-                        </li>
-                        <li className="flex justify-between">
-                          <span className="text-gray-600">Available Units:</span>
-                          <span className="font-medium">{farm.availableUnits} of {farm.totalUnits}</span>
-                        </li>
-                        <li className="flex justify-between">
-                          <span className="text-gray-600">Status:</span>
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(farm.status)}`}>
-                            {getStatusText(farm.status)}
-                          </span>
-                        </li>
-                      </ul>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                      <div className="bg-gray-50 p-4 rounded-lg">
+                        <h3 className="text-lg font-semibold text-gray-800 mb-3">Farm Details</h3>
+                        <ul className="space-y-2">
+                          <li className="flex justify-between">
+                            <span className="text-gray-600">Total Area:</span>
+                            <span className="font-medium">{DETAILS[id!]?.overview?.totalAcres || farm.area}</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span className="text-gray-600">Plot Size:</span>
+                            <span className="font-medium">{DETAILS[id!]?.overview?.plotSize || 'N/A'}</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span className="text-gray-600">Soil Type:</span>
+                            <span className="font-medium">{DETAILS[id!]?.overview?.soilType || DETAILS[id!]?.soilAnalysis?.type || 'N/A'}</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span className="text-gray-600">Available Units:</span>
+                            <span className="font-medium">{farm.availableUnits} of {farm.totalUnits}</span>
+                          </li>
+                          <li className="flex justify-between">
+                            <span className="text-gray-600">Status:</span>
+                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(farm.status)}`}>
+                              {getStatusText(farm.status)}
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
-
-
                   </div>
 
-                  <div>
+                  {/* Crop Calculation Section */}
+                  {DETAILS[id!]?.overview?.cropCalculation && (
+                    <div className="bg-white rounded-xl shadow-md p-6">
+                      <h3 className="text-2xl font-bold text-gray-800 mb-4">Per Plot Crop Analysis</h3>
+                      <p className="text-gray-600 mb-6">Per plot of {DETAILS[id!]?.overview?.plotSize} consists of:</p>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {DETAILS[id!]?.overview?.cropCalculation?.map((crop: any, index: number) => (
+                          <div key={index} className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg border border-green-200">
+                            <div className="flex items-center mb-4">
+                              <img
+                                src={crop.image}
+                                alt={crop.crop}
+                                className="w-16 h-16 rounded-lg object-cover mr-4"
+                              />
+                              <div>
+                                <h4 className="text-lg font-bold text-gray-800">{crop.crop}</h4>
+                                <p className="text-sm text-gray-600">Calculation: {crop.calculation}</p>
+                              </div>
+                            </div>
+                            <div className="bg-white p-4 rounded-lg">
+                              <div className="text-2xl font-bold text-green-600">
+                                ₹{crop.total.toLocaleString()}
+                              </div>
+                              <div className="text-sm text-gray-500">
+                                {crop.quantity} × {crop.pricePerUnit} × {crop.multiplier}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Total Calculation */}
+                      <div className="mt-6 bg-gradient-to-r from-green-600 to-green-700 text-white p-6 rounded-lg">
+                        <h4 className="text-xl font-bold mb-2">Total Estimated Value</h4>
+                        <div className="text-3xl font-bold">
+                          ₹{DETAILS[id!]?.overview?.cropCalculation?.reduce((total: number, crop: any) => total + crop.total, 0).toLocaleString()}
+                        </div>
+                        <p className="text-green-100 mt-2">Combined value from all crops per plot</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Plot Layout */}
+                  {DETAILS[id!]?.overview?.locationImage && (
+                    <div className="bg-white rounded-xl shadow-md p-6">
+                      <h3 className="text-2xl font-bold text-gray-800 mb-4">Plot Layout</h3>
+                      <div className="w-full overflow-hidden rounded-lg border border-gray-200">
+                        <img
+                          src={DETAILS[id!]?.overview?.locationImage}
+                          alt="Plot Layout"
+                          className="plot-image w-full h-auto"
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Payment Plans */}
+                  <div className="bg-white rounded-xl shadow-md p-6">
                     <h3 className="text-lg font-semibold text-gray-800 mb-3">Payment Plans</h3>
                     <ul className="space-y-2">
                       {farm.paymentPlans.map((plan, index) => (

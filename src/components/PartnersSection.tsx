@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Users, TreePine, Target } from 'lucide-react';
+import { Award, TreePine, Target } from 'lucide-react';
 import ScrollAnimation from './ScrollAnimation';
 
 const PartnersSection: React.FC = () => {
@@ -26,8 +26,12 @@ const PartnersSection: React.FC = () => {
           <ScrollAnimation delay={200}>
             <div className="bg-white rounded-3xl shadow-2xl p-10 md:p-14 mb-16">
               <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-                <div className="h-16 md:h-20 w-32 bg-green-100 rounded-lg flex items-center justify-center">
-                  <span className="text-green-800 font-bold text-lg">Darvi Group</span>
+                <div className="h-16 md:h-20 w-32 flex items-center justify-center">
+                  <img
+                    src="/darvi-logo.png"
+                    alt="Darvi Group Logo"
+                    className="h-full w-auto object-contain"
+                  />
                 </div>
                 <div className="text-center md:text-left">
                   <h3 className="text-2xl font-serif font-bold text-green-900">Darvi Group</h3>
