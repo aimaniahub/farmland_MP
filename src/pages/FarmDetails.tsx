@@ -113,15 +113,18 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
 
-        <div className="relative h-full flex flex-col justify-between p-6 md:p-12">
-          <div>
+        <div className="relative h-full flex flex-col justify-between p-3 sm:p-6 md:p-12">
+          <div className="flex justify-between items-start">
             <Link
               to="/farms"
-              className="inline-flex items-center px-4 py-2 bg-white bg-opacity-90 text-gray-800 rounded-lg hover:bg-opacity-100 transition-colors font-medium"
+              className="inline-flex items-center px-3 sm:px-4 py-2 bg-white bg-opacity-90 text-gray-800 rounded-lg hover:bg-opacity-100 transition-colors font-medium text-sm sm:text-base shadow-lg z-20 relative"
             >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Farms
+              <ArrowLeft className="mr-1 sm:mr-2 h-4 w-4" />
+              <span className="hidden xs:inline">Back to Farms</span>
+              <span className="xs:hidden">Back</span>
             </Link>
+            {/* Logo space reserved to prevent overlap */}
+            <div className="w-16 sm:w-20 md:w-24"></div>
           </div>
 
           <div className="text-white">
@@ -140,43 +143,43 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
       </section>
 
       {/* Navigation Tabs */}
-      <section className="bg-white shadow-md sticky top-0 z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex overflow-x-auto">
+      <section className="bg-white shadow-md sticky top-0 z-10 tab-container">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+          <div className="flex overflow-x-auto scrollbar-hide border-b border-gray-200">
             <button
               onClick={() => setActiveTab('overview')}
-              className={`px-6 py-4 font-medium text-sm whitespace-nowrap ${activeTab === 'overview' ? 'text-green-600 border-b-2 border-green-600' : 'text-gray-600 hover:text-green-600'}`}
+              className={`flex-shrink-0 px-3 sm:px-4 md:px-6 py-3 sm:py-4 font-medium text-xs sm:text-sm whitespace-nowrap transition-colors ${activeTab === 'overview' ? 'text-green-600 border-b-2 border-green-600 bg-green-50' : 'text-gray-600 hover:text-green-600 hover:bg-gray-50'}`}
             >
               Overview
             </button>
             <button
               onClick={() => setActiveTab('features')}
-              className={`px-6 py-4 font-medium text-sm whitespace-nowrap ${activeTab === 'features' ? 'text-green-600 border-b-2 border-green-600' : 'text-gray-600 hover:text-green-600'}`}
+              className={`flex-shrink-0 px-3 sm:px-4 md:px-6 py-3 sm:py-4 font-medium text-xs sm:text-sm whitespace-nowrap transition-colors ${activeTab === 'features' ? 'text-green-600 border-b-2 border-green-600 bg-green-50' : 'text-gray-600 hover:text-green-600 hover:bg-gray-50'}`}
             >
               Features & Amenities
             </button>
             <button
               onClick={() => setActiveTab('gallery')}
-              className={`px-6 py-4 font-medium text-sm whitespace-nowrap ${activeTab === 'gallery' ? 'text-green-600 border-b-2 border-green-600' : 'text-gray-600 hover:text-green-600'}`}
+              className={`flex-shrink-0 px-3 sm:px-4 md:px-6 py-3 sm:py-4 font-medium text-xs sm:text-sm whitespace-nowrap transition-colors ${activeTab === 'gallery' ? 'text-green-600 border-b-2 border-green-600 bg-green-50' : 'text-gray-600 hover:text-green-600 hover:bg-gray-50'}`}
             >
               Gallery
             </button>
             <button
               onClick={() => setActiveTab('infrastructure')}
-              className={`px-6 py-4 font-medium text-sm whitespace-nowrap ${activeTab === 'infrastructure' ? 'text-green-600 border-b-2 border-green-600' : 'text-gray-600 hover:text-green-600'}`}
+              className={`flex-shrink-0 px-3 sm:px-4 md:px-6 py-3 sm:py-4 font-medium text-xs sm:text-sm whitespace-nowrap transition-colors ${activeTab === 'infrastructure' ? 'text-green-600 border-b-2 border-green-600 bg-green-50' : 'text-gray-600 hover:text-green-600 hover:bg-gray-50'}`}
             >
               Infrastructure
             </button>
             <button
               onClick={() => setActiveTab('legal')}
-              className={`px-6 py-4 font-medium text-sm whitespace-nowrap ${activeTab === 'legal' ? 'text-green-600 border-b-2 border-green-600' : 'text-gray-600 hover:text-green-600'}`}
+              className={`flex-shrink-0 px-3 sm:px-4 md:px-6 py-3 sm:py-4 font-medium text-xs sm:text-sm whitespace-nowrap transition-colors ${activeTab === 'legal' ? 'text-green-600 border-b-2 border-green-600 bg-green-50' : 'text-gray-600 hover:text-green-600 hover:bg-gray-50'}`}
             >
               Legal & Documentation
             </button>
 
             <button
               onClick={() => setActiveTab('location')}
-              className={`px-6 py-4 font-medium text-sm whitespace-nowrap ${activeTab === 'location' ? 'text-green-600 border-b-2 border-green-600' : 'text-gray-600 hover:text-green-600'}`}
+              className={`flex-shrink-0 px-3 sm:px-4 md:px-6 py-3 sm:py-4 font-medium text-xs sm:text-sm whitespace-nowrap transition-colors ${activeTab === 'location' ? 'text-green-600 border-b-2 border-green-600 bg-green-50' : 'text-gray-600 hover:text-green-600 hover:bg-gray-50'}`}
             >
               Location
             </button>
@@ -380,7 +383,9 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
 
                 <div className="mb-4 sm:mb-6">
                   <p className="text-2xl sm:text-3xl font-bold text-green-600 mb-1">
-                    ₹{(farm.startingPrice / 100000).toFixed(1)}L
+                    {farm.startingPrice && !isNaN(Number(farm.startingPrice))
+                      ? `₹${(Number(farm.startingPrice) / 100000).toFixed(1)}L`
+                      : 'Updating soon'}
                   </p>
                   <p className="text-gray-600 text-sm sm:text-base">Starting Price</p>
                 </div>

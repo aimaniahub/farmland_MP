@@ -131,17 +131,17 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
           poster={home.hero.background_image}
         />
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/70" />
 
 
         <div className="relative z-10 text-center text-white px-3 py-8 sm:px-4 sm:py-12 sm:max-w-4xl mx-auto">
           <div className="space-y-3 sm:space-y-4">
-            <h1 className="animate-fadeInUp [animation-delay:0.1s] text-2xl sm:text-4xl lg:text-6xl font-serif font-bold leading-tight">
-              {home.hero.title}
-              <span className="block text-primary-300">{home.hero.subtitle}</span>
+            <h1 className="animate-fadeInUp [animation-delay:0.1s] text-2xl sm:text-4xl lg:text-6xl font-serif font-bold leading-tight text-white">
+              <span className="text-white">{home.hero.title}</span>
+              <span className="block text-white opacity-90">{home.hero.subtitle}</span>
             </h1>
-            <h2 className="animate-fadeInUp [animation-delay:0.25s] text-base sm:text-lg lg:text-xl text-primary-100">Hassle-free ownership, sustainable practices, and a legacy of growth.</h2>
-            <p className="animate-fadeInUp [animation-delay:0.4s] text-sm sm:text-lg lg:text-xl text-gray-200 max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
+            <h2 className="animate-fadeInUp [animation-delay:0.25s] text-base sm:text-lg lg:text-xl text-white opacity-95">Hassle-free ownership, sustainable practices, and a legacy of growth.</h2>
+            <p className="animate-fadeInUp [animation-delay:0.4s] text-sm sm:text-lg lg:text-xl text-white opacity-90 max-w-xl sm:max-w-2xl mx-auto leading-relaxed">
               {home.hero.description}
             </p>
             <div className="animate-fadeInUp [animation-delay:0.55s] flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">

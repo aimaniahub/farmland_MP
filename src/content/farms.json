@@ -2,7 +2,7 @@
   "farms": [
     {
       "id": "1",
-      "name": "Bharatvan",
+      "name": "Bharatvan Bandhavgarh",
       "location": "Katni, Madhya Pradesh India",
       "proximity": "near",
       "coordinates": {
@@ -28,12 +28,12 @@
     },
     {
       "id": "2",
-      "name": "Sunrise Orchards",
-      "location": "Tamil Nadu, India",
-      "proximity": "60 km from Chennai",
+      "name": "Bharatvan Phase 2 Bengaluru",
+      "location": "karnataka, India",
+      "proximity": "60 km from Bangalore",
       "coordinates": {
         "lat": 13.0827,
-        "lng": 80.2707
+        "lng": 77.5807
       },
       "startingPrice": "Updating soon",
       "plotSizes": ["0.5 Acre", "1 Acre", "3 Acres"],
@@ -54,12 +54,12 @@
     },
     {
       "id": "3",
-      "name": "Heritage Spice Farm",
-      "location": "Kerala, India",
-      "proximity": "35 km from Kochi",
+      "name": "Bharatvan Narmada Valley,",
+      "location": "Kevadia, Gujarat, India",
+      "proximity": "35 km from Ahmedabad",
       "coordinates": {
-        "lat": 9.9312,
-        "lng": 76.2673
+        "lat": 23.0392,
+        "lng": 72.5677
       },
       "startingPrice": "Updating soon",
       "plotSizes": ["1 Acre", "2.5 Acres", "4 Acres"],
