@@ -1,0 +1,97 @@
+{
+  "hero": {
+    "title": "Why Choose Managed Farmland?",
+    "subtitle": "Discover the revolutionary investment model that combines agricultural ownership with professional management, delivering sustainable returns while preserving the environment.",
+    "background_image": {
+      "src": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&h=1080&fit=crop",
+      "alt": "Lush green farmland with modern irrigation systems"
+    }
+  },
+  "what_is_section": {
+    "title": "What is Managed Farmland?",
+    "description": "Managed farmland is a revolutionary investment model that offers you direct ownership of agricultural land without the complexities of farming it yourself. EarthFoundation acts as your expert steward, handling everything from soil preparation to harvest, while you enjoy the benefits of land ownership and agricultural returns.",
+    "icon": "Sprout"
+  },
+  "technologies": {
+    "title": "Cutting-Edge Agricultural Technology",
+    "description": "We leverage the latest in agricultural technology to maximize yields and ensure sustainable farming practices.",
+    "list": [
+      {
+        "title": "Drip Irrigation Systems",
+        "description": "Delivering water directly to the roots, saving up to 70% water while ensuring optimal plant hydration.",
+        "icon": "Droplets"
+      },
+      {
+        "title": "IoT Soil Sensors",
+        "description": "Providing real-time data on moisture and nutrient levels for precise care and optimal growing conditions.",
+        "icon": "Cpu"
+      },
+      {
+        "title": "Drone Monitoring",
+        "description": "Offering an aerial view for crop health assessment and security surveillance across all farm areas.",
+        "icon": "Drone"
+      },
+      {
+        "title": "Data Analytics",
+        "description": "Using advanced data analytics to predict yields, prevent diseases, and maximize your return on investment.",
+        "icon": "BarChart3"
+      }
+    ]
+  },
+  "crops": {
+    "title": "Premium Crop Selection",
+    "description": "We carefully select high-value crops that offer the best combination of market demand, growth potential, and sustainable cultivation.",
+    "list": [
+      {
+        "name": "Sandalwood (Santalum album)",
+        "tag": "Long-Term Legacy Investment",
+        "description": "Known as 'Liquid Gold,' Indian Sandalwood is a globally prized commodity with ever-increasing demand and limited supply. It's the ultimate long-term asset, promising exceptional, generational wealth upon its 12-15 year harvest cycle.",
+        "icon": "Star",
+        "gradient": "from-yellow-400 to-yellow-600"
+      },
+      {
+        "name": "Butter Fruit (Avocado)",
+        "tag": "Short-Term Cash Flow",
+        "description": "A popular superfood with high and consistent market demand. Butter fruit cultivation provides quicker revenue streams within 3-4 years, ensuring a balanced portfolio with regular cash flow while your legacy Sandalwood crop matures.",
+        "icon": "Zap",
+        "gradient": "from-green-400 to-green-600"
+      }
+    ]
+  },
+  "benefits": {
+    "title": "Why Managed Farmland is the Smart Choice",
+    "description": "Experience the benefits of agricultural investment without the complexities of direct farming.",
+    "list": [
+      {
+        "title": "Professional Management",
+        "description": "Expert agricultural team handles all farming operations, from planting to harvest, ensuring optimal yields and quality.",
+        "icon": "Shield"
+      },
+      {
+        "title": "Guaranteed Returns",
+        "description": "Transparent return models with consistent annual yields and long-term appreciation potential.",
+        "icon": "TrendingUp"
+      },
+      {
+        "title": "Community Investment",
+        "description": "Join a community of like-minded investors committed to sustainable agriculture and environmental stewardship.",
+        "icon": "Users"
+      },
+      {
+        "title": "Sustainable Practices",
+        "description": "Eco-friendly farming methods that preserve soil health and promote biodiversity for future generations.",
+        "icon": "Leaf"
+      },
+      {
+        "title": "Legal Security",
+        "description": "Complete legal documentation and government-backed land titles ensure your investment is secure and transferable.",
+        "icon": "Award"
+      },
+      {
+        "title": "Hassle-Free Ownership",
+        "description": "Enjoy the benefits of land ownership without the day-to-day responsibilities of farming operations.",
+        "icon": "CheckCircle"
+      }
+    ]
+  }
+}

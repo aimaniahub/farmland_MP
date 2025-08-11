@@ -1,0 +1,59 @@
+{
+  "title": "Sandalwood: The Golden Harvest of Your Future",
+  "description": "Understand the powerful, long-term growth potential of your investment. The table below provides a conservative estimate based on current market trends.",
+  "table_title": "Sandalwood Investment Projection (Per Plant)",
+  "roi_data": [
+    {
+      "year": 1,
+      "value": 500,
+      "growth_rate": 0,
+      "description": "Initial investment per sandalwood plant"
+    },
+    {
+      "year": 5,
+      "value": 2500,
+      "growth_rate": 38.5,
+      "description": "Early growth phase with moderate returns"
+    },
+    {
+      "year": 10,
+      "value": 15000,
+      "growth_rate": 42.8,
+      "description": "Mature growth phase with significant appreciation"
+    },
+    {
+      "year": 15,
+      "value": 75000,
+      "growth_rate": 38.1,
+      "description": "Peak value phase with maximum returns"
+    },
+    {
+      "year": 20,
+      "value": 225000,
+      "growth_rate": 31.0,
+      "description": "Harvest phase with premium sandalwood prices"
+    }
+  ],
+  "gallery_images": [
+    {
+      "src": "https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "alt": "Sandalwood plantation overview",
+      "caption": "Mature sandalwood plantation showing healthy growth"
+    },
+    {
+      "src": "https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "alt": "Sandalwood trees in rows",
+      "caption": "Organized sandalwood cultivation with proper spacing"
+    },
+    {
+      "src": "https://images.pexels.com/photos/1595108/pexels-photo-1595108.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "alt": "Close-up of sandalwood tree",
+      "caption": "Close-up view of a healthy sandalwood tree"
+    },
+    {
+      "src": "https://images.pexels.com/photos/1595385/pexels-photo-1595385.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "alt": "Sandalwood harvesting",
+      "caption": "Sustainable harvesting practices for maximum yield"
+    }
+  ]
+}

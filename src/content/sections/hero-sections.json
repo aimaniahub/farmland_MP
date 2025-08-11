@@ -1,0 +1,89 @@
+{
+  "templates": [
+    {
+      "name": "Homepage Hero",
+      "id": "homepage-hero",
+      "type": "hero",
+      "layout": "centered",
+      "content": {
+        "title": "Secure Your Future with Sustainable Agriculture",
+        "subtitle": "Premium Farmland Investments",
+        "description": "Discover profitable farmland investment opportunities with guaranteed returns and professional management.",
+        "primary_cta": "Explore Farms",
+        "primary_cta_link": "/farms",
+        "secondary_cta": "Schedule Call",
+        "secondary_cta_link": "/contact"
+      },
+      "background": {
+        "type": "image",
+        "image": {
+          "desktop": "/hero.jpeg",
+          "mobile": "/hero-mobile.jpeg",
+          "alt": "Lush green farmland with modern irrigation systems"
+        },
+        "overlay_opacity": 0.4
+      }
+    },
+    {
+      "name": "About Us Hero",
+      "id": "about-hero",
+      "type": "hero",
+      "layout": "left-aligned",
+      "content": {
+        "title": "Transforming Agriculture Through Innovation",
+        "subtitle": "About Bharatvan",
+        "description": "Learn about our mission to revolutionize farmland investment and sustainable agriculture practices.",
+        "primary_cta": "Our Story",
+        "primary_cta_link": "#story",
+        "secondary_cta": "Meet Our Team",
+        "secondary_cta_link": "#team"
+      },
+      "background": {
+        "type": "gradient",
+        "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "overlay_opacity": 0.3
+      }
+    },
+    {
+      "name": "Farms Listing Hero",
+      "id": "farms-hero",
+      "type": "banner",
+      "layout": "centered",
+      "content": {
+        "title": "Premium Farmland Investment Opportunities",
+        "subtitle": "Our Farms",
+        "description": "Explore our carefully selected farmland properties with proven track records and excellent growth potential.",
+        "primary_cta": "View All Farms",
+        "primary_cta_link": "#farms-list"
+      },
+      "background": {
+        "type": "image",
+        "image": {
+          "desktop": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&h=600&fit=crop",
+          "alt": "Aerial view of organized farmland with crops"
+        },
+        "overlay_opacity": 0.5
+      }
+    },
+    {
+      "name": "Contact CTA Hero",
+      "id": "contact-cta-hero",
+      "type": "cta",
+      "layout": "split",
+      "content": {
+        "title": "Ready to Start Your Investment Journey?",
+        "subtitle": "Get in Touch",
+        "description": "Our team of experts is ready to help you find the perfect farmland investment opportunity.",
+        "primary_cta": "Contact Us Now",
+        "primary_cta_link": "/contact",
+        "secondary_cta": "Schedule Consultation",
+        "secondary_cta_link": "/consultation"
+      },
+      "background": {
+        "type": "solid",
+        "color": "#2d5a27",
+        "overlay_opacity": 0.1
+      }
+    }
+  ]
+}

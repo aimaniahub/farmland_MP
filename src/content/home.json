@@ -3,7 +3,12 @@
     "title": "",
     "subtitle": "Secure Your Future with Sustainable Agriculture",
     "description": "Discover profitable farmland investment opportunities with guaranteed returns and professional management.",
-    "background_image": "/hero.jpeg",
+    "background_image": {
+      "src": "/hero.jpeg",
+      "alt": "Lush green farmland with modern irrigation systems and sustainable agriculture practices",
+      "caption": "Premium managed farmland investment opportunities",
+      "mobile_src": "/hero-mobile.jpeg"
+    },
     "primary_cta": "Explore Farms",
     "secondary_cta": "Schedule Call"
   },
@@ -72,6 +77,32 @@
   "media_logos": {
     "title": "AS SEEN IN"
   },
+  "sandalwood_section": {
+    "title": "Sandalwood: The Golden Investment",
+    "description": "Discover the premium sandalwood cultivation opportunities with exceptional long-term returns.",
+    "images": [
+      {
+        "src": "/sand1.jpg",
+        "alt": "Sandalwood plantation overview showing mature trees",
+        "caption": "Premium sandalwood plantation with healthy mature trees"
+      },
+      {
+        "src": "/sand2.jpeg",
+        "alt": "Close-up view of sandalwood trees in organized rows",
+        "caption": "Organized sandalwood cultivation with proper spacing"
+      },
+      {
+        "src": "/sand3.jpg",
+        "alt": "Sandalwood cultivation techniques and management",
+        "caption": "Professional sandalwood cultivation and management practices"
+      },
+      {
+        "src": "/sand4.jpg",
+        "alt": "Premium quality sandalwood harvest",
+        "caption": "High-quality sandalwood ready for harvest"
+      }
+    ]
+  },
   "blog": {
     "title": "Latest Insights",
     "subtitle": "Stay updated with the latest trends in farmland investment and sustainable agriculture."
@@ -80,6 +111,11 @@
     "title": "Ready to Start Your Farmland Investment Journey?",
     "description": "Join our community of successful investors and secure your financial future with sustainable farmland investments.",
     "primary_cta": "Get Started Today",
-    "secondary_cta": "Explore Opportunities"
+    "secondary_cta": "Explore Opportunities",
+    "background_image": {
+      "src": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&h=1080&fit=crop",
+      "alt": "Beautiful farmland landscape at sunset",
+      "overlay": 0.5
+    }
   }
 }

@@ -1,0 +1,30 @@
+{
+  "title": "Our Impact in Numbers",
+  "description": "See how we're making a difference in agriculture and investment",
+  "stats": [
+    {
+      "number": "1500+",
+      "label": "Co-Farmers",
+      "icon": "Users",
+      "description": "Satisfied investors who trust us with their farmland investments"
+    },
+    {
+      "number": "5000+",
+      "label": "Acres Managed",
+      "icon": "Leaf",
+      "description": "Total farmland under our professional management"
+    },
+    {
+      "number": "98%",
+      "label": "Customer Satisfaction",
+      "icon": "Award",
+      "description": "Customer satisfaction rate based on annual surveys"
+    },
+    {
+      "number": "25%",
+      "label": "Annual ROI",
+      "icon": "TrendingUp",
+      "description": "Average annual return on investment for our investors"
+    }
+  ]
+}

@@ -6,27 +6,62 @@ backend:
 # Local development backend (for testing)
 local_backend: true
 
-# Media configuration
+# Enhanced Media configuration for comprehensive image management
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
-# Simplified media library for better compatibility
+# Advanced media library configuration with enhanced image management
 media_library:
   name: uploadcare
   config:
     publicKey: "demopublickey"
     multiple: true
-    tabs: "file camera url"
-    effects: "crop,rotate,enhance"
+    tabs: "file camera url facebook instagram"
+    effects: "crop,rotate,enhance,grayscale,blur,sharp,flip,mirror"
     imageShrink: "2048x2048"
     previewStep: true
     clearable: true
+    crop: "free,1:1,16:9,4:3,3:2"
+    imageCompression: 0.8
+    multipleMax: 10
+    multipleMin: 1
+    imagesOnly: false
+    previewProxy: true
+    secureSignature: false
+    secureExpire: 3600
 
-# File size limits and formats
+# Enhanced file management with organized folder structure
 media_folder_relative: true
 media_library_config:
-  max_file_size: 10485760  # 10MB
-  allowed_extensions: ["jpg", "jpeg", "png", "gif", "webp", "svg", "pdf", "doc", "docx"]
+  max_file_size: 15728640  # 15MB for high-quality images
+  allowed_extensions: ["jpg", "jpeg", "png", "gif", "webp", "svg", "pdf", "doc", "docx", "mp4", "mov", "avi"]
+
+# Organized media folders for better management
+media_folders:
+  - name: "Hero Images"
+    folder: "public/uploads/hero"
+    description: "Large hero/banner images (1920x1080 recommended)"
+  - name: "Farm Images"
+    folder: "public/uploads/farms"
+    description: "Farm property photos and galleries"
+  - name: "Blog Images"
+    folder: "public/uploads/blog"
+    description: "Blog post featured images and content images"
+  - name: "Team Photos"
+    folder: "public/uploads/team"
+    description: "Team member professional photos"
+  - name: "Testimonial Photos"
+    folder: "public/uploads/testimonials"
+    description: "Customer photos for testimonials"
+  - name: "Gallery Images"
+    folder: "public/uploads/gallery"
+    description: "General gallery and showcase images"
+  - name: "Media Logos"
+    folder: "public/uploads/logos"
+    description: "Company logos and media publication logos"
+  - name: "General Media"
+    folder: "public/uploads/media"
+    description: "Press releases, documents, and other media"
 
 # Site URL for preview
 site_url: "http://localhost:5174"
@@ -51,7 +86,14 @@ collections:
               - {label: "Title", name: "title", widget: "string", required: true}
               - {label: "Subtitle", name: "subtitle", widget: "string", required: true}
               - {label: "Description", name: "description", widget: "text", required: true}
-              - {label: "Background Image", name: "background_image", widget: "image", required: true}
+              - label: "Background Image"
+                name: "background_image"
+                widget: "object"
+                fields:
+                  - {label: "Image", name: "src", widget: "image", required: true, hint: "Hero background image (1920x1080 recommended)"}
+                  - {label: "Alt Text", name: "alt", widget: "string", required: true, hint: "Descriptive text for accessibility"}
+                  - {label: "Caption", name: "caption", widget: "string", hint: "Optional image caption"}
+                  - {label: "Mobile Image", name: "mobile_src", widget: "image", hint: "Optional mobile-optimized version (768x1024 recommended)"}
               - {label: "Primary CTA Text", name: "primary_cta", widget: "string", required: true}
               - {label: "Secondary CTA Text", name: "secondary_cta", widget: "string", required: true}
 
@@ -104,6 +146,23 @@ collections:
             fields:
               - {label: "Title", name: "title", widget: "string", required: true}
 
+          - label: "Sandalwood Section"
+            name: "sandalwood_section"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                summary: "{{fields.caption}}"
+                min: 4
+                max: 4
+                fields:
+                  - {label: "Image", name: "src", widget: "image", required: true}
+                  - {label: "Alt Text", name: "alt", widget: "string", required: true}
+                  - {label: "Caption", name: "caption", widget: "string", required: true}
+
           - label: "Blog Section"
             name: "blog"
             widget: "object"
@@ -119,7 +178,13 @@ collections:
               - {label: "Description", name: "description", widget: "text", required: true}
               - {label: "Primary CTA", name: "primary_cta", widget: "string", required: true}
               - {label: "Secondary CTA", name: "secondary_cta", widget: "string", required: true}
-              - {label: "Background Image", name: "background_image", widget: "image"}
+              - label: "Background Image"
+                name: "background_image"
+                widget: "object"
+                fields:
+                  - {label: "Image", name: "src", widget: "image", hint: "CTA section background image"}
+                  - {label: "Alt Text", name: "alt", widget: "string", hint: "Descriptive text for accessibility"}
+                  - {label: "Overlay Opacity", name: "overlay", widget: "number", min: 0, max: 1, step: 0.1, default: 0.5, hint: "Background overlay opacity (0-1)"}
 
       # About Page
       - file: "src/content/about.json"
@@ -140,8 +205,13 @@ collections:
             fields:
               - {label: "Title", name: "title", widget: "string", required: true}
               - {label: "Paragraphs", name: "paragraphs", widget: "list", field: {label: "Paragraph", name: "paragraph", widget: "text"}}
-              - {label: "Image", name: "image", widget: "image"}
-              - {label: "Image Caption", name: "image_caption", widget: "string"}
+              - label: "Story Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "Image", name: "src", widget: "image", required: true, hint: "Story section image"}
+                  - {label: "Alt Text", name: "alt", widget: "string", required: true, hint: "Descriptive text for accessibility"}
+                  - {label: "Caption", name: "caption", widget: "string", hint: "Image caption or description"}
               - label: "Stat"
                 name: "stat"
                 widget: "object"
@@ -187,7 +257,12 @@ collections:
                 fields:
                   - {label: "Name", name: "name", widget: "string", required: true}
                   - {label: "Position", name: "position", widget: "string", required: true}
-                  - {label: "Image", name: "image", widget: "image", required: true}
+                  - label: "Profile Image"
+                    name: "image"
+                    widget: "object"
+                    fields:
+                      - {label: "Image", name: "src", widget: "image", required: true, hint: "Professional headshot (400x400 recommended)"}
+                      - {label: "Alt Text", name: "alt", widget: "string", required: true, hint: "Person's name and role"}
                   - {label: "Bio", name: "bio", widget: "text"}
 
           - label: "Impact Section"
@@ -345,7 +420,13 @@ collections:
               - {label: "Date", name: "date", widget: "datetime", required: true}
               - {label: "URL", name: "url", widget: "string", required: true}
               - {label: "Summary", name: "summary", widget: "text"}
-              - {label: "Image", name: "image", widget: "image"}
+              - label: "Article Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "Image", name: "src", widget: "image", hint: "Article featured image"}
+                  - {label: "Alt Text", name: "alt", widget: "string", hint: "Descriptive text for accessibility"}
+                  - {label: "Caption", name: "caption", widget: "string", hint: "Image caption or source"}
           - label: "Press Releases"
             name: "pressReleases"
             widget: "list"
@@ -362,7 +443,13 @@ collections:
               - {label: "Date", name: "date", widget: "datetime", required: true}
               - {label: "Location", name: "location", widget: "string", required: true}
               - {label: "Description", name: "description", widget: "text", required: true}
-              - {label: "Image", name: "image", widget: "image"}
+              - label: "Event Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "Image", name: "src", widget: "image", hint: "Event photo or promotional image"}
+                  - {label: "Alt Text", name: "alt", widget: "string", hint: "Descriptive text for accessibility"}
+                  - {label: "Caption", name: "caption", widget: "string", hint: "Image caption or description"}
           - label: "Videos"
             name: "videos"
             widget: "list"
@@ -370,7 +457,12 @@ collections:
               - {label: "Title", name: "title", widget: "string", required: true}
               - {label: "Description", name: "description", widget: "text"}
               - {label: "YouTube URL", name: "youtubeUrl", widget: "string"}
-              - {label: "Thumbnail", name: "thumbnail", widget: "image"}
+              - label: "Video Thumbnail"
+                name: "thumbnail"
+                widget: "object"
+                fields:
+                  - {label: "Thumbnail Image", name: "src", widget: "image", hint: "Video thumbnail image (1280x720 recommended)"}
+                  - {label: "Alt Text", name: "alt", widget: "string", hint: "Video title for accessibility"}
           - label: "Media Mentions"
             name: "mediaMentions"
             widget: "list"
@@ -387,7 +479,13 @@ collections:
               - {label: "Issuer", name: "issuer", widget: "string", required: true}
               - {label: "Date", name: "date", widget: "datetime", required: true}
               - {label: "Description", name: "description", widget: "text"}
-              - {label: "Image", name: "image", widget: "image"}
+              - label: "Award Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "Image", name: "src", widget: "image", hint: "Award certificate or trophy image"}
+                  - {label: "Alt Text", name: "alt", widget: "string", hint: "Award title and issuer for accessibility"}
+                  - {label: "Caption", name: "caption", widget: "string", hint: "Award description or significance"}
 
       # Contact Page
       - file: "src/content/contact.json"
@@ -447,6 +545,79 @@ collections:
               - {label: "Question", name: "question", widget: "string", required: true}
               - {label: "Answer", name: "answer", widget: "text", required: true}
 
+      # Why Managed Farmland Page
+      - file: "src/content/why-managed-farmland.json"
+        label: "🌱 Why Managed Farmland"
+        name: "why-managed-farmland"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true, default: "Why Choose Managed Farmland?"}
+              - {label: "Subtitle", name: "subtitle", widget: "text", required: true}
+              - label: "Background Image"
+                name: "background_image"
+                widget: "object"
+                fields:
+                  - {label: "Image", name: "src", widget: "image", required: true}
+                  - {label: "Alt Text", name: "alt", widget: "string", required: true}
+
+          - label: "What is Managed Farmland Section"
+            name: "what_is_section"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - {label: "Icon", name: "icon", widget: "select", options: ["Sprout", "Leaf", "TreePine", "Seedling"], default: "Sprout"}
+
+          - label: "Technologies Section"
+            name: "technologies"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - label: "Technology List"
+                name: "list"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - {label: "Title", name: "title", widget: "string", required: true}
+                  - {label: "Description", name: "description", widget: "text", required: true}
+                  - {label: "Icon", name: "icon", widget: "select", options: ["Droplets", "Cpu", "Drone", "BarChart3", "Zap", "Shield"], required: true}
+
+          - label: "Crops Section"
+            name: "crops"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - label: "Crop Types"
+                name: "list"
+                widget: "list"
+                summary: "{{fields.name}}"
+                fields:
+                  - {label: "Name", name: "name", widget: "string", required: true}
+                  - {label: "Tag", name: "tag", widget: "string", required: true}
+                  - {label: "Description", name: "description", widget: "text", required: true}
+                  - {label: "Icon", name: "icon", widget: "select", options: ["Star", "Zap", "Leaf", "TreePine"], required: true}
+                  - {label: "Gradient Colors", name: "gradient", widget: "string", required: true, hint: "Tailwind gradient classes (e.g., 'from-yellow-400 to-yellow-600')"}
+
+          - label: "Benefits Section"
+            name: "benefits"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - label: "Benefits List"
+                name: "list"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - {label: "Title", name: "title", widget: "string", required: true}
+                  - {label: "Description", name: "description", widget: "text", required: true}
+                  - {label: "Icon", name: "icon", widget: "select", options: ["Shield", "TrendingUp", "Users", "Leaf", "Award", "CheckCircle"], required: true}
+
       # Gallery Page
       - file: "src/content/gallery.json"
         label: "🖼️ Gallery Page"
@@ -463,11 +634,335 @@ collections:
               - label: "Images"
                 name: "images"
                 widget: "list"
+                summary: "{{fields.title}} - {{fields.location}}"
                 fields:
-                  - {label: "Image", name: "image", widget: "image", required: true}
-                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Image", name: "image", widget: "image", required: true, hint: "High-quality gallery image"}
+                  - {label: "Title", name: "title", widget: "string", required: true, hint: "Image title or name"}
+                  - {label: "Description", name: "description", widget: "text", hint: "Detailed image description"}
+                  - {label: "Alt Text", name: "alt", widget: "string", required: true, hint: "Descriptive text for accessibility"}
+                  - {label: "Location", name: "location", widget: "string", hint: "Where the photo was taken"}
+                  - {label: "Date Taken", name: "date", widget: "datetime", hint: "When the photo was taken"}
+                  - {label: "Photographer", name: "photographer", widget: "string", hint: "Photo credit"}
+                  - {label: "Featured", name: "featured", widget: "boolean", default: false, hint: "Feature this image prominently"}
+
+      # Farm Details Page Configuration
+      - file: "src/content/farm-details-config.json"
+        label: "🏡 Farm Details Page"
+        name: "farm-details-config"
+        fields:
+          - {label: "Page Title Template", name: "title_template", widget: "string", default: "{{farm_name}} - Farm Details", hint: "Use {{farm_name}} for dynamic farm name"}
+          - {label: "Default Description", name: "default_description", widget: "text", default: "Explore detailed information about this premium farmland investment opportunity."}
+
+          - label: "Tab Configuration"
+            name: "tabs"
+            widget: "object"
+            fields:
+              - label: "Overview Tab"
+                name: "overview"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string", default: "Overview"}
+                  - {label: "Description", name: "description", widget: "text", default: "Complete overview of the farm property and investment details"}
+
+              - label: "Features Tab"
+                name: "features"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string", default: "Features"}
+                  - {label: "Description", name: "description", widget: "text", default: "Key features and amenities of the farm property"}
+
+              - label: "Gallery Tab"
+                name: "gallery"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string", default: "Gallery"}
+                  - {label: "Description", name: "description", widget: "text", default: "Photo gallery showcasing the farm property"}
+
+              - label: "Infrastructure Tab"
+                name: "infrastructure"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string", default: "Infrastructure"}
+                  - {label: "Description", name: "description", widget: "text", default: "Modern infrastructure and facilities available"}
+
+              - label: "Legal Tab"
+                name: "legal"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string", default: "Legal"}
+                  - {label: "Description", name: "description", widget: "text", default: "Legal documentation and compliance information"}
+
+              - label: "Location Tab"
+                name: "location"
+                widget: "object"
+                fields:
+                  - {label: "Label", name: "label", widget: "string", default: "Location"}
+                  - {label: "Description", name: "description", widget: "text", default: "Location details and accessibility information"}
+
+          - label: "Call-to-Action Section"
+            name: "cta_section"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string", default: "Ready to Invest?"}
+              - {label: "Description", name: "description", widget: "text", default: "Join hundreds of satisfied investors and secure your farmland investment today."}
+              - {label: "Primary Button Text", name: "primary_button", widget: "string", default: "Schedule Site Visit"}
+              - {label: "Secondary Button Text", name: "secondary_button", widget: "string", default: "Download Brochure"}
+
+  # ===== SECTION COLLECTIONS =====
+
+  # Advanced Section Management
+  - name: "sections"
+    label: "📐 Page Sections"
+    description: "Manage reusable page sections and layouts"
+    files:
+      # Hero Sections
+      - file: "src/content/sections/hero-sections.json"
+        label: "🎯 Hero Sections"
+        name: "hero-sections"
+        fields:
+          - label: "Hero Section Templates"
+            name: "templates"
+            widget: "list"
+            summary: "{{fields.name}} - {{fields.type}}"
+            fields:
+              - {label: "Template Name", name: "name", widget: "string", required: true}
+              - {label: "Template ID", name: "id", widget: "string", required: true, pattern: ["^[a-z0-9-]+$", "Use lowercase letters, numbers, and hyphens only"]}
+              - {label: "Section Type", name: "type", widget: "select", options: ["hero", "banner", "featured", "cta"], required: true}
+              - {label: "Layout Style", name: "layout", widget: "select", options: ["centered", "left-aligned", "right-aligned", "split", "overlay"], required: true}
+              - label: "Content"
+                name: "content"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string", required: true}
+                  - {label: "Subtitle", name: "subtitle", widget: "string"}
                   - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Primary CTA Text", name: "primary_cta", widget: "string"}
+                  - {label: "Primary CTA Link", name: "primary_cta_link", widget: "string"}
+                  - {label: "Secondary CTA Text", name: "secondary_cta", widget: "string"}
+                  - {label: "Secondary CTA Link", name: "secondary_cta_link", widget: "string"}
+              - label: "Background"
+                name: "background"
+                widget: "object"
+                fields:
+                  - {label: "Background Type", name: "type", widget: "select", options: ["image", "video", "gradient", "solid"], required: true}
+                  - label: "Background Image"
+                    name: "image"
+                    widget: "object"
+                    fields:
+                      - {label: "Desktop Image", name: "desktop", widget: "image"}
+                      - {label: "Mobile Image", name: "mobile", widget: "image"}
+                      - {label: "Alt Text", name: "alt", widget: "string"}
+                  - {label: "Background Video URL", name: "video_url", widget: "string"}
+                  - {label: "Gradient CSS", name: "gradient", widget: "string", hint: "CSS gradient (e.g., 'linear-gradient(45deg, #ff6b6b, #4ecdc4)')"}
+                  - {label: "Solid Color", name: "color", widget: "string", hint: "Hex color code"}
+                  - {label: "Overlay Opacity", name: "overlay_opacity", widget: "number", min: 0, max: 1, step: 0.1, default: 0.5}
+
+      # Feature Sections
+      - file: "src/content/sections/feature-sections.json"
+        label: "⭐ Feature Sections"
+        name: "feature-sections"
+        fields:
+          - label: "Feature Section Templates"
+            name: "templates"
+            widget: "list"
+            summary: "{{fields.name}} - {{fields.layout}}"
+            fields:
+              - {label: "Template Name", name: "name", widget: "string", required: true}
+              - {label: "Template ID", name: "id", widget: "string", required: true, pattern: ["^[a-z0-9-]+$", "Use lowercase letters, numbers, and hyphens only"]}
+              - {label: "Layout Style", name: "layout", widget: "select", options: ["grid-2", "grid-3", "grid-4", "list", "carousel", "masonry"], required: true}
+              - label: "Section Header"
+                name: "header"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string", required: true}
+                  - {label: "Subtitle", name: "subtitle", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - {label: "Title", name: "title", widget: "string", required: true}
+                  - {label: "Description", name: "description", widget: "text", required: true}
+                  - {label: "Icon", name: "icon", widget: "select", options: ["Shield", "Leaf", "TrendingUp", "Award", "Users", "CheckCircle", "MapPin", "Calendar", "Droplets", "Zap", "Cpu", "Drone"], required: true}
+                  - label: "Image"
+                    name: "image"
+                    widget: "object"
+                    fields:
+                      - {label: "Image", name: "src", widget: "image"}
+                      - {label: "Alt Text", name: "alt", widget: "string"}
+                  - {label: "Link URL", name: "link", widget: "string"}
+                  - {label: "Link Text", name: "link_text", widget: "string"}
+
+      # Testimonial Sections
+      - file: "src/content/sections/testimonial-sections.json"
+        label: "💬 Testimonial Sections"
+        name: "testimonial-sections"
+        fields:
+          - label: "Testimonial Section Templates"
+            name: "templates"
+            widget: "list"
+            summary: "{{fields.name}} - {{fields.display_style}}"
+            fields:
+              - {label: "Template Name", name: "name", widget: "string", required: true}
+              - {label: "Template ID", name: "id", widget: "string", required: true, pattern: ["^[a-z0-9-]+$", "Use lowercase letters, numbers, and hyphens only"]}
+              - {label: "Display Style", name: "display_style", widget: "select", options: ["carousel", "grid", "single", "masonry"], required: true}
+              - label: "Section Header"
+                name: "header"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string", required: true}
+                  - {label: "Subtitle", name: "subtitle", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+              - label: "Display Settings"
+                name: "settings"
+                widget: "object"
+                fields:
+                  - {label: "Items Per View", name: "items_per_view", widget: "number", min: 1, max: 6, default: 3}
+                  - {label: "Auto Play", name: "auto_play", widget: "boolean", default: true}
+                  - {label: "Show Navigation", name: "show_navigation", widget: "boolean", default: true}
+                  - {label: "Show Pagination", name: "show_pagination", widget: "boolean", default: true}
+                  - {label: "Animation Duration (ms)", name: "animation_duration", widget: "number", min: 1000, max: 10000, default: 5000}
+
+      # CTA Sections
+      - file: "src/content/sections/cta-sections.json"
+        label: "📢 CTA Sections"
+        name: "cta-sections"
+        fields:
+          - label: "CTA Section Templates"
+            name: "templates"
+            widget: "list"
+            summary: "{{fields.name}} - {{fields.style}}"
+            fields:
+              - {label: "Template Name", name: "name", widget: "string", required: true}
+              - {label: "Template ID", name: "id", widget: "string", required: true, pattern: ["^[a-z0-9-]+$", "Use lowercase letters, numbers, and hyphens only"]}
+              - {label: "CTA Style", name: "style", widget: "select", options: ["banner", "card", "overlay", "split", "minimal"], required: true}
+              - label: "Content"
+                name: "content"
+                widget: "object"
+                fields:
+                  - {label: "Title", name: "title", widget: "string", required: true}
+                  - {label: "Description", name: "description", widget: "text", required: true}
+                  - {label: "Primary Button Text", name: "primary_button", widget: "string", required: true}
+                  - {label: "Primary Button Link", name: "primary_button_link", widget: "string", required: true}
+                  - {label: "Secondary Button Text", name: "secondary_button", widget: "string"}
+                  - {label: "Secondary Button Link", name: "secondary_button_link", widget: "string"}
+              - label: "Design"
+                name: "design"
+                widget: "object"
+                fields:
+                  - label: "Background"
+                    name: "background"
+                    widget: "object"
+                    fields:
+                      - {label: "Background Type", name: "type", widget: "select", options: ["image", "gradient", "solid"], required: true}
+                      - label: "Background Image"
+                        name: "image"
+                        widget: "object"
+                        fields:
+                          - {label: "Image", name: "src", widget: "image"}
+                          - {label: "Alt Text", name: "alt", widget: "string"}
+                      - {label: "Gradient CSS", name: "gradient", widget: "string"}
+                      - {label: "Solid Color", name: "color", widget: "string"}
+                  - {label: "Text Color", name: "text_color", widget: "select", options: ["white", "dark", "primary", "secondary"], default: "white"}
+                  - {label: "Button Style", name: "button_style", widget: "select", options: ["primary", "secondary", "outline", "ghost"], default: "primary"}
+
+  # ===== COMPONENT COLLECTIONS =====
+
+  # Reusable Components
+  - name: "components"
+    label: "🧩 Components"
+    description: "Manage reusable component content across the website"
+    files:
+      # Statistics Section Component
+      - file: "src/content/components/statistics.json"
+        label: "📊 Statistics Section"
+        name: "statistics"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Our Impact in Numbers"}
+          - {label: "Section Description", name: "description", widget: "text", default: "See how we're making a difference in agriculture"}
+          - label: "Statistics"
+            name: "stats"
+            widget: "list"
+            summary: "{{fields.label}} - {{fields.number}}"
+            fields:
+              - {label: "Number", name: "number", widget: "string", required: true, hint: "e.g., '1500+', '98%'"}
+              - {label: "Label", name: "label", widget: "string", required: true, hint: "e.g., 'Co-Farmers', 'Customer Satisfaction'"}
+              - {label: "Icon", name: "icon", widget: "select", options: ["Users", "Leaf", "Award", "TrendingUp", "Shield", "MapPin", "Calendar"], required: true}
+              - {label: "Description", name: "description", widget: "text", hint: "Optional detailed description"}
+
+      # ROI Section Component
+      - file: "src/content/components/roi-section.json"
+        label: "💰 ROI Section"
+        name: "roi-section"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Sandalwood: The Golden Harvest of Your Future"}
+          - {label: "Section Description", name: "description", widget: "text", default: "Understand the powerful, long-term growth potential of your investment."}
+          - {label: "Table Title", name: "table_title", widget: "string", default: "Sandalwood Investment Projection (Per Plant)"}
+          - label: "ROI Data"
+            name: "roi_data"
+            widget: "list"
+            summary: "Year {{fields.year}} - ₹{{fields.value}}"
+            fields:
+              - {label: "Year", name: "year", widget: "number", required: true, min: 1, max: 20}
+              - {label: "Value (₹)", name: "value", widget: "number", required: true, min: 0}
+              - {label: "Growth Rate (%)", name: "growth_rate", widget: "number", step: 0.1}
+              - {label: "Description", name: "description", widget: "text"}
+          - label: "Gallery Images"
+            name: "gallery_images"
+            widget: "list"
+            summary: "{{fields.alt}}"
+            fields:
+              - {label: "Image", name: "src", widget: "image", required: true}
+              - {label: "Alt Text", name: "alt", widget: "string", required: true}
+              - {label: "Caption", name: "caption", widget: "string"}
+
+      # Partners Section Component
+      - file: "src/content/components/partners.json"
+        label: "🤝 Partners Section"
+        name: "partners"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Our Trusted Partners"}
+          - {label: "Section Description", name: "description", widget: "text", default: "Working with industry leaders to deliver excellence"}
+          - label: "Partners"
+            name: "partners"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - {label: "Partner Name", name: "name", widget: "string", required: true}
+              - label: "Logo"
+                name: "logo"
+                widget: "object"
+                fields:
+                  - {label: "Logo Image", name: "src", widget: "image", required: true}
                   - {label: "Alt Text", name: "alt", widget: "string", required: true}
+                  - {label: "Dark Mode Logo", name: "dark_src", widget: "image"}
+              - {label: "Website URL", name: "url", widget: "string"}
+              - {label: "Partnership Type", name: "type", widget: "select", options: ["Technology", "Financial", "Agricultural", "Logistics", "Marketing"]}
+              - {label: "Description", name: "description", widget: "text"}
+
+      # Amenities Section Component
+      - file: "src/content/components/amenities.json"
+        label: "🏞️ Amenities Section"
+        name: "amenities"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Farm Amenities & Infrastructure"}
+          - {label: "Section Description", name: "description", widget: "text", default: "Modern facilities and infrastructure for optimal farming"}
+          - label: "Amenities"
+            name: "amenities"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string", required: true}
+              - {label: "Description", name: "description", widget: "text", required: true}
+              - {label: "Icon", name: "icon", widget: "select", options: ["Droplets", "Zap", "Shield", "Truck", "Home", "Wifi", "Camera", "Phone"], required: true}
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - {label: "Image", name: "src", widget: "image"}
+                  - {label: "Alt Text", name: "alt", widget: "string"}
+              - {label: "Available", name: "available", widget: "boolean", default: true}
 
   # ===== DYNAMIC CONTENT COLLECTIONS =====
 
@@ -503,9 +998,16 @@ collections:
               - label: "Farm Images"
                 name: "images"
                 widget: "list"
-                field: {label: "Image URL", name: "image", widget: "string", hint: "High-quality image URLs"}
+                summary: "{{fields.title}} - {{fields.alt}}"
                 min: 1
-                max: 10
+                max: 15
+                fields:
+                  - {label: "Image", name: "src", widget: "image", required: true, hint: "High-quality farm image"}
+                  - {label: "Title", name: "title", widget: "string", required: true, hint: "Image title/name"}
+                  - {label: "Alt Text", name: "alt", widget: "string", required: true, hint: "Descriptive text for accessibility"}
+                  - {label: "Caption", name: "caption", widget: "text", hint: "Optional image description"}
+                  - {label: "Featured Image", name: "featured", widget: "boolean", default: false, hint: "Use as main farm image"}
+                  - {label: "Category", name: "category", widget: "select", options: ["exterior", "crops", "facilities", "landscape", "infrastructure"], hint: "Image category for organization"}
               - label: "Key Features"
                 name: "features"
                 widget: "list"
@@ -555,7 +1057,12 @@ collections:
               - {label: "Excerpt", name: "excerpt", widget: "text", required: true, pattern: [".{50,500}", "Excerpt must be between 50 and 500 characters"], hint: "Brief summary that appears in blog listings"}
               - {label: "Author Name", name: "author", widget: "string", required: true}
               - {label: "Author Bio", name: "author_bio", widget: "string", hint: "Brief description of the author"}
-              - {label: "Author Image", name: "authorImage", widget: "string", hint: "URL to author's profile image"}
+              - label: "Author Image"
+                name: "authorImage"
+                widget: "object"
+                fields:
+                  - {label: "Image", name: "src", widget: "image", hint: "Author's profile image"}
+                  - {label: "Alt Text", name: "alt", widget: "string", hint: "Author's name"}
               - {label: "Publication Date", name: "date", widget: "datetime", required: true, format: "YYYY-MM-DD"}
               - {label: "Category", name: "category", widget: "select", options: ["Farming Tips", "Investment", "Sustainability", "Technology", "News", "Climate", "Market Analysis"], required: true}
               - label: "Tags"
@@ -565,7 +1072,24 @@ collections:
                 min: 1
                 max: 10
                 hint: "Keywords related to this post"
-              - {label: "Featured Image", name: "image", widget: "string", required: true, hint: "High-quality image URL for the blog post"}
+              - label: "Featured Image"
+                name: "image"
+                widget: "object"
+                required: true
+                fields:
+                  - {label: "Image", name: "src", widget: "image", required: true, hint: "High-quality blog post featured image (1200x630 recommended)"}
+                  - {label: "Alt Text", name: "alt", widget: "string", required: true, hint: "Descriptive text for accessibility"}
+                  - {label: "Caption", name: "caption", widget: "string", hint: "Optional image caption"}
+              - label: "Content Images"
+                name: "content_images"
+                widget: "list"
+                summary: "{{fields.title}}"
+                hint: "Additional images used within the blog post content"
+                fields:
+                  - {label: "Image", name: "src", widget: "image", required: true}
+                  - {label: "Title", name: "title", widget: "string", required: true}
+                  - {label: "Alt Text", name: "alt", widget: "string", required: true}
+                  - {label: "Caption", name: "caption", widget: "text"}
               - {label: "Read Time", name: "readTime", widget: "string", required: true, pattern: ["\\d+ min read", "Format: '5 min read'"], hint: "Estimated reading time (e.g., '5 min read')"}
               - {label: "SEO Slug", name: "slug", widget: "string", required: true, pattern: ["^[a-z0-9-]+$", "Use lowercase letters, numbers, and hyphens only"], hint: "URL-friendly version of the title"}
               - {label: "Content", name: "content", widget: "markdown", required: true, hint: "Full article content in Markdown format"}
@@ -589,7 +1113,13 @@ collections:
               - {label: "Customer Name", name: "name", widget: "string", required: true}
               - {label: "Location", name: "location", widget: "string", required: true, hint: "City, State format"}
               - {label: "Testimonial Text", name: "text", widget: "text", required: true, pattern: [".{50,1000}", "Testimonial must be between 50 and 1000 characters"]}
-              - {label: "Customer Photo", name: "image", widget: "string", required: true, hint: "Professional photo of the customer"}
+              - label: "Customer Photo"
+                name: "image"
+                widget: "object"
+                required: true
+                fields:
+                  - {label: "Image", name: "src", widget: "image", required: true, hint: "Professional photo of the customer (400x400 recommended)"}
+                  - {label: "Alt Text", name: "alt", widget: "string", required: true, hint: "Customer's name and location"}
               - {label: "Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5, step: 1, value_type: "int", hint: "Star rating out of 5"}
               - {label: "Farm Invested In", name: "farm", widget: "string", hint: "Name of the farm they invested in"}
               - {label: "Investment Amount", name: "investment", widget: "string", hint: "e.g., '₹5 Lakhs for 2 acres'"}
@@ -612,9 +1142,15 @@ collections:
             summary: "{{fields.name}}"
             fields:
               - {label: "Publication Name", name: "name", widget: "string", required: true}
-              - {label: "Logo Image", name: "image", widget: "string", required: true, hint: "High-quality logo image URL"}
+              - label: "Logo Image"
+                name: "image"
+                widget: "object"
+                required: true
+                fields:
+                  - {label: "Logo", name: "src", widget: "image", required: true, hint: "High-quality logo image (SVG or PNG recommended)"}
+                  - {label: "Alt Text", name: "alt", widget: "string", required: true, hint: "Publication name for accessibility"}
+                  - {label: "Dark Mode Logo", name: "dark_src", widget: "image", hint: "Optional dark mode version of the logo"}
               - {label: "Website URL", name: "url", widget: "string", pattern: ["^https?://[^\\s/$.?#].[^\\s]*$", "Please enter a valid URL"], hint: "Link to the publication's website"}
-              - {label: "Alt Text", name: "alt", widget: "string", hint: "Descriptive text for accessibility (auto-generated if empty)"}
 
   # ===== SITE CONFIGURATION =====
 

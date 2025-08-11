@@ -1,0 +1,36 @@
+{
+  "title_template": "{{farm_name}} - Premium Farmland Investment",
+  "default_description": "Explore detailed information about this premium farmland investment opportunity with professional management and guaranteed returns.",
+  "tabs": {
+    "overview": {
+      "label": "Overview",
+      "description": "Complete overview of the farm property, investment details, and expected returns"
+    },
+    "features": {
+      "label": "Features",
+      "description": "Key features, amenities, and unique selling points of this farm property"
+    },
+    "gallery": {
+      "label": "Gallery",
+      "description": "High-quality photo gallery showcasing the farm property and surrounding areas"
+    },
+    "infrastructure": {
+      "label": "Infrastructure",
+      "description": "Modern infrastructure, facilities, and technology available on the farm"
+    },
+    "legal": {
+      "label": "Legal",
+      "description": "Legal documentation, compliance information, and ownership details"
+    },
+    "location": {
+      "label": "Location",
+      "description": "Location details, accessibility, and proximity to major cities and amenities"
+    }
+  },
+  "cta_section": {
+    "title": "Ready to Invest in Your Future?",
+    "description": "Join hundreds of satisfied investors who have secured their financial future through managed farmland investments. Take the first step towards sustainable wealth creation.",
+    "primary_button": "Schedule Site Visit",
+    "secondary_button": "Download Investment Brochure"
+  }
+}

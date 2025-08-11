@@ -2,22 +2,38 @@
   "logos": [
     {
       "name": "Times of India",
-      "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=100&fit=crop",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=100&fit=crop",
+        "alt": "Times of India logo",
+        "dark_src": ""
+      },
       "url": "https://timesofindia.indiatimes.com"
     },
     {
       "name": "Economic Times",
-      "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=100&fit=crop",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=100&fit=crop",
+        "alt": "Economic Times logo",
+        "dark_src": ""
+      },
       "url": "https://economictimes.indiatimes.com"
     },
     {
       "name": "Business Standard",
-      "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=100&fit=crop",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=100&fit=crop",
+        "alt": "Business Standard logo",
+        "dark_src": ""
+      },
       "url": "https://business-standard.com"
     },
     {
       "name": "Hindu Business Line",
-      "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=100&fit=crop",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=100&fit=crop",
+        "alt": "Hindu Business Line logo",
+        "dark_src": ""
+      },
       "url": "https://thehindubusinessline.com"
     }
   ]

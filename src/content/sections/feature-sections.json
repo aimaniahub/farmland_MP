@@ -1,0 +1,117 @@
+{
+  "templates": [
+    {
+      "name": "Why Choose Us Features",
+      "id": "why-choose-features",
+      "layout": "grid-4",
+      "header": {
+        "title": "Why Choose Our Platform",
+        "subtitle": "Trusted by Investors",
+        "description": "Join hundreds of satisfied investors who trust us with their farmland investments."
+      },
+      "features": [
+        {
+          "title": "Secure Investment",
+          "description": "Government-backed land titles and legal documentation ensure your investment is protected.",
+          "icon": "Shield",
+          "image": {
+            "src": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=400&h=300&fit=crop",
+            "alt": "Legal documents and security"
+          }
+        },
+        {
+          "title": "Sustainable Farming",
+          "description": "Eco-friendly practices for long-term profitability and environmental stewardship.",
+          "icon": "Leaf",
+          "image": {
+            "src": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop",
+            "alt": "Sustainable farming practices"
+          }
+        },
+        {
+          "title": "Guaranteed Returns",
+          "description": "Consistent annual returns with transparent investment models and regular updates.",
+          "icon": "TrendingUp",
+          "image": {
+            "src": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
+            "alt": "Financial growth charts"
+          }
+        },
+        {
+          "title": "Expert Management",
+          "description": "Professional farm management by experienced agricultural experts and agronomists.",
+          "icon": "Award",
+          "image": {
+            "src": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=300&fit=crop",
+            "alt": "Professional farm management"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Technology Features",
+      "id": "technology-features",
+      "layout": "grid-3",
+      "header": {
+        "title": "Cutting-Edge Agricultural Technology",
+        "subtitle": "Innovation in Farming",
+        "description": "We leverage the latest technology to maximize yields and ensure sustainable practices."
+      },
+      "features": [
+        {
+          "title": "Smart Irrigation",
+          "description": "IoT-enabled drip irrigation systems that optimize water usage and improve crop yields.",
+          "icon": "Droplets",
+          "link": "/technology/irrigation",
+          "link_text": "Learn More"
+        },
+        {
+          "title": "Drone Monitoring",
+          "description": "Aerial surveillance and crop health monitoring using advanced drone technology.",
+          "icon": "Drone",
+          "link": "/technology/drones",
+          "link_text": "Learn More"
+        },
+        {
+          "title": "Data Analytics",
+          "description": "Advanced analytics to predict yields, prevent diseases, and optimize farm operations.",
+          "icon": "Cpu",
+          "link": "/technology/analytics",
+          "link_text": "Learn More"
+        }
+      ]
+    },
+    {
+      "name": "Investment Benefits",
+      "id": "investment-benefits",
+      "layout": "list",
+      "header": {
+        "title": "Investment Benefits",
+        "subtitle": "Why Farmland Investment",
+        "description": "Discover the advantages of investing in managed farmland properties."
+      },
+      "features": [
+        {
+          "title": "Tangible Asset",
+          "description": "Own a physical asset that appreciates over time and provides intrinsic value.",
+          "icon": "MapPin"
+        },
+        {
+          "title": "Inflation Hedge",
+          "description": "Farmland historically outperforms inflation, protecting your purchasing power.",
+          "icon": "TrendingUp"
+        },
+        {
+          "title": "Portfolio Diversification",
+          "description": "Add agricultural assets to diversify your investment portfolio effectively.",
+          "icon": "CheckCircle"
+        },
+        {
+          "title": "Passive Income",
+          "description": "Generate regular income through crop yields and land appreciation.",
+          "icon": "Calendar"
+        }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,11 @@ import mediaLogosData from '../content/media-logos.json';
 
 interface MediaLogo {
   name: string;
-  image: string;
+  image: {
+    src: string;
+    alt: string;
+    dark_src?: string;
+  };
   url: string;
 }
 

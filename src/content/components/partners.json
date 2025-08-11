@@ -1,0 +1,50 @@
+{
+  "title": "Our Trusted Partners",
+  "description": "Working with industry leaders to deliver excellence in farmland management and investment",
+  "partners": [
+    {
+      "name": "AgriTech Solutions",
+      "logo": {
+        "src": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=100&fit=crop",
+        "alt": "AgriTech Solutions logo",
+        "dark_src": ""
+      },
+      "url": "https://agritech-solutions.com",
+      "type": "Technology",
+      "description": "Leading provider of agricultural technology and IoT solutions for smart farming"
+    },
+    {
+      "name": "Green Finance Bank",
+      "logo": {
+        "src": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=100&fit=crop",
+        "alt": "Green Finance Bank logo",
+        "dark_src": ""
+      },
+      "url": "https://greenfinance.com",
+      "type": "Financial",
+      "description": "Specialized financial services for agricultural investments and rural development"
+    },
+    {
+      "name": "Organic Farms Collective",
+      "logo": {
+        "src": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=100&fit=crop",
+        "alt": "Organic Farms Collective logo",
+        "dark_src": ""
+      },
+      "url": "https://organicfarms.com",
+      "type": "Agricultural",
+      "description": "Network of certified organic farms promoting sustainable agriculture practices"
+    },
+    {
+      "name": "Rural Logistics Pro",
+      "logo": {
+        "src": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=100&fit=crop",
+        "alt": "Rural Logistics Pro logo",
+        "dark_src": ""
+      },
+      "url": "https://rurallogistics.com",
+      "type": "Logistics",
+      "description": "Efficient supply chain and logistics solutions for agricultural products"
+    }
+  ]
+}

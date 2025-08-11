@@ -43,9 +43,9 @@ const FeaturedIn: React.FC<FeaturedInProps> = ({ className = '' }) => {
               key={index} 
               className="flex items-center justify-center p-4 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-105"
             >
-              <img 
-                src={logo.image} 
-                alt={logo.name}
+              <img
+                src={logo.image.src}
+                alt={logo.image.alt}
                 className="h-12 md:h-16 object-contain filter brightness-0 invert hover:filter-none hover:invert-0 transition-all duration-300"
                 loading="lazy"
               />

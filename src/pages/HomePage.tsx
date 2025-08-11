@@ -126,7 +126,7 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
           loop
           muted
           playsInline
-          poster={home.hero.background_image}
+          poster={typeof home.hero.background_image === 'string' ? home.hero.background_image : home.hero.background_image.src}
         />
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/40" />
@@ -218,28 +218,30 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
             {/* Images */}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <img
-                  src="/sand1.jpg"
-                  alt="Sandalwood Plantation"
-                  className="w-full h-48 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                />
-                <img
-                  src="/sand2.jpeg"
-                  alt="Sandalwood Trees"
-                  className="w-full h-40 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                />
+                {home.sandalwood_section?.images?.slice(0, 2).map((image, index) => (
+                  <img
+                    key={index}
+                    src={image.src}
+                    alt={image.alt}
+                    title={image.caption}
+                    className={`w-full object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
+                      index === 0 ? 'h-48' : 'h-40'
+                    }`}
+                  />
+                ))}
               </div>
               <div className="space-y-4 mt-8">
-                <img
-                  src="/sand3.jpg"
-                  alt="Sandalwood Cultivation"
-                  className="w-full h-40 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                />
-                <img
-                  src="/sand4.jpg"
-                  alt="Premium Sandalwood"
-                  className="w-full h-48 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                />
+                {home.sandalwood_section?.images?.slice(2, 4).map((image, index) => (
+                  <img
+                    key={index + 2}
+                    src={image.src}
+                    alt={image.alt}
+                    title={image.caption}
+                    className={`w-full object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
+                      index === 0 ? 'h-40' : 'h-48'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
           </div>

@@ -1,0 +1,72 @@
+{
+  "templates": [
+    {
+      "name": "Homepage Testimonials",
+      "id": "homepage-testimonials",
+      "display_style": "carousel",
+      "header": {
+        "title": "Voices of Our Investors",
+        "subtitle": "Success Stories",
+        "description": "Hear directly from those who have embarked on their investment journey with us."
+      },
+      "settings": {
+        "items_per_view": 1,
+        "auto_play": true,
+        "show_navigation": true,
+        "show_pagination": true,
+        "animation_duration": 5000
+      }
+    },
+    {
+      "name": "About Page Testimonials",
+      "id": "about-testimonials",
+      "display_style": "grid",
+      "header": {
+        "title": "What Our Investors Say",
+        "subtitle": "Trusted by Hundreds",
+        "description": "Real feedback from real investors who have experienced success with our platform."
+      },
+      "settings": {
+        "items_per_view": 3,
+        "auto_play": false,
+        "show_navigation": false,
+        "show_pagination": false,
+        "animation_duration": 0
+      }
+    },
+    {
+      "name": "Services Testimonials",
+      "id": "services-testimonials",
+      "display_style": "single",
+      "header": {
+        "title": "Featured Success Story",
+        "subtitle": "Investor Spotlight",
+        "description": "Highlighting one of our most successful investment partnerships."
+      },
+      "settings": {
+        "items_per_view": 1,
+        "auto_play": false,
+        "show_navigation": false,
+        "show_pagination": false,
+        "animation_duration": 0
+      }
+    },
+    {
+      "name": "Farms Page Testimonials",
+      "id": "farms-testimonials",
+      "display_style": "masonry",
+      "header": {
+        "title": "Investor Experiences",
+        "subtitle": "Real Results",
+        "description": "See how our investors have benefited from their farmland investments."
+      },
+      "settings": {
+        "items_per_view": 4,
+        "auto_play": false,
+        "show_navigation": false,
+        "show_pagination": false,
+        "animation_duration": 0
+      }
+    }
+  ]
+}

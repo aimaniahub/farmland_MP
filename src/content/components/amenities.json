@@ -1,0 +1,66 @@
+{
+  "title": "Farm Amenities & Infrastructure",
+  "description": "Modern facilities and infrastructure designed for optimal farming conditions and investor convenience",
+  "amenities": [
+    {
+      "title": "Advanced Irrigation System",
+      "description": "Drip irrigation and smart water management systems for efficient water usage and optimal crop growth",
+      "icon": "Droplets",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop",
+        "alt": "Modern irrigation system in farmland"
+      },
+      "available": true
+    },
+    {
+      "title": "Solar Power Infrastructure",
+      "description": "Renewable energy solutions with solar panels for sustainable and cost-effective farm operations",
+      "icon": "Zap",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=300&fit=crop",
+        "alt": "Solar panels on farm infrastructure"
+      },
+      "available": true
+    },
+    {
+      "title": "24/7 Security System",
+      "description": "Comprehensive security with CCTV monitoring, perimeter fencing, and on-site security personnel",
+      "icon": "Shield",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
+        "alt": "Security camera monitoring farm area"
+      },
+      "available": true
+    },
+    {
+      "title": "Transportation Access",
+      "description": "Well-connected road access and transportation facilities for easy movement of produce and equipment",
+      "icon": "Truck",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=400&h=300&fit=crop",
+        "alt": "Farm access road and transportation"
+      },
+      "available": true
+    },
+    {
+      "title": "Farm Management Office",
+      "description": "On-site office facilities for farm management team and investor meetings",
+      "icon": "Home",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop",
+        "alt": "Modern farm management office building"
+      },
+      "available": true
+    },
+    {
+      "title": "IoT Monitoring",
+      "description": "Internet of Things sensors for real-time monitoring of soil, weather, and crop conditions",
+      "icon": "Wifi",
+      "image": {
+        "src": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop",
+        "alt": "IoT sensors monitoring farm conditions"
+      },
+      "available": true
+    }
+  ]
+}

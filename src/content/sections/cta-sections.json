@@ -1,0 +1,112 @@
+{
+  "templates": [
+    {
+      "name": "Homepage CTA",
+      "id": "homepage-cta",
+      "style": "banner",
+      "content": {
+        "title": "Start Your Investment Journey Today",
+        "description": "Join hundreds of satisfied investors and secure your financial future with managed farmland investments.",
+        "primary_button": "Explore Investment Options",
+        "primary_button_link": "/farms",
+        "secondary_button": "Schedule Consultation",
+        "secondary_button_link": "/contact"
+      },
+      "design": {
+        "background": {
+          "type": "gradient",
+          "gradient": "linear-gradient(135deg, #2d5a27 0%, #4a7c59 100%)"
+        },
+        "text_color": "white",
+        "button_style": "primary"
+      }
+    },
+    {
+      "name": "About Page CTA",
+      "id": "about-cta",
+      "style": "card",
+      "content": {
+        "title": "Ready to Partner with Us?",
+        "description": "Discover how our expertise and commitment can help you achieve your investment goals.",
+        "primary_button": "Get Started",
+        "primary_button_link": "/farms",
+        "secondary_button": "Learn More",
+        "secondary_button_link": "/why-managed-farmland"
+      },
+      "design": {
+        "background": {
+          "type": "solid",
+          "color": "#f8f9fa"
+        },
+        "text_color": "dark",
+        "button_style": "primary"
+      }
+    },
+    {
+      "name": "Farms Page CTA",
+      "id": "farms-cta",
+      "style": "overlay",
+      "content": {
+        "title": "Found Your Perfect Farm?",
+        "description": "Take the next step and secure your farmland investment with our expert guidance.",
+        "primary_button": "Schedule Site Visit",
+        "primary_button_link": "/contact",
+        "secondary_button": "Download Brochure",
+        "secondary_button_link": "/brochure"
+      },
+      "design": {
+        "background": {
+          "type": "image",
+          "image": {
+            "src": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&h=400&fit=crop",
+            "alt": "Beautiful farmland landscape"
+          }
+        },
+        "text_color": "white",
+        "button_style": "outline"
+      }
+    },
+    {
+      "name": "Contact CTA",
+      "id": "contact-cta",
+      "style": "split",
+      "content": {
+        "title": "Let's Discuss Your Investment Goals",
+        "description": "Our team of experts is ready to help you find the perfect farmland investment opportunity tailored to your needs.",
+        "primary_button": "Call Now",
+        "primary_button_link": "tel:+91-9876543210",
+        "secondary_button": "Send Message",
+        "secondary_button_link": "#contact-form"
+      },
+      "design": {
+        "background": {
+          "type": "gradient",
+          "gradient": "linear-gradient(45deg, #667eea 0%, #764ba2 100%)"
+        },
+        "text_color": "white",
+        "button_style": "secondary"
+      }
+    },
+    {
+      "name": "Blog CTA",
+      "id": "blog-cta",
+      "style": "minimal",
+      "content": {
+        "title": "Stay Updated with Agricultural Insights",
+        "description": "Subscribe to our newsletter for the latest trends in farmland investment and sustainable agriculture.",
+        "primary_button": "Subscribe Now",
+        "primary_button_link": "/newsletter",
+        "secondary_button": "View All Articles",
+        "secondary_button_link": "/blog"
+      },
+      "design": {
+        "background": {
+          "type": "solid",
+          "color": "#ffffff"
+        },
+        "text_color": "dark",
+        "button_style": "ghost"
+      }
+    }
+  ]
+}
