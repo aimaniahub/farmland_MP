@@ -55,11 +55,11 @@ const ServicesPage: React.FC = () => {
       <section className="relative py-12 sm:py-16 lg:py-24 bg-gradient-to-r from-green-700 to-green-900 text-white rounded-b-3xl">
         <div className="absolute inset-0 bg-black/20 rounded-b-3xl"></div>
         <div className="relative max-w-7xl mx-auto px-3 sm:px-4 lg:px-8 text-center">
-          <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-4 sm:mb-6">
-            <span className="text-green-200 text-xs sm:text-sm font-medium">🌱 OUR SERVICES</span>
+          <div className="inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-white/10 text-white backdrop-blur-sm rounded-full border border-white/20 mb-4 sm:mb-6">
+            <span className="text-white-500 text-xs sm:text-sm font-medium">🌱 OUR SERVICES</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6">{services.title}</h1>
-          <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-green-100 max-w-2xl lg:max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-12">
+          <h1 className="text-2xl sm:text-3xl text-white font-bold mb-3 sm:mb-4 lg:mb-6 lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 lg:mb-6">{services.title}</h1>
+          <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-white-400 max-w-2xl lg:max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-12">
             {services.description}
           </p>
           <button className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-white text-green-600 rounded-full hover:bg-gray-100 transition-all duration-300 font-semibold text-sm sm:text-base lg:text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1">

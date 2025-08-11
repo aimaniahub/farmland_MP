@@ -1,7 +1,7 @@
 {
   "siteTitle": "Bharatvan - Premium Farmland Investment",
   "siteDescription": "Invest in premium farmland with guaranteed returns and professional management. Discover profitable farmland investment opportunities with sustainable agriculture practices.",
-  "siteUrl": "https://maamara-farms.netlify.app",
+  "siteUrl": "https://bharatvan.com",
   "contactEmail": "bharatvanfarming@gmail.com",
   "contactPhone": "8819855558",
   "address": "Bharatvan, 85,Tijori Gali,Siyaganj, Indore-452001 MP",
@@ -25,13 +25,13 @@
       "rural investment",
       "agri business"
     ],
-    "googleAnalyticsId": "GA_MEASUREMENT_ID",
-    "googleTagManagerId": "GTM_CONTAINER_ID"
+    "googleAnalyticsId": "",
+    "googleTagManagerId": ""
   },
   "business": {
     "companyName": "Bharatvan Private Limited",
-    "registrationNumber": "U01100KA2020PTC123456",
-    "gstNumber": "29ABCDE1234F1Z5",
+    "registrationNumber": "",
+    "gstNumber": "",
     "foundedYear": 2020
   }
 }

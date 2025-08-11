@@ -85,7 +85,7 @@ const ContactPage: React.FC = () => {
           <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
             <span className="text-primary-200 text-sm font-medium">📞 GET IN TOUCH</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">{contact.title}</h1>
+          <h1 className="text-4xl md:text-5xl font-heading text-white font-bold mb-6">{contact.title}</h1>
           <p className="text-xl md:text-2xl text-primary-100 max-w-3xl mx-auto">
             {contact.description}
           </p>

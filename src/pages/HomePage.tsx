@@ -219,24 +219,24 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <img
-                  src="/public/sand1.jpg"
+                  src="/sand1.jpg"
                   alt="Sandalwood Plantation"
                   className="w-full h-48 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 />
                 <img
-                  src="/public/sand2.jpeg"
+                  src="/sand2.jpeg"
                   alt="Sandalwood Trees"
                   className="w-full h-40 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 />
               </div>
               <div className="space-y-4 mt-8">
                 <img
-                  src="/public/sand3.jpg"
+                  src="/sand3.jpg"
                   alt="Sandalwood Cultivation"
                   className="w-full h-40 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 />
                 <img
-                  src="/public/sand4.jpg"
+                  src="/sand4.jpg"
                   alt="Premium Sandalwood"
                   className="w-full h-48 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 />
@@ -493,7 +493,7 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
       {/* CTA Section */}
       <section className="py-8 sm:py-12 md:py-14 lg:py-16 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-white">
             {home.cta.title}
           </h2>
           <p className="text-lg lg:text-xl mb-8 text-primary-100">

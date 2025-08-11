@@ -61,10 +61,10 @@ const AboutUs: React.FC = () => {
         <div className="absolute inset-0 bg-black/20 rounded-b-3xl"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
-            <span className="text-green-200 text-sm font-medium">{about.hero.pre_title}</span>
+            <span className="text-white-400 text-sm font-medium">{about.hero.pre_title}</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">{about.hero.title}</h1>
-          <p className="text-xl md:text-2xl text-green-100 max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl text-white font-bold mb-6">{about.hero.title}</h1>
+          <p className="text-xl md:text-2xl text-white-100 max-w-3xl mx-auto">
             {about.hero.description}
           </p>
         </div>

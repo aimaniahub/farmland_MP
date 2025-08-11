@@ -121,11 +121,11 @@ const Footer: React.FC = () => {
               <div className="space-y-1">
                 <div className="flex items-center justify-center space-x-1">
                   <Phone className="h-3 w-3 text-primary-500" />
-                  <p className="text-gray-400 text-xs">8819855558</p>
+                  <p className="text-gray-400 text-xs">{siteSettings.contactPhone}</p>
                 </div>
                 <div className="flex items-center justify-center space-x-1">
                   <Mail className="h-3 w-3 text-primary-500" />
-                  <p className="text-gray-400 text-xs">bharatvanfarming@gmail.com</p>
+                  <p className="text-gray-400 text-xs">{siteSettings.contactEmail}</p>
                 </div>
               </div>
             </div>
@@ -216,17 +216,16 @@ const Footer: React.FC = () => {
                 <div className="flex items-start space-x-3">
                   <MapPin className="h-5 w-5 text-primary-500 mt-1 flex-shrink-0" />
                   <div>
-                    <p className="text-gray-400">Bharatvan, 85,Tijori Gali,Siyaganj</p>
-                    <p className="text-gray-400">Indore-452001 MP</p>
+                    <p className="text-gray-400">{siteSettings.address}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-primary-500" />
-                  <p className="text-gray-400">8819855558</p>
+                  <p className="text-gray-400">{siteSettings.contactPhone}</p>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-primary-500" />
-                  <p className="text-gray-400">bharatvanfarming@gmail.com</p>
+                  <p className="text-gray-400">{siteSettings.contactEmail}</p>
                 </div>
               </div>
             </div>

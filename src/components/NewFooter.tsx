@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import siteSettings from '../content/site-settings.json';
 
 interface FooterProps {
   className?: string;
@@ -70,7 +71,7 @@ const NewFooter: React.FC<FooterProps> = ({ className = '' }) => {
             <ul className="space-y-1">
               <li><Link to="/contact" className="text-gray-300 hover:text-white text-xs transition-colors">Get in Touch</Link></li>
               <li><Link to="/careers" className="text-gray-300 hover:text-white text-xs transition-colors">Careers</Link></li>
-              <li><a href="tel:+91" className="text-gray-300 hover:text-white text-xs transition-colors">Call Us</a></li>
+              <li><a href={`tel:+91${siteSettings.contactPhone}`} className="text-gray-300 hover:text-white text-xs transition-colors">Call Us</a></li>
             </ul>
           </div>
         </div>
@@ -175,20 +176,19 @@ const NewFooter: React.FC<FooterProps> = ({ className = '' }) => {
               <div className="flex items-start">
                 <MapPin className="w-5 h-5 text-gray-300 mt-1 mr-3" />
                 <p className="text-gray-300 text-sm">
-                  No. 123, Industrial Area,<br />
-                  Bangalore, Karnataka 560001
+                  {siteSettings.address}
                 </p>
               </div>
               <div className="flex items-center">
                 <Phone className="w-5 h-5 text-gray-300 mr-3" />
-                <a href="tel:+919876543210" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  +91 98765 43210
+                <a href={`tel:+91${siteSettings.contactPhone}`} className="text-gray-300 hover:text-white transition-colors text-sm">
+                  +91 {siteSettings.contactPhone}
                 </a>
               </div>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 text-gray-300 mr-3" />
-                <a href="mailto:info@bharatvan.com" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  info@bharatvan.com
+                <a href={`mailto:${siteSettings.contactEmail}`} className="text-gray-300 hover:text-white transition-colors text-sm">
+                  {siteSettings.contactEmail}
                 </a>
               </div>
             </div>
