@@ -108,17 +108,112 @@
       <div class="loading-text">Bharatvan CMS</div>
       <div class="loading-subtitle">Content Management System</div>
       <div class="loading-spinner"></div>
-      <div>Loading your dashboard...</div>
+      <div id="loading-message">Loading your dashboard...</div>
+
+      <!-- Authentication Status -->
+      <div id="auth-status" style="margin-top: 20px; display: none;">
+        <p style="color: #666; font-size: 14px;">Please log in to access the CMS</p>
+        <button id="login-btn" onclick="openLogin()" style="
+          background: linear-gradient(135deg, #2A6F2D 0%, #3A8F3E 100%);
+          color: white;
+          border: none;
+          padding: 12px 24px;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 500;
+          margin: 10px 5px;
+          transition: all 0.3s ease;
+        ">Login with Netlify Identity</button>
+        <button id="signup-btn" onclick="openSignup()" style="
+          background: transparent;
+          color: #2A6F2D;
+          border: 2px solid #2A6F2D;
+          padding: 10px 22px;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 500;
+          margin: 10px 5px;
+          transition: all 0.3s ease;
+        ">Sign Up</button>
+      </div>
     </div>
   </div>
+
+  <!-- Authentication Helper Functions -->
+  <script>
+    function openLogin() {
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.open('login');
+      }
+    }
+
+    function openSignup() {
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.open('signup');
+      }
+    }
+
+    function showAuthStatus() {
+      document.getElementById('loading-message').style.display = 'none';
+      document.getElementById('auth-status').style.display = 'block';
+    }
+  </script>
+
+  <!-- Netlify Identity Widget for Authentication -->
+  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
   <!-- Decap CMS (Modern Netlify CMS) -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
-  <!-- Enhanced CMS Configuration -->
+  <!-- Enhanced CMS Configuration with Authentication -->
   <script>
-    // Hide loading screen when CMS loads
-    window.addEventListener('load', function() {
+    // Netlify Identity Authentication Setup
+    if (window.netlifyIdentity) {
+      // Initialize Netlify Identity
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          // Show authentication options instead of auto-opening modal
+          setTimeout(() => {
+            showAuthStatus();
+          }, 2000);
+        } else {
+          console.log("User already authenticated:", user);
+          hideLoadingScreen();
+        }
+      });
+
+      // Handle login events
+      window.netlifyIdentity.on("login", user => {
+        console.log("User logged in:", user);
+        // Hide loading screen and show CMS
+        hideLoadingScreen();
+        // Close the identity modal
+        window.netlifyIdentity.close();
+      });
+
+      // Handle logout events
+      window.netlifyIdentity.on("logout", () => {
+        console.log("User logged out");
+        // Redirect to home page or show login again
+        window.location.href = "/";
+      });
+
+      // Handle password recovery
+      window.netlifyIdentity.on("recover", user => {
+        console.log("Password recovery initiated for:", user);
+      });
+
+      // Handle signup events
+      window.netlifyIdentity.on("signup", user => {
+        console.log("User signed up:", user);
+        window.netlifyIdentity.close();
+      });
+    }
+
+    // Hide loading screen function
+    function hideLoadingScreen() {
       setTimeout(function() {
         const loadingScreen = document.getElementById('loading-screen');
         if (loadingScreen) {
@@ -128,7 +223,18 @@
             loadingScreen.style.display = 'none';
           }, 500);
         }
-      }, 1500);
+      }, 1000);
+    }
+
+    // Hide loading screen when CMS loads
+    window.addEventListener('load', function() {
+      // Check if user is already authenticated
+      if (window.netlifyIdentity && window.netlifyIdentity.currentUser()) {
+        hideLoadingScreen();
+      } else {
+        // Wait a bit longer for authentication
+        setTimeout(hideLoadingScreen, 3000);
+      }
     });
 
     // Initialize CMS when available

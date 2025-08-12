@@ -2,9 +2,23 @@
 backend:
   name: git-gateway
   branch: main
+  # Enable authentication with Netlify Identity
+  identity_url: "/.netlify/identity"
+  gateway_url: "/.netlify/git/github"
+  # Enable authentication providers
+  auth_scope: "repo"
+  open_authoring: true
 
 # Local development backend (for testing)
 local_backend: true
+
+# Authentication configuration
+auth:
+  providers:
+    - name: "github"
+      client_id: "your-github-client-id"  # Will be set via environment variables
+    - name: "google"
+      client_id: "your-google-client-id"  # Will be set via environment variables
 
 # Enhanced Media configuration for comprehensive image management
 media_folder: "public/uploads"
@@ -63,9 +77,10 @@ media_folders:
     folder: "public/uploads/media"
     description: "Press releases, documents, and other media"
 
-# Site URL for preview
-site_url: "http://localhost:5174"
-display_url: "http://localhost:5174"
+# Site URL for preview (will be automatically set by Netlify)
+site_url: "https://your-site-name.netlify.app"
+display_url: "https://your-site-name.netlify.app"
+# For local development, these will be overridden to localhost
 
 # Collections configuration
 collections:

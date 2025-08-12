@@ -12,7 +12,9 @@
     "cms:validate": "node scripts/validate-cms.js",
     "cms:test": "node scripts/test-cms.js",
     "cms:dev": "concurrently \"npm run dev\" \"npm run cms\"",
-    "test:cms": "npm run cms:test && echo 'CMS validation passed!'"
+    "test:cms": "npm run cms:test && echo 'CMS validation passed!'",
+    "test:auth": "node scripts/test-auth.js",
+    "auth:setup": "node scripts/test-auth.js && echo 'Ready for authentication setup!'"
   },
   "dependencies": {
     "decap-cms": "^3.8.3",

@@ -39,19 +39,53 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000"
 
-# Admin security
+# Admin security and authentication
 [[headers]]
   for = "/admin/*"
   [headers.values]
     X-Robots-Tag = "noindex"
     Cache-Control = "no-cache"
+    X-Frame-Options = "SAMEORIGIN"
+    Content-Security-Policy = "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://identity.netlify.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.netlify.com https://identity.netlify.com https://*.netlify.app"
 
-# Enable Netlify Identity
+# Netlify Identity endpoints
+[[headers]]
+  for = "/.netlify/identity/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+
+# Git Gateway endpoints
+[[headers]]
+  for = "/.netlify/git/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+
+# Netlify Identity Configuration
+[identity]
+  # Enable Netlify Identity service
+  enabled = true
+
+# Git Gateway Configuration for CMS
+[git_gateway]
+  # Enable Git Gateway for Netlify CMS
+  enabled = true
+
+# Context-specific build commands
 [context.production]
   command = "npm ci --legacy-peer-deps && npm run build"
+  [context.production.environment]
+    NODE_ENV = "production"
 
 [context.deploy-preview]
   command = "npm ci --legacy-peer-deps && npm run build"
+  [context.deploy-preview.environment]
+    NODE_ENV = "development"
 
 [context.branch-deploy]
   command = "npm ci --legacy-peer-deps && npm run build"
+  [context.branch-deploy.environment]
+    NODE_ENV = "development"
