@@ -1,10 +1,13 @@
 [build]
   publish = "dist"
-  command = "npm ci --legacy-peer-deps && npm run build"
+  command = "rm -rf dist node_modules/.vite && npm ci --legacy-peer-deps && npx vite build"
 
 [build.environment]
   NODE_VERSION = "18"
+  NPM_VERSION = "10.8.2"
   NPM_FLAGS = "--legacy-peer-deps"
+  # Ensure clean build
+  NETLIFY_SKIP_YARN = "true"
 
 # Redirect rules for SPA
 [[redirects]]
