@@ -79,16 +79,16 @@
 
 # Context-specific build commands
 [context.production]
-  command = "npm ci --legacy-peer-deps && npm run build"
+  command = "npm ci --legacy-peer-deps && npx vite build"
   [context.production.environment]
     NODE_ENV = "production"
 
 [context.deploy-preview]
-  command = "npm ci --legacy-peer-deps && npm run build"
+  command = "npm ci --legacy-peer-deps && npx vite build"
   [context.deploy-preview.environment]
     NODE_ENV = "development"
 
 [context.branch-deploy]
-  command = "npm ci --legacy-peer-deps && npm run build"
+  command = "npm ci --legacy-peer-deps && npx vite build"
   [context.branch-deploy.environment]
     NODE_ENV = "development"
