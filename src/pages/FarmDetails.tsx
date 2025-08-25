@@ -490,7 +490,7 @@ const FarmDetails: React.FC<FarmDetailsProps> = ({ onEnquiry }) => {
                   <p>Need help? Contact our farm experts</p>
                   <p className="font-medium text-gray-800 mt-1 flex items-center justify-center">
                     <Phone className="h-4 w-4 mr-1" />
-                    +91 98765 43210
+                    +91 8819855558
                   </p>
                 </div>
               </div>

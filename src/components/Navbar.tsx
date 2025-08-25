@@ -5,6 +5,7 @@ import {
   X,
 } from 'lucide-react';
 import Logo from '/logo.svg';
+import Weather from './Weather';
 
 interface NavbarProps {
   onEnquiry?: () => void;
@@ -44,6 +45,9 @@ const Navbar: React.FC<NavbarProps> = ({ onEnquiry }) => {
               </div>
               <span className={`text-lg sm:text-xl md:text-2xl font-heading font-bold transition-colors duration-300 ml-2 sm:ml-4 ${isScrolled ? 'text-gray-800' : 'text-white'}`}>Bharatvan</span>
             </Link>
+            <div className={`md:hidden ml-4 text-xs ${isScrolled ? 'text-green-800' : 'text-white'}`}>
+              <Weather />
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -79,6 +83,9 @@ const Navbar: React.FC<NavbarProps> = ({ onEnquiry }) => {
               <span className="relative z-10">Enquire Now</span>
               <span className="absolute inset-0 bg-gradient-to-r from-primary-500/0 via-primary-500/10 to-primary-500/0 opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
             </button>
+            <div className={`ml-4 text-xs ${isScrolled ? 'text-green-800' : 'text-white'}`}>
+              <Weather />
+            </div>
           </div>
 
           {/* Mobile menu button */}

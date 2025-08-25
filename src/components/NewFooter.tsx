@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import siteSettings from '../content/site-settings.json';
+import Weather from './Weather';
 
 interface FooterProps {
   className?: string;
@@ -25,7 +26,7 @@ const NewFooter: React.FC<FooterProps> = ({ className = '' }) => {
         <div className="grid grid-cols-3 gap-3 sm:gap-4 md:hidden">
           {/* Company Info - Spans 3 columns on mobile */}
           <div className="col-span-3 text-center mb-4">
-            <h3 className="text-lg font-bold mb-2">Bharatvan</h3>
+            <h3 className="text-lg font-bold mb-2 text-white">Bharatvan</h3>
             <p className="text-gray-300 mb-3 text-sm">
               Pioneering managed farmlands for sustainable agriculture.
             </p>
@@ -47,7 +48,7 @@ const NewFooter: React.FC<FooterProps> = ({ className = '' }) => {
 
           {/* Quick Links - Mobile Grid Item 1 */}
           <div className="text-center">
-            <h4 className="text-sm font-semibold mb-2">Quick Links</h4>
+            <h4 className="text-sm font-semibold mb-2 text-white">Quick Links</h4>
             <ul className="space-y-1">
               <li><Link to="/about" className="text-gray-300 hover:text-white text-xs transition-colors">About</Link></li>
               <li><Link to="/farms" className="text-gray-300 hover:text-white text-xs transition-colors">Farms</Link></li>
@@ -57,7 +58,7 @@ const NewFooter: React.FC<FooterProps> = ({ className = '' }) => {
 
           {/* Resources - Mobile Grid Item 2 */}
           <div className="text-center">
-            <h4 className="text-sm font-semibold mb-2">Resources</h4>
+            <h4 className="text-sm font-semibold mb-2 text-white">Resources</h4>
             <ul className="space-y-1">
               <li><Link to="/blog" className="text-gray-300 hover:text-white text-xs transition-colors">Blog</Link></li>
               <li><Link to="/faq" className="text-gray-300 hover:text-white text-xs transition-colors">FAQ</Link></li>
@@ -67,7 +68,7 @@ const NewFooter: React.FC<FooterProps> = ({ className = '' }) => {
 
           {/* Contact - Mobile Grid Item 3 */}
           <div className="text-center">
-            <h4 className="text-sm font-semibold mb-2">Contact</h4>
+            <h4 className="text-sm font-semibold mb-2 text-white">Contact</h4>
             <ul className="space-y-1">
               <li><Link to="/contact" className="text-gray-300 hover:text-white text-xs transition-colors">Get in Touch</Link></li>
               <li><Link to="/careers" className="text-gray-300 hover:text-white text-xs transition-colors">Careers</Link></li>
@@ -80,8 +81,8 @@ const NewFooter: React.FC<FooterProps> = ({ className = '' }) => {
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {/* Company Column */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Bharatvan</h3>
-            <p className="text-gray-300 mb-4 text-sm">
+            <h3 className="text-xl font-bold mb-4 text-white">Bharatvan</h3>
+            <p className="text-white-300 mb-4 text-sm">
               Pioneering managed farmlands for sustainable agriculture and profitable investments.
             </p>
             <div className="flex space-x-4">
@@ -102,7 +103,7 @@ const NewFooter: React.FC<FooterProps> = ({ className = '' }) => {
 
           {/* Our Farms Column */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Our Farms</h3>
+            <h3 className="text-xl font-bold mb-4 text-white">Our Farms</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/farms" className="text-gray-300 hover:text-white transition-colors text-sm">
@@ -134,7 +135,7 @@ const NewFooter: React.FC<FooterProps> = ({ className = '' }) => {
 
           {/* Resources Column */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Resources</h3>
+            <h3 className="text-xl font-bold mb-4 text-white">Resources</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/about" className="text-gray-300 hover:text-white transition-colors text-sm">
@@ -171,7 +172,7 @@ const NewFooter: React.FC<FooterProps> = ({ className = '' }) => {
 
           {/* Contact Us Column */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Contact Us</h3>
+            <h3 className="text-xl font-bold mb-4 text-white">Contact Us</h3>
             <div className="space-y-3 mb-6">
               <div className="flex items-start">
                 <MapPin className="w-5 h-5 text-gray-300 mt-1 mr-3" />
@@ -195,7 +196,7 @@ const NewFooter: React.FC<FooterProps> = ({ className = '' }) => {
 
             {/* Newsletter Form */}
             <form onSubmit={handleSubmit} className="space-y-3">
-              <h4 className="font-semibold text-sm">Subscribe to Newsletter</h4>
+              <h4 className="font-semibold text-sm text-white">Subscribe to Newsletter</h4>
               <div className="flex">
                 <input
                   type="email"
@@ -240,6 +241,7 @@ const NewFooter: React.FC<FooterProps> = ({ className = '' }) => {
           </div>
         </div>
       </div>
+      <Weather />
     </footer>
   );
 };

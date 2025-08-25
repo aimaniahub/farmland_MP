@@ -12,7 +12,7 @@
       "startingPrice": "4800000",
       "plotSizes": ["1 Acre", "2 Acres", "5 Acres"],
       "availableUnits": 25,
-      "totalUnits": 50,
+      "totalUnits": 100,
       "status": "ongoing",
       "description": "A premium farmland investment opportunity in Katni, Madhya Pradesh with mixed crop cultivation and sustainable farming practices.",
       "images": [
@@ -38,7 +38,7 @@
       "startingPrice": "Updating soon",
       "plotSizes": ["0.5 Acre", "1 Acre", "3 Acres"],
       "availableUnits": 40,
-      "totalUnits": 80,
+      "totalUnits": 100,
       "status": "ongoing",
       "description": "Citrus and fruit orchard investment with established trees and guaranteed annual returns.",
       "images": [
@@ -64,7 +64,7 @@
       "startingPrice": "Updating soon",
       "plotSizes": ["1 Acre", "2.5 Acres", "4 Acres"],
       "availableUnits": 15,
-      "totalUnits": 30,
+      "totalUnits": 100,
       "status": "upcoming",
       "description": "Premium spice plantation with cardamom, pepper, and vanilla cultivation in the Western Ghats.",
       "images": [
@@ -112,7 +112,7 @@
       "startingPrice": 280000,
       "plotSizes": ["1 Acre", "3 Acres", "5 Acres"],
       "availableUnits": 8,
-      "totalUnits": 20,
+      "totalUnits": 100,
       "status": "sold-out",
       "description": "Premium tea plantation with established bushes and processing facility in the heart of Assam.",
       "images": [
@@ -134,7 +134,7 @@
       "startingPrice": 400000,
       "plotSizes": ["0.5 Acre", "1 Acre", "2 Acres"],
       "availableUnits": 20,
-      "totalUnits": 35,
+      "totalUnits": 100,
       "status": "upcoming",
       "description": "Beachside coconut plantation with tourism potential and premium location near the coast.",
       "images": [
