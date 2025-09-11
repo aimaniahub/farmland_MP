@@ -63,7 +63,7 @@ const FarmsPage: React.FC<FarmsPageProps> = ({ onEnquiry }) => {
           </div>
           <h1 className="text-4xl md:text-5xl text-white font-heading font-bold mb-6">Premium Farm Projects</h1>
           <p className="text-xl md:text-2xl text-primary-100 max-w-3xl mx-auto">
-            Discover our curated collection of premium managed farmlands across Karnataka, 
+            Discover our curated collection of premium managed farmlands across Madhya Pradesh and Gujarat, 
             each offering unique investment opportunities with sustainable practices.
           </p>
         </div>
@@ -133,7 +133,7 @@ const FarmsPage: React.FC<FarmsPageProps> = ({ onEnquiry }) => {
               <div>
                 <h3 className="text-sm font-medium text-gray-700 mb-2">Location</h3>
                 <div className="flex flex-wrap gap-2">
-                  {['all', 'Bangalore', 'Mysore', 'Coorg', 'Tumkur'].map((loc) => (
+                  {['all', 'Madhya Pradesh', 'Gujarat'].map((loc) => (
                     <button
                       key={loc}
                       onClick={() => setSelectedLocation(loc)}

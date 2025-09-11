@@ -5,9 +5,9 @@ import { Shield, Leaf, TrendingUp, Award, Users, CheckCircle, Phone, ArrowRight,
 import BlogFeatured from '../components/BlogFeatured';
 import LiveGoogleReviews from '../components/LiveGoogleReviews';
 import StatisticsSection from '../components/StatisticsSection';
-import ROISection from '../components/ROISection';
 import PartnersSection from '../components/PartnersSection';
 import AmenitiesSection from '../components/AmenitiesSection';
+import CanvasBackground from '../components/CanvasBackground';
 import { Link } from 'react-router-dom';
 import home from '../content/home.json';
 import farmsData from '../content/farms.json';
@@ -162,8 +162,11 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
         </div>
       </section>
 
+
+
       {/* Sandalwood Introduction */}
-  <section ref={howRef as any} className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-br from-green-50 via-green-100 to-green-50 section-mobile-compact">
+      <section ref={howRef as any} className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-br from-green-50 via-green-100 to-green-50 section-mobile-compact">
+        <CanvasBackground />
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Content */}
@@ -176,8 +179,9 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-5xl font-serif font-bold text-gray-800 mb-4 lg:mb-6">
                 Introduction Sandalwood cultivation for the first time in
-                <span className="text-green-600"> Madhya Pradesh</span> on a large scale
+                <span className="text-green-600"> Katni, Madhya Pradesh</span> on a large scale
               </h2>
+              
               <div className="space-y-4 mb-6 lg:mb-8">
                 <div className="flex items-center justify-center lg:justify-start">
                   <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
@@ -249,7 +253,8 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
       </section>
 
       {/* Introduction to Managed Farmlands - Compact Mobile */}
-      <section className="py-3 sm:py-6 md:py-8 lg:py-12 bg-cream-50 section-mobile-compact">
+      <section className="relative py-3 sm:py-6 md:py-8 lg:py-12 bg-cream-50 section-mobile-compact">
+        <CanvasBackground />
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
             <div className="text-left">
@@ -286,7 +291,8 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
       </section>
 
       {/* Featured Farms - Compact */}
-      <section className="py-3 sm:py-6 md:py-8 lg:py-12 bg-white section-mobile-compact">
+      <section className="relative py-3 sm:py-6 md:py-8 lg:py-12 bg-white section-mobile-compact">
+        <CanvasBackground />
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="text-center mb-3 sm:mb-4 md:mb-6 lg:mb-8">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-bold text-gray-800 mb-2 sm:mb-3 compact-text">{home.featured_farms.title}</h2>
@@ -366,7 +372,8 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
       </section>
 
       {/* Why Choose Us - Compact */}
-      <section className="py-3 sm:py-6 md:py-8 lg:py-12 bg-cream-50 section-mobile-compact">
+      <section className="relative py-3 sm:py-6 md:py-8 lg:py-12 bg-cream-50 section-mobile-compact">
+        <CanvasBackground />
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="text-center mb-3 sm:mb-4 md:mb-6 lg:mb-8">
             <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-bold text-gray-800 mb-2 sm:mb-3 compact-text">{home.why_choose_us.title}</h2>
@@ -394,9 +401,6 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
         </div>
       </section>
 
-      {/* ROI Section */}
-      <ROISection />
-
       {/* Partners Section */}
       <PartnersSection />
 
@@ -418,12 +422,13 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
         />
 
       {/* Location Map Section */}
-      <section className="py-6 sm:py-10 md:py-12 lg:py-16 bg-gray-50">
+      <section className="relative py-6 sm:py-10 md:py-12 lg:py-16 bg-gray-50">
+        <CanvasBackground />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Farm Locations</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Strategically located across Karnataka for optimal growth and accessibility
+              Strategically located across Madhya Pradesh and Gujarat for optimal growth and accessibility
             </p>
           </div>
 
@@ -432,7 +437,7 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
               {/* Map */}
               <div className="h-96 lg:h-full">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.123456789!2d80.58369!3d23.83042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQ5JzQ5LjUiTiA4MMKwMzUnMDEuMyJF!5e0!3m2!1sen!2sin!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.123456789!2d80.4065!3d23.8315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDQ5JzUzLjQiTiA4MMKwMjQnMjMuNCJF!5e0!3m2!1sen!2sin!4v1234567890"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -450,29 +455,29 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
                   <div className="flex items-start space-x-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full mt-2"></div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">Bangalore Rural</h4>
-                      <p className="text-gray-600 text-sm">60-90 minutes from Bangalore city</p>
+                      <h4 className="font-semibold text-gray-800">Katni, Madhya Pradesh</h4>
+                      <p className="text-gray-600 text-sm">Primary sandalwood cultivation hub with ideal climate</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-3 h-3 bg-blue-500 rounded-full mt-2"></div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">Mysore District</h4>
-                      <p className="text-gray-600 text-sm">Rich soil and favorable climate</p>
+                      <h4 className="font-semibold text-gray-800">Gujarat</h4>
+                      <p className="text-gray-600 text-sm">Strategic location with excellent infrastructure</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-3 h-3 bg-purple-500 rounded-full mt-2"></div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">Coorg Region</h4>
-                      <p className="text-gray-600 text-sm">Premium coffee and spice cultivation</p>
+                      <h4 className="font-semibold text-gray-800">Katni Region</h4>
+                      <p className="text-gray-600 text-sm">Premium location for sustainable agriculture</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
                     <div className="w-3 h-3 bg-orange-500 rounded-full mt-2"></div>
                     <div>
-                      <h4 className="font-semibold text-gray-800">Tumkur Area</h4>
-                      <p className="text-gray-600 text-sm">Excellent connectivity and infrastructure</p>
+                      <h4 className="font-semibold text-gray-800">Kevadia Area</h4>
+                      <p className="text-gray-600 text-sm">Near Narmada Valley with excellent connectivity</p>
                     </div>
                   </div>
                 </div>
@@ -493,7 +498,8 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-8 sm:py-12 md:py-14 lg:py-16 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 text-white">
+      <section className="relative py-8 sm:py-12 md:py-14 lg:py-16 bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 text-white">
+        <CanvasBackground />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-white">
             {home.cta.title}

@@ -102,38 +102,56 @@ const Navbar: React.FC<NavbarProps> = ({ onEnquiry }) => {
       </div>
 
       {/* Mobile Navigation */}
-      <div className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out fixed left-0 right-0 ${isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'}`} style={{ top: isScrolled ? '56px' : '64px' }}>
-        <div className="bg-white shadow-lg max-h-[calc(100vh-64px)] overflow-y-auto rounded-b-xl sm:rounded-b-2xl mx-1 sm:mx-2 mt-1 sm:mt-2 border border-gray-100">
-          <div className="px-2 sm:px-4 py-3 sm:py-4 space-y-2 sm:space-y-3">
-            {navLinks.map(({ to, label }) => (
-              <Link
-                key={to}
-                to={to}
-                className={`block py-3 sm:py-4 px-3 sm:px-4 rounded-lg sm:rounded-xl font-medium transition-all duration-300 border touch-target min-h-[44px] flex items-center ${
-                  location.pathname === to
-                    ? 'text-primary-600 bg-primary-50 border-primary-100 shadow-sm'
-                    : 'text-gray-700 hover:bg-gray-50 border-transparent hover:border-gray-100'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <div className="flex items-center w-full">
-                  <span className="text-sm sm:text-base">{label}</span>
-                  <div className={`ml-auto w-2 h-2 rounded-full transition-all duration-300 ${location.pathname === to ? 'bg-primary-500' : 'bg-transparent'}`}></div>
-                </div>
-              </Link>
-            ))}
-            <div className="pt-4">
-              <button
-                onClick={() => {
-                  onEnquiry?.();
-                  setIsMenuOpen(false);
-                }}
-                className="w-full py-3 px-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all duration-300 font-medium shadow-md hover:shadow-lg relative overflow-hidden group"
-              >
-                <span className="relative z-10">Enquire Now</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-primary-500/0 via-primary-500/20 to-primary-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-              </button>
-            </div>
+      <div
+        className={`md:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-40 transition-opacity duration-300 ${
+          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      ></div>
+      <div
+        className={`md:hidden fixed top-0 right-0 h-full w-full max-w-xs bg-gradient-to-b from-green-50 to-green-100 shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex justify-between items-center p-4 border-b border-green-200">
+          <h2 className="text-lg font-bold text-green-800">Menu</h2>
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="p-2 rounded-full hover:bg-green-200"
+          >
+            <X className="h-6 w-6 text-green-800" />
+          </button>
+        </div>
+        <div className="p-4 space-y-2">
+          {navLinks.map(({ to, label }, index) => (
+            <Link
+              key={to}
+              to={to}
+              className={`block py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
+                location.pathname === to
+                  ? 'text-white bg-green-600 shadow-md'
+                  : 'text-green-800 hover:bg-green-200'
+              }`}
+              style={{
+                transitionDelay: `${index * 50}ms`,
+                opacity: isMenuOpen ? 1 : 0,
+                transform: isMenuOpen ? 'translateY(0)' : 'translateY(10px)',
+              }}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {label}
+            </Link>
+          ))}
+          <div className="pt-4">
+            <button
+              onClick={() => {
+                onEnquiry?.();
+                setIsMenuOpen(false);
+              }}
+              className="w-full py-3 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all duration-300 font-medium shadow-md hover:shadow-lg"
+            >
+              Enquire Now
+            </button>
           </div>
         </div>
       </div>
