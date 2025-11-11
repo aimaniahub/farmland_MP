@@ -5,6 +5,7 @@ const SandalwoodBookingForm: React.FC = () => {
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [block, setBlock] = useState('');
+  const [quantity, setQuantity] = useState('');
   const [notes, setNotes] = useState('');
   const [status, setStatus] = useState<'idle'|'submitting'|'success'|'error'>('idle');
   const [error, setError] = useState('');
@@ -12,7 +13,7 @@ const SandalwoodBookingForm: React.FC = () => {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    if (!name || !email || !mobile) {
+    if (!name || !email || !mobile || !quantity || Number(quantity) <= 0) {
       setError('Please fill all required fields.');
       return;
     }
@@ -21,7 +22,7 @@ const SandalwoodBookingForm: React.FC = () => {
       const res = await fetch('/.netlify/functions/book', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, mobile, product: 'Sandalwood', preferredBlock: block || undefined, notes: notes || undefined })
+        body: JSON.stringify({ name, email, mobile, product: 'Sandalwood', quantity: Number(quantity), preferredBlock: block || undefined, notes: notes || undefined })
       });
       if (!res.ok) throw new Error('Failed');
       setStatus('success');
@@ -49,6 +50,11 @@ const SandalwoodBookingForm: React.FC = () => {
           <div>
             <label className="block text-sm font-medium text-[#222] mb-1" htmlFor="mobile">Mobile</label>
             <input id="mobile" required value={mobile} onChange={e=>setMobile(e.target.value)} className="w-full rounded-xl border border-[#EAE6DF] px-3 py-2 outline-none focus:ring-2 focus:ring-[#0C3B2E]" />
+            <p className="text-xs text-gray-500 mt-1">Required</p>
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-[#222] mb-1" htmlFor="quantity">Sandalwood Plants Quantity</label>
+            <input id="quantity" type="number" min={1} step={1} required value={quantity} onChange={e=>setQuantity(e.target.value)} className="w-full rounded-xl border border-[#EAE6DF] px-3 py-2 outline-none focus:ring-2 focus:ring-[#0C3B2E]" />
             <p className="text-xs text-gray-500 mt-1">Required</p>
           </div>
           <input type="hidden" name="product" value="Sandalwood" readOnly />

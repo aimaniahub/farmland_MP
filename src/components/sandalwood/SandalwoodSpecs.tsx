@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card, CardContent, CardHeader } from '../ui/Card';
 
 const specs = [
   { title: 'Sapling Source', desc: 'Certified nurseries with traceable lineage.' },
@@ -21,14 +20,17 @@ const SandalwoodSpecs: React.FC = () => {
     <section className="py-12 bg-[#FAFAF7]">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <h2 className="text-3xl font-serif text-[#0C3B2E] mb-6">Specs & Compliance</h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {specs.map((s) => (
-            <Card key={s.title} className="hover:shadow-md transition-shadow">
-              <CardHeader className="font-semibold text-[#0C3B2E]">{s.title}</CardHeader>
-              <CardContent className="text-[#222] opacity-80">{s.desc}</CardContent>
-            </Card>
+            <li key={s.title} className="flex items-start gap-3 p-3">
+              <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#0C3B2E]"></span>
+              <div>
+                <div className="font-semibold text-[#0C3B2E]">{s.title}</div>
+                <div className="text-[#222] opacity-80">{s.desc}</div>
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className="mt-10 rounded-2xl border border-[#EAE6DF] bg-white divide-y">
           {faqs.map((f, i) => (

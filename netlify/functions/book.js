@@ -1,13 +1,15 @@
 function bookingEmailHtml(data) {
   const block = data.preferredBlock ? data.preferredBlock : 'Not specified';
   const notes = data.notes ? data.notes : '—';
-  return `<!doctype html><html><head><meta charset="utf-8"></head><body style="font-family:Arial,sans-serif;background:#fafafa;padding:16px;"><table width="100%" cellspacing="0" cellpadding="0" style="max-width:620px;margin:0 auto;background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden"><tr><td style="background:#0C3B2E;color:#ffffff;padding:16px 20px;font-size:18px;font-weight:600">New Sandalwood Booking</td></tr><tr><td style="padding:20px"><div style="font-size:14px;color:#111827;line-height:1.6"><p>You have received a new booking enquiry.</p><ul style="list-style:none;padding:0;margin:12px 0"><li><strong>Name:</strong> ${data.name}</li><li><strong>Email:</strong> ${data.email}</li><li><strong>Mobile:</strong> ${data.mobile}</li><li><strong>Product:</strong> ${data.product || 'Sandalwood'}</li><li><strong>Preferred Block:</strong> ${block}</li><li><strong>Notes:</strong> ${notes}</li></ul><p style="color:#6b7280;font-size:12px">This message was generated from the website booking form.</p></div></td></tr></table></body></html>`;
+  const qty = Number(data.quantity) > 0 ? Number(data.quantity) : '—';
+  return `<!doctype html><html><head><meta charset="utf-8"></head><body style="font-family:Arial,sans-serif;background:#fafafa;padding:16px;"><table width="100%" cellspacing="0" cellpadding="0" style="max-width:620px;margin:0 auto;background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden"><tr><td style="background:#0C3B2E;color:#ffffff;padding:16px 20px;font-size:18px;font-weight:600">New Sandalwood Booking</td></tr><tr><td style="padding:20px"><div style="font-size:14px;color:#111827;line-height:1.6"><p>You have received a new booking enquiry.</p><ul style="list-style:none;padding:0;margin:12px 0"><li><strong>Name:</strong> ${data.name}</li><li><strong>Email:</strong> ${data.email}</li><li><strong>Mobile:</strong> ${data.mobile}</li><li><strong>Product:</strong> ${data.product || 'Sandalwood'}</li><li><strong>Quantity:</strong> ${qty}</li><li><strong>Preferred Block:</strong> ${block}</li><li><strong>Notes:</strong> ${notes}</li></ul><p style="color:#6b7280;font-size:12px">This message was generated from the website booking form.</p></div></td></tr></table></body></html>`;
 }
 
 function bookingEmailText(data) {
   const block = data.preferredBlock ? data.preferredBlock : 'Not specified';
   const notes = data.notes ? data.notes : '—';
-  return `New Sandalwood Booking\nName: ${data.name}\nEmail: ${data.email}\nMobile: ${data.mobile}\nProduct: ${data.product || 'Sandalwood'}\nPreferred Block: ${block}\nNotes: ${notes}`;
+  const qty = Number(data.quantity) > 0 ? Number(data.quantity) : '—';
+  return `New Sandalwood Booking\nName: ${data.name}\nEmail: ${data.email}\nMobile: ${data.mobile}\nProduct: ${data.product || 'Sandalwood'}\nQuantity: ${qty}\nPreferred Block: ${block}\nNotes: ${notes}`;
 }
 
 function corsHeaders() {
@@ -39,7 +41,7 @@ export async function handler(event) {
       return { statusCode: 500, headers: { ...corsHeaders(), 'Content-Type': 'application/json' }, body: JSON.stringify({ error: 'Email not configured' }) };
     }
 
-    const subject = `New Sandalwood Booking — ${data.name}`;
+    const subject = `New Sandalwood Booking — ${data.name}${Number(data.quantity) > 0 ? ` (Qty: ${Number(data.quantity)})` : ''}`;
 
     const ccList = [];
     if (data.email) ccList.push(String(data.email).trim());
