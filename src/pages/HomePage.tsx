@@ -13,6 +13,8 @@ import home from '../content/home.json';
 import farmsData from '../content/farms.json';
 import testimonialsData from '../content/testimonials.json';
 import blogPostsData from '../content/blog-posts.json';
+ 
+import SandalwoodTeaser from '../components/sandalwood/SandalwoodTeaser';
 
 interface HomePageProps {
   onEnquiry: (farm?: Farm) => void;
@@ -161,6 +163,10 @@ const HomePage: React.FC<HomePageProps> = ({ onEnquiry }) => {
           </div>
         </div>
       </section>
+
+      <SandalwoodTeaser />
+
+      
 
 
 

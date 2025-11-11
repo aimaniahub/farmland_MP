@@ -16,6 +16,8 @@ import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import WhyManagedFarmland from './pages/WhyManagedFarmland';
 import EnquiryModal from './components/EnquiryModal';
+// Removed Plant Marketplace routes
+import SandalwoodPage from './pages/SandalwoodPage';
 
 export interface Farm {
   id: string;
@@ -68,6 +70,8 @@ function App() {
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<BlogPostPage />} />
+          <Route path="/sandalwood" element={<SandalwoodPage />} />
+          {/* Plant marketplace removed */}
         </Routes>
 
         <NewFooter />

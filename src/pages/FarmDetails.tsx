@@ -18,7 +18,6 @@ import {
 import { Farm } from '../App';
 import farmsData from '../content/farms.json';
 import farmDetailsData from '../content/farm-details.json';
-type Details = typeof farmDetailsData extends { farmDetails: infer T } ? T : Record<string, unknown>;
 const DETAILS: Record<string, any> = (farmDetailsData as any).farmDetails || {};
 
 const infraIconMap: Record<string, React.FC<any>> = {

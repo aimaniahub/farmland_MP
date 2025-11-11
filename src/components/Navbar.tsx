@@ -26,6 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ onEnquiry }) => {
 
   const navLinks = [
     { to: '/', label: 'Home' },
+    { to: '/sandalwood', label: 'Sandalwood' },
     { to: '/about', label: 'About Us' },
     { to: '/farms', label: 'Our Farms' },
     { to: '/why-managed-farmland', label: 'Why Managed Farmland' },
