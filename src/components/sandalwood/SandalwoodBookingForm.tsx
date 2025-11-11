@@ -18,7 +18,7 @@ const SandalwoodBookingForm: React.FC = () => {
     }
     setStatus('submitting');
     try {
-      const res = await fetch('/api/book', {
+      const res = await fetch('/.netlify/functions/book', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, mobile, product: 'Sandalwood', preferredBlock: block || undefined, notes: notes || undefined })
