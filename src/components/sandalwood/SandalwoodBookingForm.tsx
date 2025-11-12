@@ -40,6 +40,12 @@ const SandalwoodBookingForm: React.FC = () => {
         })
       });
       if (!res.ok) throw new Error('Failed');
+      setName('');
+      setEmail('');
+      setMobile('');
+      setBlock('');
+      setQuantity('');
+      setNotes('');
       setStatus('success');
     } catch {
       setStatus('error');
@@ -95,10 +101,18 @@ const SandalwoodBookingForm: React.FC = () => {
           <button disabled={status==='submitting'} className="inline-flex items-center rounded-2xl bg-[#0C3B2E] text-white px-6 py-3 font-semibold disabled:opacity-60 hover:scale-[1.02] transition-transform" aria-busy={status==='submitting'}>
             {status==='submitting' ? 'Submitting…' : 'Submit Interest'}
           </button>
-          {status==='success' && (
-            <p className="text-green-700 mt-2">Thanks! We received your interest. We will contact you shortly.</p>
-          )}
         </form>
+
+        {status==='success' && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+            <div role="dialog" aria-modal="true" className="bg-white rounded-2xl shadow-lg w-[90%] max-w-md p-6 text-center">
+              <img src="/logo.svg" alt="Bharatvan" className="mx-auto h-10 mb-3" />
+              <h3 className="text-xl font-semibold text-[#0C3B2E]">Thank you!</h3>
+              <p className="mt-2 text-[#222] opacity-80">Thanks for showing interest in our Sandalwood plantation. Our team will contact you shortly.</p>
+              <button onClick={()=>setStatus('idle')} className="mt-5 inline-flex items-center rounded-2xl bg-[#0C3B2E] text-white px-5 py-2 font-semibold hover:scale-[1.02] transition-transform">Close</button>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
