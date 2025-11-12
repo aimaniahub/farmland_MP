@@ -31,5 +31,18 @@
         });
       }
     </script>
+
+    <!-- Hidden Netlify Forms registration (enables form detection for SPA builds) -->
+    <form name="sandalwood-booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="sandalwood-booking" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="mobile" />
+      <input type="text" name="product" value="Sandalwood" />
+      <input type="number" name="quantity" />
+      <input type="text" name="preferredBlock" />
+      <textarea name="notes"></textarea>
+    </form>
   </body>
 </html>

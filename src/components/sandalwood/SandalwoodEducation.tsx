@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card, CardContent, CardHeader } from '../ui/Card';
 
 const SandalwoodEducation: React.FC = () => {
   return (
@@ -14,24 +13,36 @@ const SandalwoodEducation: React.FC = () => {
             <li>• Uses: Fragrance, timber, medicinal oil</li>
           </ul>
         </div>
-        <div className="grid sm:grid-cols-2 gap-4">
-          <Card>
-            <CardHeader className="font-semibold text-[#0C3B2E]">Maturation</CardHeader>
-            <CardContent>Steady biological growth with high-value heartwood formation.</CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="font-semibold text-[#0C3B2E]">Soil & Climate</CardHeader>
-            <CardContent>Thrives in tropical climate with good drainage and sunlight.</CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="font-semibold text-[#0C3B2E]">Use Cases</CardHeader>
-            <CardContent>High demand in fragrance industry, sacred wood, and Ayurveda.</CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="font-semibold text-[#0C3B2E]">Care Program</CardHeader>
-            <CardContent>Expert agronomy, spacing, host plants, and inspections.</CardContent>
-          </Card>
-        </div>
+        <ul className="space-y-3">
+          <li className="flex items-start gap-3">
+            <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#0C3B2E]"></span>
+            <div>
+              <div className="font-semibold text-[#0C3B2E]">Maturation</div>
+              <div className="text-[#222] opacity-80">Steady biological growth with high-value heartwood formation.</div>
+            </div>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#0C3B2E]"></span>
+            <div>
+              <div className="font-semibold text-[#0C3B2E]">Soil & Climate</div>
+              <div className="text-[#222] opacity-80">Thrives in tropical climate with good drainage and sunlight.</div>
+            </div>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#0C3B2E]"></span>
+            <div>
+              <div className="font-semibold text-[#0C3B2E]">Use Cases</div>
+              <div className="text-[#222] opacity-80">High demand in fragrance industry, sacred wood, and Ayurveda.</div>
+            </div>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-[#0C3B2E]"></span>
+            <div>
+              <div className="font-semibold text-[#0C3B2E]">Care Program</div>
+              <div className="text-[#222] opacity-80">Expert agronomy, spacing, host plants, and inspections.</div>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
   );
