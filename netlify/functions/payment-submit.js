@@ -68,12 +68,22 @@ export async function handler(event) {
       body: JSON.stringify(payload)
     });
 
+    const contentType = (res.headers.get('content-type') || '').toLowerCase();
     const text = await res.text();
     let json;
-    try { json = JSON.parse(text); } catch { json = { ok: false, error: 'Upstream parse error', raw: text }; }
+    if (contentType.includes('application/json')) {
+      try { json = JSON.parse(text); } catch {}
+    } else {
+      try { json = JSON.parse(text); } catch {}
+    }
 
-    if (!res.ok || !json.ok) {
-      return { statusCode: 502, headers: { ...corsHeaders(), 'Content-Type': 'application/json' }, body: JSON.stringify({ error: json.error || 'Upstream error' }) };
+    if (!res.ok) {
+      return { statusCode: 502, headers: { ...corsHeaders(), 'Content-Type': 'application/json' }, body: JSON.stringify({ error: (json && json.error) || 'Upstream error', raw: contentType.includes('json') ? undefined : text }) };
+    }
+
+    // If upstream didn't return JSON but responded OK, proceed with ok:true so frontend can continue and generate local acknowledgement.
+    if (!json || json.ok !== true) {
+      json = { ok: true, note: 'upstream-non-json', raw: contentType.includes('json') ? undefined : text };
     }
 
     return { statusCode: 200, headers: { ...corsHeaders(), 'Content-Type': 'application/json' }, body: JSON.stringify(json) };

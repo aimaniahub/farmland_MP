@@ -294,7 +294,7 @@ const SandalwoodBookingForm: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <button onClick={()=>setStep(3)} className="inline-flex justify-center items-center rounded-2xl border border-[#0C3B2E] text-[#0C3B2E] px-6 py-3 font-semibold hover:scale-[1.02] transition-transform w-full sm:w-auto">Back</button>
               <button onClick={submitAll} disabled={submitting} className="inline-flex justify-center items-center rounded-2xl bg-[#0C3B2E] text-white px-6 py-3 font-semibold disabled:opacity-60 hover:scale-[1.02] transition-transform w-full sm:w-auto" aria-busy={submitting}>
-                {submitting ? 'Submitting…' : 'Get Certificate'}
+                {submitting ? 'Submitting…' : 'Get Acknowledgement'}
               </button>
             </div>
           </div>
