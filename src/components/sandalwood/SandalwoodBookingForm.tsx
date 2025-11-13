@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 const SandalwoodBookingForm: React.FC = () => {
   // Step 1: enquiry details
@@ -14,6 +14,14 @@ const SandalwoodBookingForm: React.FC = () => {
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [ackUrl, setAckUrl] = useState<string>('');
+  const [ackFilename, setAckFilename] = useState<string>('');
+
+  // For viewport alignment/scroll
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    // Smoothly bring the form into view on step change
+    sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [step]);
 
   // Step 2/3/4: payment info
   const [amount, setAmount] = useState<string>('');
@@ -30,6 +38,9 @@ const SandalwoodBookingForm: React.FC = () => {
   }, [PRICE_PER_PLANT, quantity]);
 
   const resetAll = () => {
+    if (ackUrl) {
+      try { URL.revokeObjectURL(ackUrl); } catch {}
+    }
     setName('');
     setEmail('');
     setMobile('');
@@ -42,6 +53,7 @@ const SandalwoodBookingForm: React.FC = () => {
     setScreenshotUrl('');
     setBuyerFullName('');
     setAckUrl('');
+    setAckFilename('');
     setError('');
     setSubmitting(false);
     setStep(1);
@@ -110,7 +122,37 @@ const SandalwoodBookingForm: React.FC = () => {
       });
       const json = await res.json();
       if (!res.ok || !json.ok) throw new Error(json.error || 'Failed');
-      setAckUrl(json.provisional_certificate_url || '');
+      // Build local plain-text acknowledgement for download
+      const createdAt = new Date();
+      const fmt = (d: Date) => `${('0'+d.getDate()).slice(-2)}-${d.toLocaleString('en-US',{month:'short'})}-${d.getFullYear()} ${('0'+d.getHours()).slice(-2)}:${('0'+d.getMinutes()).slice(-2)}`;
+      const safe = (s: string) => s.replace(/\r?\n/g, ' ').trim();
+      const lines = [
+        'Provisional Acknowledgement',
+        '----------------------------------------',
+        `Issued At: ${fmt(createdAt)}`,
+        '',
+        `Buyer Name: ${safe(buyerFullName)}`,
+        `Email: ${safe(email)}`,
+        `Mobile: ${safe(mobile)}`,
+        `Product: Sandalwood`,
+        `Quantity: ${Number(quantity)}`,
+        `Amount Paid: ₹${Number(amount)}`,
+        `Payment Date: ${paymentDate}`,
+        `UTR: ${safe(utr)}`,
+        block ? `Preferred Block: ${safe(block)}` : '',
+        notes ? `Notes: ${safe(notes)}` : '',
+        screenshotUrl ? `Payment Screenshot: ${safe(screenshotUrl)}` : '',
+        '',
+        'We have received your payment details. Your final certificate will be emailed after UTR verification.',
+        'Thank you for your support.'
+      ].filter(Boolean).join('\n');
+
+      const blob = new Blob([lines], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 60);
+      const fname = `sandalwood-acknowledgement-${slug(buyerFullName || name)}-${Date.now()}.txt`;
+      setAckUrl(url);
+      setAckFilename(fname);
       setStep(5);
     } catch (err: any) {
       setError(err?.message || 'Something went wrong. Please try again.');
@@ -120,24 +162,24 @@ const SandalwoodBookingForm: React.FC = () => {
   };
 
   return (
-    <section id="book" className="py-12 bg-[#FAFAF7]">
-      <div className="max-w-2xl mx-auto px-4 md:px-8">
+    <section id="book" className="py-10 sm:py-12 bg-[#FAFAF7]">
+      <div ref={sectionRef} className="max-w-2xl mx-auto px-4 md:px-8">
         <h2 className="text-3xl font-serif text-[#0C3B2E] mb-6">Book Now</h2>
-        <div className="flex items-center gap-2 text-sm mb-4">
+        <div className="flex items-center gap-2 text-xs sm:text-sm mb-4">
           <span className={"px-2 py-1 rounded-full " + (step>=1? 'bg-[#0C3B2E] text-white':'bg-gray-200')}>1</span>
-          <span>Details</span>
+          <span className="hidden sm:inline">Details</span>
           <span className="opacity-60">→</span>
           <span className={"px-2 py-1 rounded-full " + (step>=2? 'bg-[#0C3B2E] text-white':'bg-gray-200')}>2</span>
-          <span>Payment</span>
+          <span className="hidden sm:inline">Payment</span>
           <span className="opacity-60">→</span>
           <span className={"px-2 py-1 rounded-full " + (step>=3? 'bg-[#0C3B2E] text-white':'bg-gray-200')}>3</span>
-          <span>UTR</span>
+          <span className="hidden sm:inline">UTR</span>
           <span className="opacity-60">→</span>
           <span className={"px-2 py-1 rounded-full " + (step>=4? 'bg-[#0C3B2E] text-white':'bg-gray-200')}>4</span>
-          <span>Buyer</span>
+          <span className="hidden sm:inline">Buyer</span>
         </div>
         {step === 1 && (
-          <form onSubmit={proceedToPayment} className="bg-white rounded-2xl border border-[#EAE6DF] p-6 space-y-4">
+          <form onSubmit={proceedToPayment} className="bg-white rounded-2xl border border-[#EAE6DF] p-4 sm:p-6 space-y-4">
             <div>
               <label className="block text-sm font-medium text-[#222] mb-1" htmlFor="name">Name</label>
               <input id="name" required value={name} onChange={e=>setName(e.target.value)} className="w-full rounded-xl border border-[#EAE6DF] px-3 py-2 outline-none focus:ring-2 focus:ring-[#0C3B2E]" />
@@ -150,7 +192,7 @@ const SandalwoodBookingForm: React.FC = () => {
             </div>
             <div>
               <label className="block text-sm font-medium text-[#222] mb-1" htmlFor="mobile">Mobile</label>
-              <input id="mobile" required value={mobile} onChange={e=>setMobile(e.target.value)} className="w-full rounded-xl border border-[#EAE6DF] px-3 py-2 outline-none focus:ring-2 focus:ring-[#0C3B2E]" />
+              <input id="mobile" inputMode="tel" required value={mobile} onChange={e=>setMobile(e.target.value)} className="w-full rounded-xl border border-[#EAE6DF] px-3 py-2 outline-none focus:ring-2 focus:ring-[#0C3B2E]" />
               <p className="text-xs text-gray-500 mt-1">Required</p>
             </div>
             <div>
@@ -175,14 +217,14 @@ const SandalwoodBookingForm: React.FC = () => {
 
             {error && <div className="text-sm text-red-600" role="alert">{error}</div>}
 
-            <button className="inline-flex items-center rounded-2xl bg-[#0C3B2E] text-white px-6 py-3 font-semibold hover:scale-[1.02] transition-transform">
+            <button className="inline-flex sm:inline-flex w-full sm:w-auto justify-center items-center rounded-2xl bg-[#0C3B2E] text-white px-6 py-3 font-semibold hover:scale-[1.02] transition-transform">
               Proceed to Payment
             </button>
           </form>
         )}
 
         {step === 2 && (
-          <div className="bg-white rounded-2xl border border-[#EAE6DF] p-6 space-y-4">
+          <div className="bg-white rounded-2xl border border-[#EAE6DF] p-4 sm:p-6 space-y-4">
             <h3 className="text-xl font-semibold text-[#0C3B2E]">Payment Details</h3>
             <div className="rounded-xl bg-[#FAFAF7] p-4 text-sm text-[#222]">
               <p>Bank: Canara Bank</p>
@@ -202,15 +244,16 @@ const SandalwoodBookingForm: React.FC = () => {
               <input id="amount" type="number" min={1} value={amount} onChange={e=>setAmount(e.target.value)} className="w-full rounded-xl border border-[#EAE6DF] px-3 py-2 outline-none focus:ring-2 focus:ring-[#0C3B2E]" />
               <p className="text-xs text-gray-500 mt-1">Enter the amount you paid via bank/UPI.</p>
             </div>
-            <div className="flex items-center gap-3">
-              <button onClick={()=>setStep(1)} className="inline-flex items-center rounded-2xl border border-[#0C3B2E] text-[#0C3B2E] px-6 py-3 font-semibold hover:scale-[1.02] transition-transform">Back</button>
-              <button onClick={proceedAfterPayment} className="inline-flex items-center rounded-2xl bg-[#0C3B2E] text-white px-6 py-3 font-semibold hover:scale-[1.02] transition-transform">I have paid</button>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <button onClick={()=>setStep(1)} className="inline-flex justify-center items-center rounded-2xl border border-[#0C3B2E] text-[#0C3B2E] px-6 py-3 font-semibold hover:scale-[1.02] transition-transform w-full sm:w-auto">Back</button>
+              <button onClick={proceedAfterPayment} className="inline-flex justify-center items-center rounded-2xl bg-[#0C3B2E] text-white px-6 py-3 font-semibold hover:scale-[1.02] transition-transform w-full sm:w-auto">I have paid</button>
             </div>
+            {error && <div className="text-sm text-red-600" role="alert" aria-live="polite">{error}</div>}
           </div>
         )}
 
         {step === 3 && (
-          <div className="bg-white rounded-2xl border border-[#EAE6DF] p-6 space-y-4">
+          <div className="bg-white rounded-2xl border border-[#EAE6DF] p-4 sm:p-6 space-y-4">
             <h3 className="text-xl font-semibold text-[#0C3B2E]">Payment Confirmation</h3>
             <div>
               <label className="block text-sm font-medium text-[#222] mb-1" htmlFor="utr">UTR Number</label>
@@ -228,17 +271,17 @@ const SandalwoodBookingForm: React.FC = () => {
               <p className="text-xs text-gray-500 mt-1">Paste a public link (Drive shared link etc.), optional.</p>
             </div>
 
-            {error && <div className="text-sm text-red-600" role="alert">{error}</div>}
+            {error && <div className="text-sm text-red-600" role="alert" aria-live="polite">{error}</div>}
 
-            <div className="flex items-center gap-3">
-              <button onClick={()=>setStep(2)} className="inline-flex items-center rounded-2xl border border-[#0C3B2E] text-[#0C3B2E] px-6 py-3 font-semibold hover:scale-[1.02] transition-transform">Back</button>
-              <button onClick={proceedToBuyerName} className="inline-flex items-center rounded-2xl bg-[#0C3B2E] text-white px-6 py-3 font-semibold hover:scale-[1.02] transition-transform">Continue</button>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <button onClick={()=>setStep(2)} className="inline-flex justify-center items-center rounded-2xl border border-[#0C3B2E] text-[#0C3B2E] px-6 py-3 font-semibold hover:scale-[1.02] transition-transform w-full sm:w-auto">Back</button>
+              <button onClick={proceedToBuyerName} className="inline-flex justify-center items-center rounded-2xl bg-[#0C3B2E] text-white px-6 py-3 font-semibold hover:scale-[1.02] transition-transform w-full sm:w-auto">Continue</button>
             </div>
           </div>
         )}
 
         {step === 4 && (
-          <div className="bg-white rounded-2xl border border-[#EAE6DF] p-6 space-y-4">
+          <div className="bg-white rounded-2xl border border-[#EAE6DF] p-4 sm:p-6 space-y-4">
             <h3 className="text-xl font-semibold text-[#0C3B2E]">Certificate Details</h3>
             <div>
               <label className="block text-sm font-medium text-[#222] mb-1" htmlFor="buyer">Buyer Full Name (for certificate)</label>
@@ -248,9 +291,9 @@ const SandalwoodBookingForm: React.FC = () => {
 
             {error && <div className="text-sm text-red-600" role="alert">{error}</div>}
 
-            <div className="flex items-center gap-3">
-              <button onClick={()=>setStep(3)} className="inline-flex items-center rounded-2xl border border-[#0C3B2E] text-[#0C3B2E] px-6 py-3 font-semibold hover:scale-[1.02] transition-transform">Back</button>
-              <button onClick={submitAll} disabled={submitting} className="inline-flex items-center rounded-2xl bg-[#0C3B2E] text-white px-6 py-3 font-semibold disabled:opacity-60 hover:scale-[1.02] transition-transform" aria-busy={submitting}>
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <button onClick={()=>setStep(3)} className="inline-flex justify-center items-center rounded-2xl border border-[#0C3B2E] text-[#0C3B2E] px-6 py-3 font-semibold hover:scale-[1.02] transition-transform w-full sm:w-auto">Back</button>
+              <button onClick={submitAll} disabled={submitting} className="inline-flex justify-center items-center rounded-2xl bg-[#0C3B2E] text-white px-6 py-3 font-semibold disabled:opacity-60 hover:scale-[1.02] transition-transform w-full sm:w-auto" aria-busy={submitting}>
                 {submitting ? 'Submitting…' : 'Get Certificate'}
               </button>
             </div>
@@ -258,17 +301,17 @@ const SandalwoodBookingForm: React.FC = () => {
         )}
 
         {step === 5 && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-            <div role="dialog" aria-modal="true" className="bg-white rounded-2xl shadow-lg w-[90%] max-w-md p-6 text-center">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
+            <div role="dialog" aria-modal="true" className="bg-white rounded-2xl shadow-lg w-full max-w-sm sm:max-w-md p-5 sm:p-6 text-center max-h-[90vh] overflow-y-auto">
               <img src="/logo.svg" alt="Bharatvan" className="mx-auto h-10 mb-3" />
               <h3 className="text-xl font-semibold text-[#0C3B2E]">Acknowledgement Ready</h3>
-              <p className="mt-2 text-[#222] opacity-80">We have recorded your payment details. You can download your provisional acknowledgement now. The final certificate will be emailed after verification.</p>
+              <p className="mt-2 text-[#222] opacity-80">We have recorded your payment details. You can download a provisional acknowledgement (.txt) now. The final certificate will be emailed after UTR verification.</p>
               {ackUrl ? (
-                <a href={ackUrl} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center rounded-2xl bg-[#0C3B2E] text-white px-5 py-2 font-semibold hover:scale-[1.02] transition-transform">Download Acknowledgement</a>
+                <a href={ackUrl} download={ackFilename || 'acknowledgement.txt'} className="mt-4 inline-flex items-center rounded-2xl bg-[#0C3B2E] text-white px-5 py-2 font-semibold hover:scale-[1.02] transition-transform">Download Acknowledgement</a>
               ) : (
                 <p className="text-sm text-gray-600 mt-3">Link unavailable. Please check your email.</p>
               )}
-              <button onClick={resetAll} className="mt-5 inline-flex items-center rounded-2xl border border-[#0C3B2E] text-[#0C3B2E] px-5 py-2 font-semibold hover:scale-[1.02] transition-transform">Close</button>
+              <button onClick={resetAll} className="mt-5 inline-flex items-center justify-center rounded-2xl border border-[#0C3B2E] text-[#0C3B2E] px-5 py-2 font-semibold hover:scale-[1.02] transition-transform w-full sm:w-auto">Close</button>
             </div>
           </div>
         )}
